@@ -27,7 +27,7 @@ const links = [
 ];
 
 function Nav() {
-    const pathName = usePathname();
+    const pathname = usePathname();
 
     return (
         <nav className="flex gap-8">
@@ -36,7 +36,7 @@ function Nav() {
                     <Link 
                         href={link.path}
                         key={link.name}
-                        className={`${link.path === pathName && 
+                        className={`${link.path === pathname && 
                             "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent transition-all`
                         }
                     >
