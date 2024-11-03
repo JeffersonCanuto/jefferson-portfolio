@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
+import Stats from "@/components/Stats";
 
 function Home() {
 	return (
@@ -41,6 +42,8 @@ function Home() {
 					</div>
 				</div>
 			</div>
+			{/* Stats */}
+			<Stats />
 		</section>
 	);
 }
