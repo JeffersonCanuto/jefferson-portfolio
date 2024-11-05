@@ -1,7 +1,6 @@
 "use client";
 
 import { FaGraduationCap } from "react-icons/fa6";
-import Link from "next/link";
 
 import { motion } from "framer-motion";
 
