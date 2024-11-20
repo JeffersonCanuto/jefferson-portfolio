@@ -16,11 +16,13 @@ const experience = {
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     items: [
         {
+            index: 1,
             company: "LÓGICA SISTEMAS DE INFORMAÇÃO EIRELI",
             position: "Fullstack Developer",
             duration: "Aug/2019 - Nov/2020"
         },
         {
+            index: 2,
             company: "SIDIA INSTITUTO DE CIÊNCIA E TECNOLOGIA",
             position: "Software Engineer",
             duration: "Apr/2021 - Jun/2024"
@@ -100,29 +102,37 @@ const skill = {
 {/* About data */}
 const about = {
     title: "About me",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    description: "I am keen to have the opportunity of working collaboratively in brand new, large scale and challenging projects within Web Development area, \
+    as Frontend or even Fullstack. I expect to be able to conduct my daily tasks in a workplace with an extrovert, focused and plural team, always aiming \
+    at enhancing both personal and professional capacities, based upon the definition of goals, proper solution delivery and continuous exchange of experience",
     info: [
         {
+            index: 1,
             fieldName: "Name",
             fieldValue: "Jefferson Canuto"
         },
         {
+            index: 2,
             fieldName: "Phone",
             fieldValue: "+55(92)98281-8369"
         },
         {
+            index: 3,
             fieldName: "Experience",
             fieldValue: "5+ Years"
         },
         {
+            index: 4,
             fieldName: "Nationality",
             fieldValue: "Brazilian"
         },
         {
+            index: 5,
             fieldName: "Email",
             fieldValue: "jeffersondscanuto@gmail.com"
         },
         {
+            index: 6,
             fieldName: "Languages",
             fieldValue: "English, Portuguese"
         }
@@ -158,7 +168,7 @@ function Experiences() {
                                     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                                         {experience.items.map(item => {
                                             return (
-                                                <li key={item.position} className="bg-[#232329] h-[220px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
+                                                <li key={item.index} className="bg-[#232329] h-[220px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
                                                     <h3 className="text-accent text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
                                                     <p className="text-[13px] min-w-[60px] min-h-[60px] text-center lg:text-left">{item.company}</p>
                                                     <div className="flex items-center gap-3">
@@ -204,7 +214,20 @@ function Experiences() {
                         </TabsContent>
                         {/* About */}
                         <TabsContent value="about" className="w-full text-center xl:text-left">
-                            About
+                            <div className="flex flex-col gap-[30px]">
+                                <h3 className="text-4xl font-bold">{about.title}</h3>
+                                <p className="w-full text-white/60 mx-auto xl:mx-0">{about.description}</p>
+                                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[900px] max-auto xl:mx-0">
+                                    {about.info.map(item => {
+                                        return (
+                                            <li key={item.index} className="flex items-center justify-center xl:justify-start gap-4">
+                                                <span className="text-white/60">{item.fieldName}</span>
+                                                <span className="text-xl">{item.fieldValue}</span>
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
                         </TabsContent>
                     </div>
                 </Tabs>
