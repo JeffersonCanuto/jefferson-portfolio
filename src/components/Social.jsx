@@ -26,6 +26,7 @@ function Social({ containerStyles, iconStyles }) {
                     <Link
                         key={social.path}
                         href={social.path}
+                        target="_blank"
                         className={iconStyles}
                     >
                         {social.icon}
