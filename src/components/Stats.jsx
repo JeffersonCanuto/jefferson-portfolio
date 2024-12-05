@@ -1,24 +1,52 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
+
 import CountUp from "react-countup";
-
-const stats = [
-    {
-        value: 5,
-        title: "Years of experience"
-    },
-    {
-        value: 10,
-        title: "GitHub Projects (Public)"
-    },
-    {
-        value: 8,
-        title: "Code Commits (GitHub)"
-    },
-
-];
+import { getGitHubUserInfo, getGitHubCommitInfo } from "../services";
 
 function Stats() {
+    let stats = [];
+
+    const [ ghubProjectsCount, setGhubProjectsCount ] = useState(0);
+    const [ ghubCommitCount, setGhubCommitCount ]     = useState(0);
+
+    useEffect(() => {
+        (async function fetchData() {
+            {/* Fetch projects count (Public and Private repositories) */}
+            const userInfo = await getGitHubUserInfo();
+            
+            const 
+                publicReposCount = parseInt(userInfo.public_repos),
+                privateReposCount = parseInt(userInfo.total_private_repos);
+
+            setGhubProjectsCount(publicReposCount + privateReposCount);
+            
+            {/* Fetch commits count (Public and Private repositories) */}
+            const commits = await getGitHubCommitInfo();
+
+            setGhubCommitCount(commits.reduce((acc, count) => acc + count, 0));
+        })()
+    }, []);
+
+    if (ghubProjectsCount && ghubCommitCount) {
+        stats = [
+            {
+                value: 5,
+                title: "Years of experience"
+            },
+            {
+                value: ghubProjectsCount,
+                title: "Coding Projects (GitHub)"
+            },
+            {
+                value: ghubCommitCount,
+                title: "Code Commits (GitHub)"
+            },
+        
+        ];
+    }
+
     return (
         <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
             <div className="container max-auto">
