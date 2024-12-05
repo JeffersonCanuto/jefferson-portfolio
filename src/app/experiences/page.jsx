@@ -9,10 +9,10 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
-{/* Experience data*/}
+{/* Experience data */}
 const experience = {
     icon: "/assets/resume/badge.svg",
-    title: "My Experience",
+    title: "Experiences",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     items: [
         {
