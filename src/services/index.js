@@ -64,13 +64,13 @@ const getGitHubCommitInfo = async() => {
 
         return await Promise.all((await Promise.all(repos)).map(async response => {
             if (!response.ok) {
-                throw new Error("Could not fetch commits from GitHub API...");
+                throw new Error("Could not fetch commits info from GitHub API...");
             }
 
             return (await response.json()).length;
         }));
     } catch(error) {
-        throw new Error(`Could not fetch data from all public and private repositories. ${error.message}`);
+        throw new Error(`Error while fetching commits info from GitHub API. ${error.message}`);
     }
 }
 
