@@ -1,4 +1,4 @@
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiBookOpen } from "react-icons/fi";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -12,18 +12,25 @@ function Home() {
 			<div className="container mx-auto h-full">
 				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
 					{/* Text */}
-					<div className="text-center xl:text-left order-2 xl:order-none">
+					<div className="text-center xl:text-left order-2  xl:order-none">
 						<span className="text-xl">Software Engineer</span>
 						<h1 className="h1 mb-6 animate-typing">
 							Hello, I'm <br /> <span className="text-accent">Jefferson Canuto</span>
 						</h1>
-						<p className="max-w-[570px] mb-9 text-white/80">
-							I am experienced in building Web Applications for many purposes and using many 
-							different technologies. Please, refer to the <Link href="/skills"><b className="hover:text-accent hover:bg-transparent">Skills </b></Link>
-							section, so you can properly see all <br /> of my competences.
+						<p className="max-w-[615px] mt-10 mb-10 text-white/80">
+							I am experienced in building Web Applications for many purposes and using 
+							different stacks. You can navigate through all of the other sections to learn 
+							more about my competences and myself as well. Also, feel free to contact me through 
+							my socials below &#128578;
 						</p>
 						{/* Button and Socials */}
 						<div className="flex flex-col xl:flex-row items-center gap-8">
+							<a href="/resumes/resume.pdf" target="_blank">
+								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
+									<span>Open CV</span>
+									<FiBookOpen className="text-xl" />
+								</Button>
+							</a>
 							<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
 								<span>Download CV</span>
 								<FiDownload className="text-xl" />
