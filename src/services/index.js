@@ -13,12 +13,12 @@ const getGitHubUserInfo = async() => {
         });
 
         if (!response.ok) {
-            throw new Error("Could not fetch user info from GitHub API...");
+            throw new Error("Error while fetching user info from GitHub API...");
         }
 
         return await response.json();
     } catch(error) {
-        throw new Error(`Error while fetching user info from GitHub API. ${error.message}`)
+        console.error(`${error.message}`);
     }
     
 }
@@ -41,7 +41,7 @@ const getGitHubRepoInfo = async() => {
 
         return await response.json()
     } catch(error) {
-        throw new Error(`Error while fetching repositories info from GitHub API. ${error.message}`);
+        console.error(`${error.message}`);
     }
 }
 
@@ -70,7 +70,7 @@ const getGitHubCommitInfo = async() => {
             return (await response.json()).length;
         }));
     } catch(error) {
-        throw new Error(`Error while fetching commits info from GitHub API. ${error.message}`);
+        console.error(`${error.message}`);
     }
 }
 

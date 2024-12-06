@@ -14,18 +14,17 @@ function Stats() {
     useEffect(() => {
         (async function fetchData() {
             {/* Fetch projects count (Public and Private repositories) */}
-            const userInfo = await getGitHubUserInfo();
-            
+            const userInfo = (await getGitHubUserInfo()) || 0;
             const 
-                publicReposCount = parseInt(userInfo.public_repos),
-                privateReposCount = parseInt(userInfo.total_private_repos);
-
+                publicReposCount = parseInt(userInfo !== 0 ? userInfo.public_repos : userInfo),
+                privateReposCount = parseInt(userInfo !== 0 ? userInfo.total_private_repos : userInfo)
+            
             setGhubProjectsCount(publicReposCount + privateReposCount);
             
             {/* Fetch commits count (Public and Private repositories) */}
-            const commits = await getGitHubCommitInfo();
+            const commits = (await getGitHubCommitInfo()) || 0;
 
-            setGhubCommitCount(commits.reduce((acc, count) => acc + count, 0));
+            setGhubCommitCount(commits !== 0 ? commits.reduce((acc, count) => acc + count, 0) : commits);
         })()
     }, []);
 
