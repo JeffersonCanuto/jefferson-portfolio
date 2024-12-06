@@ -1,5 +1,4 @@
 import { FiDownload, FiBookOpen } from "react-icons/fi";
-import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import Social from "@/components/Social";
@@ -20,8 +19,8 @@ function Home() {
 						<p className="max-w-[615px] mt-10 mb-10 text-white/80">
 							I am experienced in building Web Applications for many purposes and using 
 							different stacks. You can navigate through all of the other sections to learn 
-							more about my competences and myself as well. Also, feel free to contact me through 
-							my socials below &#128578;
+							more about my competences and myself as well. Also, feel free to contact me
+							through my socials below &#128578;
 						</p>
 						{/* Button and Socials */}
 						<div className="flex flex-col xl:flex-row items-center gap-8">
@@ -31,10 +30,12 @@ function Home() {
 									<FiBookOpen className="text-xl" />
 								</Button>
 							</a>
-							<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
-								<span>Download CV</span>
-								<FiDownload className="text-xl" />
-							</Button>
+							<a href="/resumes/resume.pdf" download="Resume - Jefferson Canuto.pdf">
+								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
+									<span>Download CV</span>
+									<FiDownload className="text-xl" />
+								</Button>
+							</a>
 							<div className="mb-8 xl:mb-0">
 								<Social
 									containerStyles="flex gap-6"
