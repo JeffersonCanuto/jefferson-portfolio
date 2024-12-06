@@ -36,6 +36,10 @@ function Stats() {
                 title: "Years of experience"
             },
             {
+                value: 10,
+                title: "Programming Technologies"
+            },
+            {
                 value: ghubProjectsCount,
                 title: "Coding Projects (GitHub)"
             },
@@ -43,7 +47,6 @@ function Stats() {
                 value: ghubCommitCount,
                 title: "Code Commits (GitHub)"
             },
-        
         ];
     }
 
