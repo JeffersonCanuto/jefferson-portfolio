@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 
 {/* Experience data */}
 const experience = {
-    icon: "/assets/resume/badge.svg",
     title: "Experiences",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     items: [
