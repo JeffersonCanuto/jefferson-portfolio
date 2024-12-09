@@ -11,7 +11,7 @@ function Home() {
 			<div className="container mx-auto h-full">
 				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
 					{/* Text */}
-					<div className="text-center xl:text-left order-2  xl:order-none">
+					<div className="text-center xl:text-left order-2 xl:order-none">
 						<span className="text-xl">Software Engineer</span>
 						<h1 className="h1 mb-6 animate-typing">
 							Hello, I'm <br /> <span className="text-accent">Jefferson Canuto</span>
