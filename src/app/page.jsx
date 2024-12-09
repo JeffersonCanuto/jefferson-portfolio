@@ -24,13 +24,13 @@ function Home() {
 						</p>
 						{/* Button and Socials */}
 						<div className="flex flex-col xl:flex-row items-center gap-8">
-							<a href="/assets/resumes/resume.pdf" target="_blank">
+							<a href="/resumes/resume.pdf" target="_blank">
 								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
 									<span>Open CV</span>
 									<FiBookOpen className="text-xl" />
 								</Button>
 							</a>
-							<a href="/assets/resumes/resume.pdf" download="Resume - Jefferson Canuto.pdf">
+							<a href="/resumes/resume.pdf" download="Resume - Jefferson Canuto.pdf">
 								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
 									<span>Download CV</span>
 									<FiDownload className="text-xl" />
