@@ -165,7 +165,7 @@ function Projects() {
                                                     src={item.image}
                                                     fill
                                                     className="object-cover"
-                                                    alt=""
+                                                    alt="project-image"
                                                 />
                                             </div>
                                         </div>

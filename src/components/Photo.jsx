@@ -22,11 +22,11 @@ function Photo() {
                     }}
                     className="w-[200px] h-[200px] xl:w-[400px] xl:h-[400px] mix-blend-lighten absolute">
                     <Image
-                        src="/assets/photo.png"
+                        src="/assets/others/profile-picture.png"
                         priority
                         quality={100}
                         fill
-                        alt=""
+                        alt="profile-image"
                         className="object-contain ml-11 mt-11 xl:ml-10 xl:mt-10"
                     />
                 </motion.div>
