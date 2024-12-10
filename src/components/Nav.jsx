@@ -3,53 +3,63 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-/* AQUI
 const links = [
     {
+        index: 1,
         name: "Home",
         path: "/"
     },
     {
+        index: 2,
         name: "Education",
         path: "/education"
     },
     {
+        index: 3,
         name: "Experiences",
         path: "/experiences"
     },
     {
+        index: 4,
         name: "Skills",
         path: "/skills"
     },
     {
+        index: 5,
         name: "Projects",
         path: "/projects"
     },
     {
-        name: "About me",
+        index: 6,
+        name: "About Me",
         path: "/about"
     }
 ];
-*/
 
+/*
 const links = [
     {
+        index: 1,
         name: "Home",
         path: "/"
     },
     {
+        index: 2,
         name: "Education",
         path: "/education"
     },
     {
+        index: 3,
         name: "Skills",
         path: "/skills"
     },
     {
+        index: 4,
         name: "Projects",
         path: "/projects"
     }
 ];
+*/
 
 function Nav() {
     const pathname = usePathname();
@@ -60,7 +70,7 @@ function Nav() {
                 return (
                     <Link 
                         href={link.path}
-                        key={link.name}
+                        key={link.index}
                         className={`${link.path === pathname && 
                             "text-accent border-b-2 border-accent"} capitalize font-medium hover:text-accent transition-all`
                         }

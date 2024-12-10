@@ -5,58 +5,68 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CiMenuFries } from 'react-icons/ci';
 
-/*
-AQUI
 const links = [
     {
+        index: 1,
         name: "Home",
         path: "/"
     },
     {
+        index: 2,
         name: "Education",
         path: "/education"
     },
     {
+        index: 3,
         name: "Experiences",
         path: "/experiences"
     },
     {
+        index: 4,
         name: "Skills",
         path: "/skills"
     },
     {
+        index: 5,
         name: "Projects",
         path: "/projects"
     },
     {
+        index: 6,
         name: "About Me",
         path: "/about"
     },
     {
+        index: 7,
         name: "Contact",
         path: "/contact"
     }
-]
-*/
+];
 
+/*
 const links = [
     {
+        index: 1,
         name: "Home",
         path: "/"
     },
     {
+        index: 2,
         name: "Education",
         path: "/education"
     },
     {
+        index: 3,
         name: "Skills",
         path: "/skills"
     },
     {
+        index: 4,
         name: "Projects",
         path: "/projects"
     }
 ];
+*/
 
 function MobileNav() {
     const pathname = usePathname();
@@ -79,9 +89,9 @@ function MobileNav() {
                 <nav className="flex flex-col justify-center items-center gap-8">
                     {links.map(link => {
                         return (
-                            <Link 
+                            <Link
                                 href={link.path} 
-                                key={link.name} 
+                                key={link.index} 
                                 className={`${link.path === pathname && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent transition-all`}
                             >
                                 {link.name}
