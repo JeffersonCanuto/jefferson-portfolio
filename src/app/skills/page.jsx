@@ -173,7 +173,7 @@ function Skills() {
             <div className="container mx-auto">
                 <div className="flex flex-col gap-[21px]">
                     <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                        <p className="w-full text-white/60 mx-auto xl:mx-0">{skills.description}</p>
+                        <p className="w-full mx-auto xl:mx-0 cursor-default">{skills.description}</p>
                     </div>
                     <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 xl:gap-[30px]">
                         {skills.primary.map(item => {
@@ -195,7 +195,7 @@ function Skills() {
                             )
                         })}
                     </ul>
-                    <div className="text-white/60 w-full">
+                    <div className="text-white/60 w-full cursor-default">
                         Competences: 
                         {skills.secondary.map(competence => {
                             return (

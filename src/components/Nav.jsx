@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+/* AQUI
 const links = [
     {
         name: "Home",
@@ -27,6 +28,26 @@ const links = [
     {
         name: "About me",
         path: "/about"
+    }
+];
+*/
+
+const links = [
+    {
+        name: "Home",
+        path: "/"
+    },
+    {
+        name: "Education",
+        path: "/education"
+    },
+    {
+        name: "Skills",
+        path: "/skills"
+    },
+    {
+        name: "Projects",
+        path: "/projects"
     }
 ];
 
