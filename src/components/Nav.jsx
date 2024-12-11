@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-/*
 const links = [
     {
         index: 1,
@@ -36,8 +35,8 @@ const links = [
         path: "/about"
     }
 ];
-*/
 
+/*
 const links = [
     {
         index: 1,
@@ -60,6 +59,7 @@ const links = [
         path: "/projects"
     }
 ];
+*/
 
 function Nav() {
     const pathname = usePathname();

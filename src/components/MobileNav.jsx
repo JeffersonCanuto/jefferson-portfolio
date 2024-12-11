@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CiMenuFries } from 'react-icons/ci';
 
-/*
 const links = [
     {
         index: 1,
@@ -43,8 +42,8 @@ const links = [
         path: "/contact"
     }
 ];
-*/
 
+/*
 const links = [
     {
         index: 1,
@@ -67,6 +66,7 @@ const links = [
         path: "/projects"
     }
 ];
+*/
 
 function MobileNav() {
     const pathname = usePathname();
