@@ -103,7 +103,7 @@ function Projects() {
                             {/* Project category */}
                             <h2 className="text-[35px] text-white font-bold leading-none group-hover:text-accent transition-all duration-500 capitalize">{project.category} project {`(${project.type})`}</h2>
                             {/* Project description */}
-                            <p className="text-white/60">{project.description}</p>
+                            <p className="text-white/60 text-justify">{project.description}</p>
                             {/* Stack */}
                             <div className="flex justify-between">
                                 <div className="flex items-center gap-4 text-xl text-white/60">

@@ -16,7 +16,7 @@ function Home() {
 						<h1 className="h1 mb-6 animate-typing">
 							Hello, I'm <br /> <span className="text-accent">Jefferson Canuto</span>
 						</h1>
-						<p className="max-w-[615px] mt-10 mb-10 text-white/80">
+						<p className="max-w-[615px] mt-10 mb-10 text-white/80 text-justify">
 							I am experienced in building Web Applications for many purposes and using 
 							different stacks. You can navigate through all of the other sections to learn 
 							more about my competences and myself as well. Also, feel free to contact me
