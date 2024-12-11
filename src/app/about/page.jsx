@@ -10,7 +10,7 @@ const about = {
     hanging out with friends (grab a beer at a bar, talk about any random topic and laugh hard). On the other hand, I also enjoy seeing curiosities on YT about the \
     technologies that I am most interested in and learn a thing or two.",
     avatar: "/assets/others/avatar.jpg",
-    info: [
+    infos: [
         {
             index: 1,
             name: "Name",
@@ -18,18 +18,18 @@ const about = {
         },
         {
             index: 2,
+            name: "Nationality",
+            value: "Brazilian"
+        },
+        {
+            index: 3,
             name: "Title",
             value: "Software Engineer"
         },
         {
-            index: 3,
+            index: 4,
             name: "Experience",
             value: "5+ Years"
-        },
-        {
-            index: 4,
-            name: "Nationality",
-            value: "Brazilian"
         },
         {
             index: 5,
@@ -71,7 +71,7 @@ function About() {
                             <img src={`${about.avatar}`} width="320" alt="avatar" />
                         </figure>
                         <ul className="grid grid-cols-1 text-[15px] xl:grid-cols-2 gap-y-6 max-w-[900px] max-auto xl:mx-0">
-                            {about.info.map(item => {
+                            {about.infos.map(item => {
                                 return (
                                     <li key={item.index} className="flex items-center justify-center xl:justify-start gap-4">
                                         <span className="text-white/60">{item.name}:</span>
