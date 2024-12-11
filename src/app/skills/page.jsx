@@ -25,11 +25,11 @@ import {
 
 import { motion } from "framer-motion";
 
-const skills = {
+const competences = {
     description: "I have been working as a Software Engineer/Fullstack Developer over the past 5 years using technologies such as JavaScript, HTML5, CSS3, \
     ReactJS, Python, Django REST, PostgreSQL, Docker, Git and Linux. During the last year, I have been investing quite a while in learning new technologies, such \
     as TypeScript, Tailwind CSS, Next.js and Node.js, so that I can merge them to my background.",
-    primary: [
+    skills: [
         {
             index: 1,
             icon: <FaJs />,
@@ -106,60 +106,7 @@ const skills = {
             name: "Linux"
         }
     ],
-    secondary: [
-        {
-            index: 1,
-            name: "OOP"
-        },
-        {
-            index: 2,
-            name: "|"
-        },
-        {
-            index: 3,
-            name: "SOLID"
-        },
-        {
-            index: 4,
-            name: "|"
-        },
-        {
-            index: 5,
-            name: "Unit testing (Jest/RTL)"
-        },
-        {
-            index: 6,
-            name: "|"
-        },
-        {
-            index: 7,
-            name: "Agile (Scrum/Kanban/Scrumban)"
-        },
-        {
-            index: 8,
-            name: "|"
-        },
-        {
-            index: 9,
-            name: "Communication"
-        },
-        {
-            index: 10,
-            name: "|"
-        },
-        {
-            index: 11,
-            name: "Technical Leadership"
-        },
-        {
-            index: 12,
-            name: "|"
-        },
-        {
-            index: 13,
-            name: "Code Review"
-        }
-    ]
+    others: "OOP | SOLID | Unit testing (Jest/RTL) | Agile (Scrum/Kanban) | Communication | Technical Leadership | Code Review"
 };
 
 function Skills() {
@@ -174,10 +121,10 @@ function Skills() {
             <div className="container mx-auto">
                 <div className="flex flex-col gap-[21px]">
                     <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                        <p className="w-full mx-auto xl:mx-0 cursor-default">{skills.description}</p>
+                        <p className="w-full text-justify mx-auto xl:mx-0 cursor-default">{competences.description}</p>
                     </div>
                     <ul className="grid grid-cols-3 md:grid-cols-5 gap-4 xl:gap-[30px]">
-                        {skills.primary.map(item => {
+                        {competences.skills.map(item => {
                             return (
                                 <li key={item.index}>
                                     <TooltipProvider delayDuration={100}>
@@ -194,18 +141,18 @@ function Skills() {
                                     </TooltipProvider>
                                 </li>
                             )
-                        })}
+                        })}  
                     </ul>
-                    <div className="md:flex text-white/60 w-full cursor-default">
-                        <SiHyperskill className="mr-2 mt-2"/>
-                        Competences: 
-                        {skills.secondary.map(competence => {
-                            return (
-                                <span key={competence.index} className="ml-1">
-                                    {competence.name}
+                    <div className="w-full grid grid-cols-1 gap-4 text-white/60 cursor-default">
+                        <div className="flex">
+                            <SiHyperskill className="mr-2 mt-2"/>
+                            <p className="ml-1 text-justify">
+                                Competences:
+                                <span className="ml-1">
+                                    {competences.others}
                                 </span>
-                            )
-                        })}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
