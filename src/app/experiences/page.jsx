@@ -106,7 +106,7 @@ function Experiences() {
                                             <p className="text-white/60">{item.duration}</p>
                                         </div>
                                     </li>
-                                    <div className={`grid grid-cols-1 gap-4`}>
+                                    <div className="grid grid-cols-1 gap-4">
                                         {item.attributions.map(attribution => {
                                             return (
                                                 <p 
@@ -121,7 +121,6 @@ function Experiences() {
                                                 </p>
                                             )
                                         })}
-                                        <p></p>
                                     </div>
                                 </div>
                             );
