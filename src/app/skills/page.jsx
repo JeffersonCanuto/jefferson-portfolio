@@ -12,7 +12,8 @@ import {
     SiPostgresql,
     SiDocker,
     SiGit,
-    SiLinux
+    SiLinux,
+    SiHyperskill
 } from "react-icons/si";
 
 import { 
@@ -175,7 +176,7 @@ function Skills() {
                     <div className="flex flex-col gap-[30px] text-center xl:text-left">
                         <p className="w-full mx-auto xl:mx-0 cursor-default">{skills.description}</p>
                     </div>
-                    <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 xl:gap-[30px]">
+                    <ul className="grid grid-cols-3 md:grid-cols-5 gap-4 xl:gap-[30px]">
                         {skills.primary.map(item => {
                             return (
                                 <li key={item.index}>
@@ -195,7 +196,8 @@ function Skills() {
                             )
                         })}
                     </ul>
-                    <div className="text-white/60 w-full cursor-default">
+                    <div className="md:flex text-white/60 w-full cursor-default">
+                        <SiHyperskill className="mr-2 mt-2"/>
                         Competences: 
                         {skills.secondary.map(competence => {
                             return (
