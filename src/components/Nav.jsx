@@ -36,31 +36,6 @@ const links = [
     }
 ];
 
-/*
-const links = [
-    {
-        index: 1,
-        name: "Home",
-        path: "/"
-    },
-    {
-        index: 2,
-        name: "Education",
-        path: "/education"
-    },
-    {
-        index: 3,
-        name: "Skills",
-        path: "/skills"
-    },
-    {
-        index: 4,
-        name: "Projects",
-        path: "/projects"
-    }
-];
-*/
-
 function Nav() {
     const pathname = usePathname();
 
