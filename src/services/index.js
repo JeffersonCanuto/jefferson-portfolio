@@ -1,12 +1,7 @@
 const getGitHubUserInfo = async() => {
-    /*
     const 
         token = process.env.NEXT_PUBLIC_GPAT,
         user = process.env.NEXT_PUBLIC_GUSER;
-    */
-    
-    const token = "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";
-    const user = "JeffersonCanuto"
 
     try {
         const response = await fetch(`https://api.github.com/users/${user}`, {
@@ -29,11 +24,7 @@ const getGitHubUserInfo = async() => {
 }
 
 const getGitHubRepoInfo = async() => {
-    /*
     const token = process.env.NEXT_PUBLIC_GPAT;
-    */
-    
-    const token = "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";
     
     try {
         const response = await fetch(`https://api.github.com/user/repos?visibility=all`, {
@@ -55,16 +46,9 @@ const getGitHubRepoInfo = async() => {
 }
 
 const getGitHubCommitInfo = async() => {
-    /*
     const 
         token = process.env.NEXT_PUBLIC_GPAT,
         user = process.env.NEXT_PUBLIC_GUSER,
-        reposName = (await getGitHubRepoInfo()).map(repo => repo.name);
-    */
-
-    const 
-        token = "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",
-        user = "JeffersonCanuto",
         reposName = (await getGitHubRepoInfo()).map(repo => repo.name);
     
     try {
