@@ -128,7 +128,7 @@ function Projects() {
                                     <Link href={project.github} target="_blank">
                                         <TooltipProvider delayDuration={100}>
                                             <Tooltip>
-                                                <TooltipTrigger className="w-[45px] h-[45px] md:w-[70px] md:h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                                                <TooltipTrigger className="w-[40px] h-[40px] md:w-[70px] md:h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
                                                     <BsGithub className="text-white text-xl md:text-3xl group-hover:text-accent" />
                                                 </TooltipTrigger>
                                                 <TooltipContent>
