@@ -106,7 +106,7 @@ function Projects() {
                             <p className="text-white/60 text-justify">{project.description}</p>
                             {/* Stack */}
                             <div className="flex justify-between">
-                                <div className="flex items-center gap-4 text-xl text-white/60">
+                                <div className="flex items-center gap-4 text-[16px] md:text-xl text-white/60">
                                     Technologies:
                                     {project.stack.map(item => {
                                         return (
@@ -128,8 +128,8 @@ function Projects() {
                                     <Link href={project.github} target="_blank">
                                         <TooltipProvider delayDuration={100}>
                                             <Tooltip>
-                                                <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                    <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                                                <TooltipTrigger className="w-[45px] h-[45px] md:w-[70px] md:h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                                                    <BsGithub className="text-white text-xl md:text-3xl group-hover:text-accent" />
                                                 </TooltipTrigger>
                                                 <TooltipContent>
                                                     <p>Go to GitHub</p>
