@@ -181,7 +181,7 @@ function Education() {
                                     <h4 className="text-[14px] font-bold hover:text-accent">{certification.title}</h4>
                                     <p className="text-white/60">{certification.school}</p>
                                     <p className="text-white/60">{certification.issuance}</p>
-                                    <div className=" text-[15px] flex flex-row">
+                                    <div className="text-[13px] md:text-[15px] flex flex-row">
                                         <span className="mr-2">Skills:</span>
                                         <div className="flex justify-between items-end">
                                             {certification.competences.map(competence => {
