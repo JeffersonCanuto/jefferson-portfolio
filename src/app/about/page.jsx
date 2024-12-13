@@ -66,7 +66,7 @@ function About() {
             <div className="container mx-auto">
                 <div className="flex flex-col gap-[40px] cursor-default">
                     <p className="w-full text-white/60 text-justify mx-auto xl:mx-0">{about.description}</p>
-                    <div className="w-full flex justify-start gap-10">
+                    <div className="w-full grid grid-cols-1 md:flex md:justify-start gap-10">
                         <figure id="avatar">
                             <img src={`${about.avatar}`} width="320" alt="avatar" />
                         </figure>
