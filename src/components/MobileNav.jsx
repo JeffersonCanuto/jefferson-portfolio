@@ -35,6 +35,11 @@ const links = [
         index: 6,
         name: "About Me",
         path: "/about"
+    },
+    {
+        index: 7,
+        name: "Contact",
+        path: "/contact"
     }
 ];
 
