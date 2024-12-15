@@ -18,9 +18,12 @@ function Header() {
                 {/* Desktop Navbar & Contact button */}
                 <div className="hidden xl:flex items-center gap-8">
                     <Nav />
-                    <Link href="/contact">
-                        <Button>Contact</Button>
-                    </Link>
+                    {/*
+                        <Link href="/contact">
+                             <Button>Contact</Button>
+                        </Link>
+                    
+                    */}
                 </div>
 
                 {/* Mobile Navbar */}

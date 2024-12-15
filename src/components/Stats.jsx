@@ -1,53 +1,71 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-
 import CountUp from "react-countup";
+
 import { getGitHubUserInfo, getGitHubCommitInfo } from "../services";
 
 function Stats() {
-    let stats = [];
-
     const [ ghubProjectsCount, setGhubProjectsCount ] = useState(0);
     const [ ghubCommitCount, setGhubCommitCount ]     = useState(0);
+    const [ stats, setStats ]                         = useState([
+        {
+            value: 0,
+            title: "Years of experience"
+        },
+        {
+            value: 0,
+            title: "Study/Work Technologies"
+        },
+        {
+            value: 0,
+            title: "Coding Projects (GitHub)"
+        },
+        {
+            value: 0,
+            title: "Code Commits (GitHub)"
+        },
+    ]);  
 
     useEffect(() => {
         (async function fetchData() {
             {/* Fetch projects count (Public and Private repositories) */}
-            const userInfo = (await getGitHubUserInfo()) || 0;
+            const userInfo = await getGitHubUserInfo();
             const 
-                publicReposCount = parseInt(userInfo !== 0 ? userInfo.public_repos : userInfo),
-                privateReposCount = parseInt(userInfo !== 0 ? userInfo.total_private_repos : userInfo)
+                publicReposCount = parseInt(userInfo.public_repos),
+                privateReposCount = parseInt(userInfo.total_private_repos);
             
             setGhubProjectsCount(publicReposCount + privateReposCount);
             
             {/* Fetch commits count (Public and Private repositories) */}
-            const commits = (await getGitHubCommitInfo()) || 0;
+            const commits = await getGitHubCommitInfo();
 
-            setGhubCommitCount(commits !== 0 ? commits.reduce((acc, count) => acc + count, 0) : commits);
-        })()
+            setGhubCommitCount(commits.reduce((acc, count) => acc + count, 0));
+        })();
     }, []);
 
-    if (ghubProjectsCount && ghubCommitCount) {
-        stats = [
-            {
-                value: 5,
-                title: "Years of experience"
-            },
-            {
-                value: 12,
-                title: "Programming Technologies"
-            },
-            {
-                value: ghubProjectsCount,
-                title: "Coding Projects (GitHub)"
-            },
-            {
-                value: ghubCommitCount,
-                title: "Code Commits (GitHub)"
-            },
-        ];
-    }
+    useEffect(() => {
+        if (ghubProjectsCount && ghubCommitCount) {
+            setStats([ 
+                {
+                    value: 5,
+                    title: "Years of experience"
+                },
+                {
+                    value: 15,
+                    title: "Study/Work Technologies"
+                },
+                {
+                    value: ghubProjectsCount,
+                    title: "Coding Projects (GitHub)"
+                },
+                {
+                    value: ghubCommitCount,
+                    title: "Code Commits (GitHub)"
+                }
+            ]);
+        }
+    }, [ghubProjectsCount, ghubCommitCount]);
 
     return (
         <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
