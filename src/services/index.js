@@ -4,6 +4,7 @@ const gitHubService = () => {
             token = process.env.NEXT_PUBLIC_GPAT,
             user = process.env.NEXT_PUBLIC_GUSER;
     
+<<<<<<< HEAD
         try {
             const response = await fetch(`https://api.github.com/users/${user}`, {
                 method: 'GET',
@@ -15,6 +16,19 @@ const gitHubService = () => {
     
             if (!response.ok) {
                 throw new Error("Error while fetching user info from GitHub API...");
+=======
+}
+
+const getGitHubRepoInfo = async() => {
+    const token = process.env.NEXT_PUBLIC_GPAT;
+    
+    try {
+        const response = await fetch(`https://api.github.com/user/repos?visibility=all`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `token ${token}`
+>>>>>>> main
             }
     
             return await response.json();
