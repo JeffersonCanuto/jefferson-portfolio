@@ -8,8 +8,8 @@ const gitHubService = () => {
             const response = await fetch(`https://api.github.com/users/${user}`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `token ${token}`,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `token ${token}`
                 }   
             });
     
