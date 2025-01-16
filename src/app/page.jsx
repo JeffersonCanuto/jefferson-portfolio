@@ -18,11 +18,11 @@ function Home() {
 							Hello, I'm <br /> <span className="text-accent">Jefferson Canuto</span>
 						</h1>
 						<p className="max-w-[615px] mt-8 mb-10 text-white/80 text-justify">
-							I am Front-end Developer, experienced in building Web Apps for many purposes 
+							I am a Front-end Developer, experienced in building Web Apps for many purposes 
 							and using different technologies. You can navigate through all of the other 
 							sections to learn more about my skills, competences, experiences and myself
-							as well. Also, feel free to contact me at any time, through one of my social media
-							below &#128578;
+							as well. Also, feel free to contact me at any time, through one of my social 
+							media below &#128578;
 						</p>
 						{/* Button and Socials */}
 						<div className="flex flex-col xl:flex-row items-center gap-4">
