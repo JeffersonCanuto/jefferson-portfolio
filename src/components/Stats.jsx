@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 
-import { getGitHubUserInfo, getGitHubCommitInfo } from "../services";
+import { gitHubService } from "../services";
 
 function Stats() {
     const [ ghubProjectsCount, setGhubProjectsCount ] = useState(0);
@@ -30,7 +30,7 @@ function Stats() {
     useEffect(() => {
         (async function fetchData() {
             {/* Fetch projects count (Public and Private repositories) */}
-            const userInfo = await getGitHubUserInfo();
+            const userInfo = await (gitHubService().getGitHubUserInfo());
             const 
                 publicReposCount = parseInt(userInfo.public_repos),
                 privateReposCount = parseInt(userInfo.total_private_repos);
@@ -38,7 +38,7 @@ function Stats() {
             setGhubProjectsCount(publicReposCount + privateReposCount);
             
             {/* Fetch commits count (Public and Private repositories) */}
-            const commits = await getGitHubCommitInfo();
+            const commits = await (gitHubService().getGitHubCommitInfo());
 
             setGhubCommitCount(commits.reduce((acc, count) => acc + count, 0));
         })();

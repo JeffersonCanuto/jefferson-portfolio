@@ -1,4 +1,5 @@
-import { FiDownload, FiBookOpen } from "react-icons/fi";
+import { FiDownload } from "react-icons/fi";
+import { IoOpenOutline } from "react-icons/io5";
 
 import { Button } from "@/components/ui/button";
 import Social from "@/components/Social";
@@ -12,28 +13,29 @@ function Home() {
 				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
 					{/* Text */}
 					<div className="text-center xl:text-left order-2 xl:order-none">
-						<span className="text-xl">Software Engineer</span>
-						<h1 className="h1 mb-6 animate-typing">
+						<span className="text-2xl">Software Engineer</span>
+						<h1 className="h1 mt-4 animate-typing">
 							Hello, I'm <br /> <span className="text-accent">Jefferson Canuto</span>
 						</h1>
-						<p className="max-w-[615px] mt-10 mb-10 text-white/80 text-justify">
-							I am experienced in building Web Applications for many purposes and using 
-							different stacks. You can navigate through all of the other sections to learn 
-							more about my competences and myself as well. Also, feel free to contact me
-							through my socials below &#128578;
+						<p className="max-w-[615px] mt-8 mb-10 text-white/80 text-justify">
+							I am Front-end Developer, experienced in building Web Apps for many purposes 
+							and using different technologies. You can navigate through all of the other 
+							sections to learn more about my skills, competences, experiences and myself
+							as well. Also, feel free to contact me at any time, through one of my social media
+							below &#128578;
 						</p>
 						{/* Button and Socials */}
-						<div className="flex flex-col xl:flex-row items-center gap-8">
+						<div className="flex flex-col xl:flex-row items-center gap-4">
 							<a href="/resumes/resume.pdf" target="_blank">
 								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
-									<span>Open CV</span>
-									<FiBookOpen className="text-xl" />
+									<span className="text-[12px]">Open Resume</span>
+									<IoOpenOutline className="text-xl mb-1" />
 								</Button>
 							</a>
 							<a href="/resumes/resume.pdf" download="Resume - Jefferson Canuto.pdf">
 								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
-									<span>Download CV</span>
-									<FiDownload className="text-xl" />
+									<span className="text-[12px]">Download Resume</span>
+									<FiDownload className="text-xl mb-1" />
 								</Button>
 							</a>
 							<div className="mb-8 xl:mb-0">

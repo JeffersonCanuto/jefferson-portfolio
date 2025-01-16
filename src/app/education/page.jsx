@@ -99,13 +99,6 @@ function Education() {
         <section className="min-h-[80vh] flex flex-col justify-start py-12 xl:py-0">
             <div className="container mx-auto">
                 <h3 className="w-full h-[70px] flex justify-center text-2xl text-accent">
-                    <img
-                        width="20"
-                        height="40"
-                        src="/assets/others/cap.svg"
-                        alt="degree-badge" 
-                        className="mb-10"
-                    />
                     <span className="mx-4">DEGREES</span>
                     <img
                         width="20"
@@ -123,9 +116,8 @@ function Education() {
                     }}
                     className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
                 >
-                    {education.map(ed => {
-                        return (
-                            <div className="flex flex-1 flex-col justify-center gap-6 group cursor-default" key={ed.course}>
+                    {education.map(ed => (
+                            <div className="flex flex-1 flex-col justify-center gap-6 group cursor-default" key={ed.index}>
                                 {/* Top */} 
                                 <div className="w-full flex justify-between items-center">
                                     <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">{ed.index}</div>
@@ -146,18 +138,12 @@ function Education() {
                                 <div className="border-b border-white/20 w-full"></div>
                             </div>
                         )
-                    })}
+                    )}
                 </motion.div>
             </div>
             <br />
             <div className="container mx-auto">
                 <h3 className="w-full flex justify-center text-2xl text-accent mt-4">
-                    <img
-                        width="20"
-                        height="40"
-                        src="/assets/others/badge.svg"
-                        alt="certificate-badge" 
-                    />
                     <span className="mx-4">CERTIFICATES</span>
                     <img
                         width="20"
