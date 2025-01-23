@@ -27,7 +27,7 @@ import { motion } from "framer-motion";
 
 const competences = {
     description: "I have been working as a Front-end/Fullstack Engineer over the past 5 years using technologies such as JavaScript, HTML5, CSS3, React.js, \
-    Python, Django REST, PostgreSQL, Docker, Git and Linux. During the last year, I have been investing quite a while in learning new technologies, such as \
+    Python, Django REST, PostgreSQL, Docker, Git and Linux. Since the last year, I have been investing quite a while in learning new technologies, such as \
     TypeScript, Tailwind CSS, Next.js and Node.js, so that I can add them to my background.",
     skills: [
         {
@@ -83,7 +83,7 @@ const competences = {
         {
             index: 11,
             icon: <SiDjango />,
-            name: "Django"
+            name: "Django REST"
         },
         {
             index: 12,
