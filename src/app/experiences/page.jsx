@@ -58,7 +58,7 @@ const experience = {
             and our main client (ANATEL), to discuss technical aspects, challenges and define an implementation roadmap for both solutions for the manufacturers \
             to follow, based upon unified requirements that the client came up with throughout our meetings and discussions.",
             company: "SIDIA INSTITUTO DE CIÊNCIA E TECNOLOGIA",
-            position: "Frontend Engineer",
+            position: "Front-end Engineer",
             duration: "Apr/2021 - Jun/2024",
             attributions: [
                 {
