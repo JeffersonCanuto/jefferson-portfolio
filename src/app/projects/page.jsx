@@ -15,6 +15,7 @@ import {
     TooltipProvider,
     TooltipTrigger
 } from "@/components/ui/tooltip";
+
 import WorkSliderBtns from "@/components/WorkSliderBtns";
 
 import Link from "next/link";
@@ -27,8 +28,8 @@ const projects = [
         category: 'fullstack',
         type: 'SSR',
         title: "BT Real Estate",
-        description: "BT Real Estate is a business application designed to be a platform that can connect \
-        customers and realtors who have properties available for sale in all across the USA.",
+        description: "BT Real Estate is a business app designed to be a platform that can connect customers having their needs and realtors who hold properties available \
+        for sale in all across the USA.",
         stack: [
             {
                 index: 1,
