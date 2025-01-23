@@ -26,9 +26,9 @@ import {
 import { motion } from "framer-motion";
 
 const competences = {
-    description: "I have been working as a Software Engineer/Fullstack Developer over the past 5 years using technologies such as JavaScript, HTML5, CSS3, \
-    ReactJS, Python, Django REST, PostgreSQL, Docker, Git and Linux. During the last year, I have been investing quite a while in learning new technologies, such \
-    as TypeScript, Tailwind CSS, Next.js and Node.js, so that I can merge them to my background.",
+    description: "I have been working as a Front-end/Fullstack Engineer over the past 5 years using technologies such as JavaScript, HTML5, CSS3, React.js, \
+    Python, Django REST, PostgreSQL, Docker, Git and Linux. Since the last year, I have been investing quite a while in learning new technologies, such as \
+    TypeScript, Tailwind CSS, Next.js and Node.js, so that I can add them to my background.",
     skills: [
         {
             index: 1,
@@ -83,7 +83,7 @@ const competences = {
         {
             index: 11,
             icon: <SiDjango />,
-            name: "Django"
+            name: "Django REST"
         },
         {
             index: 12,
@@ -106,7 +106,7 @@ const competences = {
             name: "Linux"
         }
     ],
-    others: "OOP | SOLID | Unit testing (Jest/RTL) | Agile (Scrum/Kanban) | Communication | Technical Leadership | Code Review"
+    others: "OOP/SOLID Principles | Unit testing (Jest/RTL) | Technical Leadership | Code Review | Agile (Scrum/Kanban) | English"
 };
 
 function Skills() {
@@ -148,7 +148,7 @@ function Skills() {
                             <SiHyperskill className="mr-2 mt-2"/>
                             <p className="ml-1 text-justify">
                                 Competences:
-                                <span className="ml-1">
+                                <span className="ml-1 text-[15px]">
                                     {competences.others}
                                 </span>
                             </p>
