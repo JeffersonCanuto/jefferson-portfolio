@@ -53,7 +53,7 @@ function Stats() {
                 },
                 {
                     value: 15,
-                    title: "Study/Work Technologies"
+                    title: "Coding Technologies"
                 },
                 {
                     value: ghubProjectsCount,
