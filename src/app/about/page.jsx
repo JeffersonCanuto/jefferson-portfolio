@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 const about = {
     description: "I am a tech enthusiast who seeks to delve deeper into the tech world, as I keep strengthening myself on a daily basis in terms of both \
     professional and personal capacities. I am currently looking for a job opportunity that allows me to keep working as a Front-end/Fullstack Software Engineer \
-    in new, big, challenging, impactful and innovative projects. In addition, I cherish working with an engaged, focused and plural team, always aiming at growing \
-    together, based upon the definition of goals/achievements and continuous exchange of experience. When it comes to spare time, I would say that I quite fancy \
-    watching movies and series, listening to good music and specially hanging out with friends (grab a beer at a bar, talk about any random topic and laugh hard). \
-    On the other hand, I also enjoy seeing curiosities on YouTube about the Tech industry, cutting-edge technologies (specially the ones that I am most interested \
-    in) and learn a thing or two as well, so I can keep myself up-to-date on tech market trends.",
+    in new, large, challenging, impactful and innovative projects. Furthermore, I cherish working with engaged, focused, plural and cohesive colleagues, always aiming at \
+    growing together by setting and achieving goals and exchanging knowledge/experiences continuously. When it comes to spare time, I would say that I quite \
+    fancy watching movies and series, listening to good music and specially hanging out with friends (grab a beer at a bar, talk about any random topic and laugh hard). \
+    On the other hand, I also enjoy seeing curiosities on YouTube about the Tech industry, cutting-edge technologies (specially the ones that I am most interested in) \
+    and learn a thing or two, so I can keep myself up-to-date on tech market trends.",
     avatar: "/assets/others/avatar.jpg",
     infos: [
         {
