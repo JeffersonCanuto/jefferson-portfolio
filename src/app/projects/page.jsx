@@ -113,10 +113,10 @@ function Projects() {
                                         return (
                                             <TooltipProvider key={item.index}>
                                                 <Tooltip>
-                                                    <TooltipTrigger className="hover:text-accent">
+                                                    <TooltipTrigger className="cursor-default hover:text-accent">
                                                         {item.icon}
                                                     </TooltipTrigger>
-                                                    <TooltipContent>
+                                                    <TooltipContent className="cursor-default">
                                                         <p>{item.name}</p>
                                                     </TooltipContent>
                                                 </Tooltip>
