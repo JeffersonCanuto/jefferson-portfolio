@@ -21,7 +21,7 @@ const education = [
         index: "02",
         course: "Baccalaureate in Telecommunications Engineering",
         university: "Federal University of Rio Grande do Norte",
-        start: "August/2017",
+        start: "July/2017",
         end: "Unfinished"
     }
 ]
