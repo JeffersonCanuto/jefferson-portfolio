@@ -117,7 +117,7 @@ function Projects() {
                                                         {item.icon}
                                                     </TooltipTrigger>
                                                     <TooltipContent className="cursor-default">
-                                                        <p>{item.name}</p>
+                                                        {item.name}
                                                     </TooltipContent>
                                                 </Tooltip>
                                             </TooltipProvider>
