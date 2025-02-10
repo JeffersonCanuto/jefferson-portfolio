@@ -26,9 +26,9 @@ import {
 import { motion } from "framer-motion";
 
 const competences = {
-    description: "I have been working as a Frontend/Fullstack Engineer over the past 5 years using technologies such as JavaScript, HTML5, CSS3, React, \
-    Python, Django REST, PostgreSQL, Docker, Git and Linux. Since the last year, I have been investing quite a while in learning new technologies, such as \
-    TypeScript, Tailwind CSS, Next.js and Node.js, so that I can add them to my background.",
+    description: "I have been working as a Frontend/Fullstack Engineer over the past 5 years using technologies such as JavaScript, TypeScript, HTML5, CSS3, React, \
+    Python, Django REST, PostgreSQL, Docker, Git and Linux. Since the last year, I have been investing quite a while in learning new technologies, such as Tailwind CSS, \
+    Next.js and Node.js, so that I can add them to my background.",
     skills: [
         {
             index: 1,
@@ -106,7 +106,7 @@ const competences = {
             name: "Linux"
         }
     ],
-    others: "OOP/SOLID Principles | Unit testing (Jest/RTL) | Agile (Scrum/Kanban) | Technical Leadership | Code Review | English"
+    others: "OOP/SOLID Principles | Unit testing (Jest/RTL) | Agile (Scrum/Kanban) | Technical Leadership | Code Review | English (C1)"
 };
 
 function Skills() {
@@ -129,12 +129,12 @@ function Skills() {
                                 <li key={item.index}>
                                     <TooltipProvider delayDuration={100}>
                                         <Tooltip>
-                                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                                            <TooltipTrigger className="cursor-default w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
                                                 <div className="text-6xl group-hover:text-accent transition-all duration-300">
                                                     {item.icon}
                                                 </div>
                                             </TooltipTrigger>
-                                            <TooltipContent>
+                                            <TooltipContent className="cursor-default">
                                                 <p>{item.name}</p>
                                             </TooltipContent>
                                         </Tooltip>
