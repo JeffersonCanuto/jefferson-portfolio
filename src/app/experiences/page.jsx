@@ -50,7 +50,7 @@ const experience = {
         {
             index: 2,
             description: "In 2021, I joined Sidia as a Frontend Software Engineer working with both Web and Android. FYI, Sidia is Samsung Electronics' R&D \
-            center in Latin America. As my main attribution, I was the Principal Front-end Engineer, in charge of implementing and maintaining internal software \
+            center in Latin America. As my main attribution, I was the Principal Frontend Engineer, in charge of implementing and maintaining internal software \
             tools and also leading the Automation Team. Furthermore, I was responsible for conducting bugfixes for Samsung Android Native apps (Messages, Contacts, \
             Dialer, etc) and managing/implementing LATAM telephony operator requirements. In 2024, I got the opportunity to work as the Project Leader for the \
             implementation and delivery of STIR/Shaken and RCD solutions in Brazil from Samsung side. For this major project, I worked in a committee, composed \
