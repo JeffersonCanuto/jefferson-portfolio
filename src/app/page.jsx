@@ -18,7 +18,7 @@ function Home() {
 							Hello, I'm <br /> <span className="text-accent">Jefferson Canuto</span>
 						</h1>
 						<p className="max-w-[615px] mt-8 mb-10 text-white/80 text-justify">
-							I am a Front-end/Fullstack Engineer, experienced in building Web Apps for many 
+							I am a Frontend/Fullstack Engineer, experienced in building Web Apps for many 
 							purposes and using different technologies. You can navigate through all of the
 							other sections to learn more about my skills, competences, experiences and myself
 							as well. Also, feel free to contact me through one of my social media below &#128578;
