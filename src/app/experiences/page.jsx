@@ -1,9 +1,19 @@
 "use client";
 
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
 import { SiHyperskill } from "react-icons/si";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger
+} from "@/components/ui/tooltip";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+import { IoOpenOutline } from "react-icons/io5";
+
+import Link from "next/link";
 
 const experience = {
     items: [
@@ -18,6 +28,7 @@ const experience = {
             each target company and generate a custom report document in .pdf format for each client (ISP). This way, they could efficiently visualize and monitor \
             their own data traffic on a real-time basis, in addition to requesting periodical reports.",
             company: "LOGICA SISTEMAS DE INFORMAÇÃO EIRELI",
+            website: "https://novaintranet.logicasistemas.com.br/",
             position: "Fullstack Developer",
             duration: "Aug/2019 - Nov/2020",
             attributions: [
@@ -58,6 +69,7 @@ const experience = {
             and our main client (ANATEL), to discuss technical aspects, challenges and define an implementation roadmap for both solutions for the manufacturers \
             to follow, based upon unified requirements that the client came up with throughout our meetings and discussions.",
             company: "SIDIA INSTITUTO DE CIÊNCIA E TECNOLOGIA",
+            website: "https://sidia.com/",
             position: "Frontend Engineer",
             duration: "Apr/2021 - Jun/2024",
             attributions: [
@@ -105,10 +117,24 @@ function Experiences() {
                                     <li className={`${item.index === 1 && "mt-2"} bg-[#232329] h-[220px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1`}>
                                         <h3 className="text-accent text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
                                         <p className="text-[14px] min-w-[60px] min-h-[60px] text-center lg:text-left">{item.company}</p>
-                                        <div className="flex items-center gap-3">
-                                            {/* Dot */}
-                                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                                            <p className="text-white/60">{item.duration}</p>
+                                        <div className="w-full flex justify-between">
+                                            <div className="flex items-center gap-3">
+                                                {/* Dot */}
+                                                <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                                                <p className="text-white/60">{item.duration}</p>
+                                            </div>
+                                            <Link href={item.website} target="_blank" className="relative left-3 bottom-1">
+                                                <TooltipProvider delayDuration={100}>
+                                                    <Tooltip>
+                                                        <TooltipTrigger className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full bg-white/5 flex justify-center items-center group">
+                                                            <IoOpenOutline className="text-white text-[16px] group-hover:text-accent" />
+                                                        </TooltipTrigger>
+                                                        <TooltipContent>
+                                                            Go to website
+                                                        </TooltipContent>
+                                                    </Tooltip>
+                                                </TooltipProvider>
+                                            </Link>
                                         </div>
                                     </li>
                                     <div className="grid grid-cols-1 gap-4">
