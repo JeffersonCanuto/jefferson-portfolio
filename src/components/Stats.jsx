@@ -31,11 +31,9 @@ function Stats() {
         (async function fetchData() {
             {/* Fetch projects count (Public and Private repositories) */}
             const userInfo = await (gitHubService().getGitHubUserInfo());
-            const 
-                publicReposCount = parseInt(userInfo.public_repos),
-                privateReposCount = parseInt(userInfo.total_private_repos);
+            const { publicRepos, privateRepos } = userInfo;
             
-            setGhubProjectsCount(publicReposCount + privateReposCount);
+            setGhubProjectsCount(publicRepos + privateRepos);
             
             {/* Fetch commits count (Public and Private repositories) */}
             const commits = await (gitHubService().getGitHubCommitInfo());

@@ -16,12 +16,16 @@ const gitHubService = () => {
             if (!response.ok) {
                 throw new Error("Error while fetching user info from GitHub API...");
             }
-    
-            return await response.json();
+            
+            const { public_repos: publicRepos, total_private_repos: privateRepos } = await response.json();
+
+            return {
+                publicRepos: parseInt(publicRepos),
+                privateRepos: parseInt(privateRepos)
+            };
         } catch(error) {
             console.error(`${error.message}`);
         }
-        
     }
     
     const getGitHubRepoInfo = async() => {
