@@ -1,8 +1,20 @@
+import React, { ReactNode } from "react";
+
 import Link from "next/link";
 
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
-const socials = [
+interface SocialItems {
+    icon: ReactNode;
+    path: string;
+};
+
+interface SocialProps {
+    containerStyles: string;
+    iconStyles: string;
+};
+
+const socials:SocialItems[] = [
     {
         icon: <FaGithub />,
         path: "https://github.com/JeffersonCanuto"
@@ -17,11 +29,10 @@ const socials = [
     }
 ];
 
-
-function Social({ containerStyles, iconStyles }) {
+const Social:React.FC<SocialProps> = ({ containerStyles, iconStyles }) => {
     return (
         <div className={containerStyles}>
-            {socials.map(social => {
+            {socials.map((social:SocialItems) => {
                 return (
                     <Link
                         key={social.path}
