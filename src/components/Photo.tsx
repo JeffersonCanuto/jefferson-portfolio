@@ -1,13 +1,14 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image"; 
+import Image from "next/image";
 
-function Photo() {
+const Photo:React.FC = () => {
     return (
         <div className="w-full h-full relative">
             <motion.div
-                initial={{ opacity: 0 }} 
+                initial={{ opacity: 0 }}
                 animate={{ 
                     opacity: 1, 
                     transition: { delay: 2, duration: 0.4, ease: "easeIn" }
