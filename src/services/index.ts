@@ -1,5 +1,15 @@
-const gitHubService = () => {
-    const getGitHubUserInfo = async() => {
+interface UserInfoItems {
+    publicRepos: number;
+    privateRepos: number;
+};
+
+interface GitHubServiceItems {
+    getGitHubUserInfo: () => Promise<UserInfoItems | {}>;
+    getGitHubCommitInfo: () => Promise<number[] | []> ;
+};
+
+const gitHubService = () : GitHubServiceItems => {
+    const getGitHubUserInfo = async():Promise<UserInfoItems | {}> => {
         const 
             token = process.env.NEXT_PUBLIC_GPAT,
             user = process.env.NEXT_PUBLIC_GUSER;
@@ -23,12 +33,14 @@ const gitHubService = () => {
                 publicRepos: parseInt(publicRepos),
                 privateRepos: parseInt(privateRepos)
             };
-        } catch(error) {
+        } catch(error:any) {
             console.error(`${error.message}`);
+
+            return {};
         }
     }
     
-    const getGitHubRepoInfo = async() => {
+    const getGitHubRepoInfo = async():Promise<string[] | []> => {
         const token = process.env.NEXT_PUBLIC_GPAT;
     
         try {
@@ -43,21 +55,23 @@ const gitHubService = () => {
             if (!response.ok) {
                 throw new Error("Could not fetch repositories info from GitHub API...");
             }
-    
-            return await response.json()
-        } catch(error) {
+
+            return (await response.json()).map((info:any) => info.name);
+        } catch(error:any) {
             console.error(`${error.message}`);
+
+            return [];
         }
     }
     
-    const getGitHubCommitInfo = async() => {
+    const getGitHubCommitInfo = async():Promise<number[] | []> => {
         const 
             token = process.env.NEXT_PUBLIC_GPAT,
             user = process.env.NEXT_PUBLIC_GUSER,
-            reposName = (await getGitHubRepoInfo()).map(repo => repo.name);
-        
+            repoNames = await getGitHubRepoInfo();
+
         try {
-            const repos = reposName.map(async(repo) => {
+            const repos = repoNames.map(async(repo:string) => {
                 return await fetch(`https://api.github.com/repos/${user}/${repo}/commits?per_page=100`, {
                     method: "GET",
                     headers: {
@@ -74,12 +88,14 @@ const gitHubService = () => {
     
                 return (await response.json()).length;
             }));
-        } catch(error) {
+        } catch(error:any) {
             console.error(`${error.message}`);
+
+            return [];
         }
     }
 
-    return { getGitHubUserInfo, getGitHubCommitInfo }
+    return { getGitHubUserInfo, getGitHubCommitInfo };
 }
 
 export {
