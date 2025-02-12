@@ -1,13 +1,15 @@
 "use client";
 
+import React from "react";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 import Stairs from "./Stairs";
 
-function StairTransition() {
-    const pathname = usePathname();
-
+const StairTransition:React.FC = () => {
+    const pathname:string = usePathname();
+    
     return (
         <>
             <AnimatePresence mode="wait">
