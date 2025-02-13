@@ -1,4 +1,4 @@
-interface UserInfoItems {
+export interface UserInfoItems {
     publicRepos: number;
     privateRepos: number;
 };
@@ -8,7 +8,7 @@ interface GitHubServiceItems {
     getGitHubCommitInfo: () => Promise<number[] | []> ;
 };
 
-const gitHubService = () : GitHubServiceItems => {
+const gitHubService = ():GitHubServiceItems => {
     const getGitHubUserInfo = async():Promise<UserInfoItems | {}> => {
         const 
             token = process.env.NEXT_PUBLIC_GPAT,
