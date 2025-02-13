@@ -1,8 +1,9 @@
 "use client";
 
+import React, { useState, ReactNode } from "react";
 import { motion } from "framer-motion"; 
-import React, { useState } from "react";
 
+import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -21,7 +22,25 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 import Link from "next/link";
 import Image from "next/image";
 
-const projects = [
+type StackItems = {
+    index: number;
+    name: string;
+    icon: ReactNode;
+};
+
+type ProjectItems<T, U> = {
+    index: number;
+    num: T;
+    category: T;
+    type: T;
+    title: T;
+    description: T;
+    stack: U[],
+    image: T;
+    github: T;
+};
+
+const projects:ProjectItems<string,StackItems>[] = [
     {
         index: 1,
         num: '01',
@@ -60,14 +79,14 @@ const projects = [
         image: "/assets/projects/btreapp.png",
         github: "https://github.com/JeffersonCanuto/Btre-App"
     }
-]; 
+];
 
-function Projects() {
-    const [ project, setProject ] = useState(projects[0]);
+const Projects:React.FC = () => {
+    const [ project, setProject ] = useState<ProjectItems<string,StackItems>>(projects[0]);
 
-    const handleSlide = swiper => {
+    const handleSlide = (swiper:SwiperType) => {
         // Get current slide index
-        const currentIndex = swiper.activeIndex;
+        const currentIndex:number = swiper.activeIndex;
         
         // Update project state based on current slide index
         setProject(projects[currentIndex]);
@@ -109,7 +128,7 @@ function Projects() {
                             <div className="flex justify-between">
                                 <div className="flex items-center gap-4 text-[16px] md:text-xl text-white/60">
                                     Technologies:
-                                    {project.stack.map(item => {
+                                    {project.stack.map((item:StackItems) => {
                                         return (
                                             <TooltipProvider key={item.index}>
                                                 <Tooltip>
@@ -151,7 +170,7 @@ function Projects() {
                             className="xl:h-[520px] mb-12"
                             onSlideChange={handleSlide}
                         >
-                            {projects.map(item => {
+                            {projects.map((item:ProjectItems<string,StackItems>) => {
                                 return (
                                     <SwiperSlide 
                                         key={item.index}
