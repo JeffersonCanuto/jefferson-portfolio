@@ -12,16 +12,16 @@ interface MetaDataItems {
 	description: string;
 };
 
+export const metadata:MetaDataItems = {
+	title: "Porfolio - Jefferson Canuto",
+	description: "Porfolio - Jefferson Canuto",
+};
+
 const jetbrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 	variable: "--font-jetbrainsMono"
 });
-
-export const metadata:MetaDataItems = {
-	title: "Porfolio - Jefferson Canuto",
-	description: "Porfolio - Jefferson Canuto",
-};
 
 const RootLayout:React.FC<{children:ReactNode}> = ({ children }) => {
 	return (
