@@ -6,8 +6,9 @@ import CountUp from "react-countup";
 import { gitHubService, UserInfoItems } from "../services";
 
 interface StatItems {
+    index: number;
     value: number;
-    title: string;
+    text: string;
 };
 
 const Stats:React.FC = () => {
@@ -15,20 +16,24 @@ const Stats:React.FC = () => {
     const [ ghubCommitCount, setGhubCommitCount ]     = useState<number>(0);
     const [ stats, setStats ]                         = useState<StatItems[]>([
         {
+            index: 1,
             value: 0,
-            title: "Years of experience"
+            text: "Years of experience"
         },
         {
+            index: 2,
             value: 0,
-            title: "Study/Work Technologies"
+            text: "Study/Work Technologies"
         },
         {
+            index: 3,
             value: 0,
-            title: "Coding Projects (GitHub)"
+            text: "Coding Projects (GitHub)"
         },
         {
+            index: 4,
             value: 0,
-            title: "Code Commits (GitHub)"
+            text: "Code Commits (GitHub)"
         },
     ]);  
 
@@ -51,20 +56,24 @@ const Stats:React.FC = () => {
         if (ghubProjectsCount && ghubCommitCount) {
             setStats([ 
                 {
+                    index: 1,
                     value: 5,
-                    title: "Years of experience"
+                    text: "Years of Experience"
                 },
                 {
+                    index: 2,
                     value: 15,
-                    title: "Coding Technologies"
+                    text: "Coding Technologies"
                 },
                 {
+                    index: 3,
                     value: ghubProjectsCount,
-                    title: "Coding Projects (GitHub)"
+                    text: "Coding Projects (GitHub)"
                 },
                 {
+                    index: 4,
                     value: ghubCommitCount,
-                    title: "Code Commits (GitHub)"
+                    text: "Code Commits (GitHub)"
                 }
             ]);
         }
@@ -74,16 +83,19 @@ const Stats:React.FC = () => {
         <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
             <div className="container max-auto">
                 <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
-                    {stats.map((stat:StatItems) => {
+                    {stats.map((stat:StatItems, index:number) => {
                         return (
-                            <div className="flex-1 flex gap-4 items-center justify-center xl:justify-start cursor-default" key={stat.title}>
+                            <div className="flex-1 flex gap-3 items-center justify-center xl:justify-start cursor-default" key={stat.index}>
                                 <CountUp 
                                     end={stat.value} 
                                     duration={5} 
                                     delay={2}
                                     className="text-4xl xl:text-6xl font-extrabold"
                                 />
-                                <p className={`${stat.title.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug text-white/80`}>{stat.title}</p>
+                                {index === 0 && (
+                                    <p className="relative right-2 text-4xl font-bold">+</p>
+                                )}
+                                <p className={`${stat.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug text-red/80`}>{stat.text}</p>                                
                             </div>
                         )
                     })}
