@@ -34,16 +34,16 @@ const education:EducationItems<string>[] = [
     {
         index: 1,
         label: "01",
-        course: "Baccalaureate in Science and Technology",
-        university: "Federal University of Rio Grande do Norte",
+        course: "Science and Technology (BSc)",
+        university: "Universidade Federal do Rio Grande do Norte",
         start: "January/2013",
         end: "July/2017"
     },
     {
         index: 2,
         label: "02",
-        course: "Baccalaureate in Telecommunications Engineering",
-        university: "Federal University of Rio Grande do Norte",
+        course: "Telecommunications Engineering (BEng)",
+        university: "Universidade Federal do Rio Grande do Norte",
         start: "July/2017",
         end: "Unfinished"
     }
@@ -144,7 +144,7 @@ const Education:React.FC = () => {
                                     </div>
                                 </div>
                                 {/* Course */}
-                                <h2 className="text-[30px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{ed.course}</h2>
+                                <h2 className="mt-3 text-[26px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{ed.course}</h2>
                                 {/* University */}
                                 <p className="font-bold text-white group-hover:text-accent transition-all duration-500">{ed.university}</p>
                                 {/* Start and End dates */}
