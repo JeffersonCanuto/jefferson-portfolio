@@ -1,10 +1,12 @@
+import React from "react";
+
 import Link from 'next/link';
 
 import { Button } from './ui/button';
 import Nav from './Nav';
 import MobileNav from './MobileNav';
 
-function Header() {
+const Header:React.FC = () => {
     return (
         <header className="py-8 xl:py-12 text-white">
             <div className="container mx-auto flex justify-between items-center">

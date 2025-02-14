@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
+import React from "react";
 
-const stairAnimation = {
+import { motion, Variants } from "framer-motion";
+
+const stairAnimation:Variants = {
     initial: {
         top: "0%"
     },
@@ -13,13 +15,13 @@ const stairAnimation = {
 };
 
 // Calculate the reverse index for staggered delay
-const reverseIndex = index => {
+const reverseIndex = (index:number):number => {
     const totalSteps = 6;
 
     return totalSteps - index - 1;
-}
+};
 
-function Stairs() {
+const Stairs:React.FC = () => {
     return (
         <>
             {/* 
@@ -30,7 +32,7 @@ function Stairs() {
                 creating a staggered effect with decreasing delay for each subsequent step.
             */}
             {
-                [...Array(6)].map((_, index) => {
+                [...Array(6)].map((_:undefined, index:number) => {
                     return (
                         <motion.div 
                             key={index}

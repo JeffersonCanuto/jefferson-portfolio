@@ -1,3 +1,5 @@
+import React from "react";
+
 import { FiDownload } from "react-icons/fi";
 import { IoOpenOutline } from "react-icons/io5";
 
@@ -6,7 +8,7 @@ import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 
-function Home() {
+const Home:React.FC = () => {
 	return (
 		<section className="h-full">
 			<div className="container mx-auto h-full">
