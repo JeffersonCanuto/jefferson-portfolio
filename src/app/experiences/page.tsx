@@ -1,21 +1,28 @@
 "use client";
 
+import React from "react";
+
 import { motion } from "framer-motion";
 
 import { SiHyperskill } from "react-icons/si";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger
-} from "@/components/ui/tooltip";
-import { ScrollArea } from "@/components/ui/scroll-area";
-
 import { IoOpenOutline } from "react-icons/io5";
+
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 import Link from "next/link";
 
-const experience = {
+type ExperienceItems = {
+    index: number;
+    description: string;
+    company: string;
+    website: string;
+    position: string;
+    duration: string;
+    attributions: { index: number; title: string }[];
+};
+
+const experience:{items: ExperienceItems[]} = {
     items: [
         {
             index: 1,
@@ -98,7 +105,7 @@ const experience = {
     ]
 };
 
-function Experiences() {
+const Experiences:React.FC = () => {
     return (
         <motion.div 
             initial={{ opacity: 0 }} 
@@ -110,7 +117,7 @@ function Experiences() {
             <div className="container mx-auto">
                 <ScrollArea className="h-[80vh] pr-5">
                     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                        {experience.items.map(item => {
+                        {experience.items.map((item:ExperienceItems) => {
                             return (
                                 <div className="grid gap-10 cursor-default" key={item.index}>
                                     <span className="text-[15px] text-justify">{item.description}</span>
@@ -138,7 +145,7 @@ function Experiences() {
                                         </div>
                                     </li>
                                     <div className="grid grid-cols-1 gap-4">
-                                        {item.attributions.map(attribution => {
+                                        {item.attributions.map((attribution:{index:number; title:string}) => {
                                             return (
                                                 <p 
                                                     key={attribution.index} 
