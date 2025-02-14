@@ -12,17 +12,17 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 import Link from "next/link";
 
-type ExperienceItems = {
+type ExperienceItems<T> = {
     index: number;
-    description: string;
-    company: string;
-    website: string;
-    position: string;
-    duration: string;
-    attributions: { index: number; title: string }[];
+    description: T;
+    company: T;
+    website: T;
+    position: T;
+    duration: T;
+    attributions: { index: number; title: T }[];
 };
 
-const experience:{items: ExperienceItems[]} = {
+const experience:{items: ExperienceItems<string>[]} = {
     items: [
         {
             index: 1,
@@ -117,7 +117,7 @@ const Experiences:React.FC = () => {
             <div className="container mx-auto">
                 <ScrollArea className="h-[80vh] pr-5">
                     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                        {experience.items.map((item:ExperienceItems) => {
+                        {experience.items.map((item:ExperienceItems<string>) => {
                             return (
                                 <div className="grid gap-10 cursor-default" key={item.index}>
                                     <span className="text-[15px] text-justify">{item.description}</span>
