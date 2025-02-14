@@ -63,36 +63,48 @@ const gitHubService = ():GitHubServiceItems => {
             return [];
         }
     }
-    
+
     const getGitHubCommitInfo = async():Promise<number[] | []> => {
-        const repos = await getGitHubRepoInfo();
+        try {
+            const repos = await getGitHubRepoInfo();
         
-        return await Promise.all(repos.map(async(repo:string) => {
-            let 
-                allCommits:any[] = [],
-                page:number = 1,
-                hasMore:boolean = true;
+            return await Promise.all(repos.map(async(repo:string):Promise<number> => {
+                try {
+                    let
+                    allCommits:any[] = [],
+                    page:number = 1,
+                    hasMoreCommits:boolean = true;
+
+                    while(hasMoreCommits) {
+                        const response = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?per_page=100&page=${page}`, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `token ${token}`
+                            }
+                        });
     
-            while(hasMore) {
-                const response = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?per_page=100&page=${page}`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `token ${token}`
+                        if (!response.ok) throw new Error(`Error while fetching commits for repo ${repo}`);
+    
+                        const commits = await response.json();
+                        allCommits = allCommits.concat(commits);
+                        
+                        hasMoreCommits = commits.length === 100;
+                        page++;
                     }
-                });
 
-                if (!response.ok) throw new Error(`Error while fetching commits for repo ${repo}`);
+                    return allCommits.length;
+                } catch(error:any) {
+                    console.error(`${error.message}`);
 
-                const commits = await response.json();
-                allCommits = allCommits.concat(commits);
+                    return [];
+                }
+            }));
+        } catch(error:any) {
+            console.error(`${error.message}`);
 
-                hasMore = commits.length === 100;
-                page++;
-            }
-
-            return allCommits.length;
-        }));
+            return [];
+        }
     }
 
     return { getGitHubUserInfo, getGitHubCommitInfo };
