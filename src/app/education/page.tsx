@@ -2,6 +2,8 @@
 
 import React from "react";
 
+import { motion } from "framer-motion";
+
 import { FaGraduationCap } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
 import { LiaGraduationCapSolid } from "react-icons/lia";
@@ -9,7 +11,6 @@ import { LiaGraduationCapSolid } from "react-icons/lia";
 import { Button } from "@/components/ui/button";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 type EducationItems<T> = {
     index: number;
