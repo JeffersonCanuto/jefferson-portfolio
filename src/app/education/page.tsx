@@ -1,5 +1,7 @@
 "use client";
 
+import React from "react";
+
 import { FaGraduationCap } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
 import { LiaGraduationCapSolid } from "react-icons/lia";
@@ -9,24 +11,45 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const education = [
+type EducationItems<T> = {
+    index: number;
+    label: T;
+    course: T;
+    university: T;
+    start: T;
+    end: T;
+};
+
+type CertificationItems<T> = {
+    index: number;
+    title: T;
+    school: T;
+    icon: T;
+    issuance: T;
+    credential: T;
+    competences: {index: number; name: T}[];
+};
+
+const education:EducationItems<string>[] = [
     {
-        index: "01",
+        index: 1,
+        label: "01",
         course: "Baccalaureate in Science and Technology",
         university: "Federal University of Rio Grande do Norte",
         start: "January/2013",
         end: "July/2017"
     },
     {
-        index: "02",
+        index: 2,
+        label: "02",
         course: "Baccalaureate in Telecommunications Engineering",
         university: "Federal University of Rio Grande do Norte",
         start: "July/2017",
         end: "Unfinished"
     }
-]
+];
 
-const certifications = [
+const certifications:CertificationItems<string>[] = [
     {
         index: 1, 
         title: "EF SET 72/100 (C2 Proficient)",
@@ -95,7 +118,7 @@ const certifications = [
     }
 ];
 
-function Education() {
+const Education:React.FC = () => {
     return (
         <section className="min-h-[80vh] flex flex-col justify-start py-12 xl:py-0">
             <div className="container mx-auto">
@@ -111,11 +134,11 @@ function Education() {
                     }}
                     className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
                 >
-                    {education.map(ed => (
+                    {education.map((ed:EducationItems<string>) => (
                             <div className="flex flex-1 flex-col justify-center gap-6 group cursor-default" key={ed.index}>
                                 {/* Top */} 
                                 <div className="w-full flex justify-between items-center">
-                                    <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">{ed.index}</div>
+                                    <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">{ed.label}</div>
                                     <div className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center">
                                         <FaGraduationCap className="text-primary text-3xl "/>
                                     </div>
@@ -155,7 +178,7 @@ function Education() {
                     }}
                     className="grid grid-cols-1 md:grid-cols-3 gap-[60px]"
                 >
-                    {certifications.map(certification => {
+                    {certifications.map((certification:CertificationItems<string>) => {
                         return (
                             <div key={certification.index} className="flex flex-row justify-between mt-12 pb-4 border-b border-b-gray-600">
                                 <div className="grid grid-cols-1 gap-2 cursor-default">
@@ -165,7 +188,7 @@ function Education() {
                                     <div className="text-[13px] md:text-[15px] flex flex-row">
                                         <span className="mr-2">Skills:</span>
                                         <div className="flex justify-between items-end">
-                                            {certification.competences.map(competence => {
+                                            {certification.competences.map((competence:{index: number; name: string}) => {
                                                 return (
                                                     <span key={competence.index}>
                                                         {
