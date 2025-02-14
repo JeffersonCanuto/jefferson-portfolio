@@ -3,12 +3,17 @@
 import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 
-import { gitHubService } from "../services";
+import { gitHubService, UserInfoItems } from "../services";
 
-function Stats() {
-    const [ ghubProjectsCount, setGhubProjectsCount ] = useState(0);
-    const [ ghubCommitCount, setGhubCommitCount ]     = useState(0);
-    const [ stats, setStats ]                         = useState([
+interface StatItems {
+    value: number;
+    title: string;
+};
+
+const Stats:React.FC = () => {
+    const [ ghubProjectsCount, setGhubProjectsCount ] = useState<number>(0);
+    const [ ghubCommitCount, setGhubCommitCount ]     = useState<number>(0);
+    const [ stats, setStats ]                         = useState<StatItems[]>([
         {
             value: 0,
             title: "Years of experience"
@@ -31,11 +36,9 @@ function Stats() {
         (async function fetchData() {
             {/* Fetch projects count (Public and Private repositories) */}
             const userInfo = await (gitHubService().getGitHubUserInfo());
-            const 
-                publicReposCount = parseInt(userInfo.public_repos),
-                privateReposCount = parseInt(userInfo.total_private_repos);
-            
-            setGhubProjectsCount(publicReposCount + privateReposCount);
+            const { publicRepos, privateRepos } = userInfo as UserInfoItems;
+
+            setGhubProjectsCount(publicRepos + privateRepos);
             
             {/* Fetch commits count (Public and Private repositories) */}
             const commits = await (gitHubService().getGitHubCommitInfo());
@@ -71,7 +74,7 @@ function Stats() {
         <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
             <div className="container max-auto">
                 <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
-                    {stats.map(stat => {
+                    {stats.map((stat:StatItems) => {
                         return (
                             <div className="flex-1 flex gap-4 items-center justify-center xl:justify-start cursor-default" key={stat.title}>
                                 <CountUp 

@@ -1,8 +1,22 @@
 "use client";
 
+import React from "react";
+
 import { motion } from "framer-motion";
 
-const about = {
+type InfoItems<T> = {
+    index: number
+    name: T;
+    value: T;
+};
+
+type AboutItems<T> = {
+    description: T;
+    avatar: T;
+    infos: InfoItems<T>[];
+};
+
+const about:AboutItems<string> = {
     description: "I am a tech enthusiast who seeks to delve deeper into the tech world, as I keep strengthening myself on a daily basis in terms of both \
     professional and personal capacities. I am currently looking for a job opportunity that allows me to keep working as a Frontend/Fullstack Software Engineer \
     in new, large, challenging, impactful and innovative projects. Furthermore, I cherish working with engaged, focused, plural and cohesive colleagues, always aiming at \
@@ -55,7 +69,7 @@ const about = {
     ]
 };
 
-function About() {
+const About = () => {
     return (
         <motion.div
             initial = {{ opacity: 0 }}
@@ -72,7 +86,7 @@ function About() {
                             <img src={`${about.avatar}`} width="320" alt="avatar" />
                         </figure>
                         <ul className="grid grid-cols-1 text-[15px] xl:grid-cols-2 gap-y-6 max-w-[900px] max-auto xl:mx-0">
-                            {about.infos.map(item => {
+                            {about.infos.map((item:InfoItems<string>) => {
                                 return (
                                     <li key={item.index} className="flex items-center justify-center xl:justify-start gap-4">
                                         <span className="text-white/60">{item.name}:</span>

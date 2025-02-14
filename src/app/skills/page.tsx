@@ -1,7 +1,8 @@
 "use client";
 
-import { FaJs, FaHtml5, FaCss3, FaReact, FaNodeJs } from "react-icons/fa";
+import React, { ReactNode } from "react";
 
+import { FaJs, FaHtml5, FaCss3, FaReact, FaNodeJs } from "react-icons/fa";
 import { 
     SiExpress,
     SiTailwindcss,
@@ -25,7 +26,19 @@ import {
 
 import { motion } from "framer-motion";
 
-const competences = {
+type Competence = {
+    index: number;
+    icon: ReactNode;
+    name: string;
+};
+
+type CompetenceItems<T> = {
+    description: string;
+    skills: T[];
+    others: string;
+};
+
+const competences:CompetenceItems<Competence> = {
     description: "I have been working as a Frontend/Fullstack Engineer over the past 5 years using technologies such as JavaScript, TypeScript, HTML5, CSS3, React, \
     Python, Django REST, PostgreSQL, Docker, Git and Linux. Since the last year, I have been investing quite a while in learning new technologies, such as Tailwind CSS, \
     Next.js and Node.js, so that I can add them to my background.",
@@ -109,7 +122,7 @@ const competences = {
     others: "OOP/SOLID Principles | Unit testing (Jest/RTL) | Agile (Scrum/Kanban) | Technical Leadership | Code Review | English (C1)"
 };
 
-function Skills() {
+const Skills:React.FC = () => {
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -124,7 +137,7 @@ function Skills() {
                         <p className="w-full text-justify mx-auto xl:mx-0 cursor-default">{competences.description}</p>
                     </div>
                     <ul className="grid grid-cols-3 md:grid-cols-5 gap-4 xl:gap-[30px]">
-                        {competences.skills.map(item => {
+                        {competences.skills.map((item:Competence) => {
                             return (
                                 <li key={item.index}>
                                     <TooltipProvider delayDuration={100}>

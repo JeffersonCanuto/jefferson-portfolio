@@ -1,9 +1,17 @@
 "use client";
 
+import React from "react";
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const links = [
+interface LinkItems {
+    index: number;
+    name: string;
+    path: string;
+};
+
+const links:LinkItems[] = [
     {
         index: 1,
         name: "Home",
@@ -36,12 +44,12 @@ const links = [
     }
 ];
 
-function Nav() {
-    const pathname = usePathname();
+const Nav:React.FC = () => {
+    const pathname:string = usePathname();
 
     return (
         <nav className="flex gap-8">
-            {links.map(link=> {
+            {links.map((link:LinkItems) => {
                 return (
                     <Link 
                         href={link.path}
