@@ -1,9 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+
+import { motion } from "framer-motion";
+
 import CountUp from "react-countup";
 
 import { gitHubService, UserInfoItems } from "../services";
+
+import Link from "next/link";
 
 interface StatItems {
     index: number;
@@ -85,17 +90,32 @@ const Stats:React.FC = () => {
                 <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
                     {stats.map((stat:StatItems, index:number) => {
                         return (
-                            <div className="flex-1 flex gap-3 items-center justify-center xl:justify-start cursor-default" key={stat.index}>
-                                <CountUp 
-                                    end={stat.value} 
-                                    duration={5} 
-                                    delay={2}
-                                    className="text-4xl xl:text-6xl font-extrabold"
-                                />
-                                {index === 0 && (
-                                    <p className="relative right-2 text-4xl font-bold">+</p>
-                                )}
-                                <p className={`${stat.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug text-red/80`}>{stat.text}</p>                                
+                            <div className="flex-1 flex gap-4 items-center justify-center xl:justify-start cursor-default" key={stat.index}>
+                                <div className="group">
+                                    <Link
+                                        href={ index === 0 ? "/experiences" : index === 1 ? "/skills" : index === 2 ? "https://github.com/JeffersonCanuto?tab=repositories" : index === 3 ? "https://github.com/JeffersonCanuto" : "" }
+                                        target={ index === 2 || index == 3 ? "_blank" : "" }
+                                        className="group-hover:text-accent transition-all duration-500"
+                                    >
+                                        <motion.div
+                                            initial = {{ opacity: 0 }}
+                                            animate = {{
+                                                opacity: 1,
+                                                transition: { delay: 2, duration: 0.4, ease: "easeIn" }
+                                            }}
+                                            className="flex justify-between"
+                                        >
+                                            <CountUp
+                                                end={stat.value}
+                                                duration={5}
+                                                delay={2}
+                                                className="text-4xl xl:text-6xl font-extrabold"
+                                            />
+                                            { index === 0 && <p className="relative left-1 text-2xl top-1 xl:text-4xl xl:top-2 font-bold">+</p> }
+                                            <p className={`${stat.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug text-white/80 relative left-5 xl:top-2 xl:left-6 group-hover:text-accent transition-all duration-500`}>{stat.text}</p>
+                                        </motion.div>
+                                    </Link>
+                                </div>                   
                             </div>
                         )
                     })}
