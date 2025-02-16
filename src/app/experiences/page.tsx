@@ -109,12 +109,12 @@ const Experiences:React.FC = () => {
     return (
         <motion.div 
             initial={{ opacity: 0 }} 
-            animate={{ 
+            animate={{
                 opacity: 1, 
                 transition: { delay: 2.4,  duration: 0.4, ease: "easeIn" }
             }}
         >
-            <div className="container mx-auto">
+            <div className="mt-[-30] container mx-auto">
                 <ScrollArea className="h-[80vh] pr-5">
                     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                         {experience.items.map((item:ExperienceItems<string>) => {
