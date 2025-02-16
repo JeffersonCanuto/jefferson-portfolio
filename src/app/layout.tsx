@@ -4,8 +4,9 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Header";
-import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
+import PageTransition from "@/components/PageTransition";
+import Copyright from "@/components/Copyright";
 
 interface MetaDataItems {
 	title: string;
@@ -30,6 +31,7 @@ const RootLayout:React.FC<{children:ReactNode}> = ({ children }) => {
 				<Header />
 				<StairTransition />
 				<PageTransition>{children}</PageTransition>
+				<Copyright />
       		</body>
     	</html>
   );

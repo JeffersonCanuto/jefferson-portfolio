@@ -10,8 +10,8 @@ import Stats from "@/components/Stats";
 
 const Home:React.FC = () => {
 	return (
-		<section className="h-full">
-			<div className="container mx-auto h-full">
+		<div className="h-full">
+			<main className="container mx-auto h-full">
 				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
 					{/* Text */}
 					<div className="text-center xl:text-left order-2 xl:order-none">
@@ -52,10 +52,9 @@ const Home:React.FC = () => {
 						<Photo />
 					</div>
 				</div>
-			</div>
-			{/* Stats */}
+			</main>
 			<Stats />
-		</section>
+		</div>
 	);
 }
 
