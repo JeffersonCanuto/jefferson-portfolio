@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-
 import { motion } from "framer-motion";
 
 import { SiHyperskill } from "react-icons/si";
@@ -111,7 +110,7 @@ const Experiences:React.FC = () => {
             initial={{ opacity: 0 }} 
             animate={{
                 opacity: 1, 
-                transition: { delay: 2.4,  duration: 0.4, ease: "easeIn" }
+                transition: { delay: 2,  duration: 0.4, ease: "easeIn" }
             }}
         >
             <div className="mt-[-30] container mx-auto">
