@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-
 import { motion } from "framer-motion";
 
 import { FaGraduationCap } from "react-icons/fa6";
@@ -121,19 +120,27 @@ const certifications:CertificationItems<string>[] = [
 
 const Education:React.FC = () => {
     return (
-        <section className="min-h-[80vh] flex flex-col justify-start py-12 xl:py-0">
+        <section className="mt-[-22] min-h-[80vh] flex flex-col justify-start py-12 xl:py-0">
             <div className="container mx-auto">
-                <h3 className="w-full h-[70px] flex justify-center text-2xl text-accent">
-                    <span className="mx-3">DEGREES</span>
-                    <LiaGraduationCapSolid className="text-3xl"/>
-                </h3>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                        opacity: 1,
+                        transition: { delay: 2, duration: 0.4, ease: "easeIn"}
+                    }}
+                >
+                    <h3 className="w-full h-[70px] flex justify-center text-accent">
+                        <span className="mx-3 text-[21px]">DEGREES</span>
+                        <LiaGraduationCapSolid className="mt-2 text-2xl"/>
+                    </h3>
+                </motion.div>
                 <motion.div 
                     initial={{ opacity: 0}} 
                     animate={{
                         opacity: 1, 
-                        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
+                        transition: { delay: 2, duration: 0.4, ease: "easeIn" }
                     }}
-                    className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
+                    className="mt-[-3] grid grid-cols-1 md:grid-cols-2 gap-[60px]"
                 >
                     {education.map((ed:EducationItems<string>) => (
                             <div className="flex flex-1 flex-col justify-center gap-6 group cursor-default" key={ed.index}>
@@ -161,23 +168,31 @@ const Education:React.FC = () => {
                 </motion.div>
             </div>
             <br />
-            <div className="container mx-auto">
-                <h3 className="w-full flex justify-center text-2xl text-accent mt-4">
-                    <span className="mx-3">CERTIFICATES</span>
-                    <img
-                        width="20"
-                        height="40"
-                        src="/assets/others/badge.svg" 
-                        alt="certificate-badge" 
-                    />
-                </h3>
+            <div className="mt-[-10] container mx-auto">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                        opacity: 1,
+                        transition: { delay: 2, duration: 0.4, ease: "easeIn"}
+                    }}
+                >
+                    <h3 className="w-full flex justify-center text-accent mt-4">
+                        <span className="mx-3 text-[21px]">CERTIFICATES</span>
+                        <img
+                            width="15"
+                            height="35"
+                            src="/assets/others/badge.svg" 
+                            alt="certificate-badge" 
+                        />
+                    </h3>
+                </motion.div>
                 <motion.div 
                     initial={{ opacity: 0}}
                     animate={{
                         opacity: 1,
-                        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
+                        transition: { delay: 2, duration: 0.4, ease: "easeIn" }
                     }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-[60px]"
+                    className="mt-[-20] grid grid-cols-1 md:grid-cols-3 gap-[60px]"
                 >
                     {certifications.map((certification:CertificationItems<string>) => {
                         return (
