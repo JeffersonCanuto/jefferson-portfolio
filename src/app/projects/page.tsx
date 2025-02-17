@@ -152,7 +152,7 @@ const Projects:React.FC = () => {
                                                     <BsGithub className="text-white text-xl md:text-3xl group-hover:text-accent" />
                                                 </TooltipTrigger>
                                                 <TooltipContent>
-                                                    <p>Go to GitHub</p>
+                                                    <p>GitHub</p>
                                                 </TooltipContent>
                                             </Tooltip>
                                         </TooltipProvider>

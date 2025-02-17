@@ -136,7 +136,7 @@ const Experiences:React.FC = () => {
                                                             <IoOpenOutline className="text-white text-[16px] group-hover:text-accent" />
                                                         </TooltipTrigger>
                                                         <TooltipContent>
-                                                            Go to website
+                                                            Website
                                                         </TooltipContent>
                                                     </Tooltip>
                                                 </TooltipProvider>
