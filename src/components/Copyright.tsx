@@ -10,10 +10,8 @@ const Copyright:React.FC = () => {
     return (
         <div
             className={`container mx-auto
-                ${ pathname === "/" ?
-                    "mt-[-60]"
-                : pathname === "/projects" ?
-                    "mt-[-53]"
+                ${ ["/", "/projects"].includes(pathname) ?
+                    "mt-[-55]"
                 : pathname === "/experiences" ?
                     "mt-2"
                 :

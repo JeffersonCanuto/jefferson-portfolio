@@ -13,13 +13,13 @@ import Stats from "@/components/Stats";
 
 const Home:React.FC = () => {
 	return (
-		<motion.div 
+		<motion.div
 			initial={{ opacity: 0 }}
 			animate={{
 				opacity: 1,
-				transition: { delay: 2, duration: 0.4, ease: "easeIn" }	
-			}}
-			className="relative bottom-10 h-full"
+				transition: { delay: 2, duration: 0.4, ease: "easeIn" }
+			}} 
+			className="relative bottom-5 mb-[-2] h-full"
 		>
 			<main className="container mx-auto h-full">
 				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
