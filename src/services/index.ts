@@ -1,5 +1,3 @@
-import { PiCornersOutLight } from "react-icons/pi";
-
 export interface UserInfoItems {
     publicRepos: number;
     privateRepos: number;
@@ -71,9 +69,9 @@ const gitHubService = ():GitHubServiceItems => {
             return await Promise.all(repos.map(async(repo:string):Promise<number> => {
                 try {
                     let
-                    allCommits:any[] = [],
-                    page:number = 1,
-                    hasMoreCommits:boolean = true;
+                        allCommits:any[] = [],
+                        page = 1,
+                        hasMoreCommits = true;
 
                     while(hasMoreCommits) {
                         const response = await fetch(`https://api.github.com/repos/${user}/${repo}/commits?per_page=100&page=${page}`, {

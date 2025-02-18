@@ -92,7 +92,7 @@ const Projects:React.FC = () => {
 
     const handleSlide = (swiper:SwiperType) => {
         // Get current slide index
-        const currentIndex:number = swiper.activeIndex;
+        const currentIndex = swiper.activeIndex;
         
         // Update project state based on current slide index
         setProject(projects[currentIndex]);

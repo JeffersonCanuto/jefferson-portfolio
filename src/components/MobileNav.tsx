@@ -54,7 +54,7 @@ const links:LinkItems[] = [
 ];
 
 const MobileNav:React.FC = () => {
-    const pathname:string = usePathname();
+    const pathname = usePathname();
     
     return (
         <Sheet>

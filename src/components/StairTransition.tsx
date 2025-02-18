@@ -9,7 +9,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 const StairTransition:React.FC = () => {
-    const pathname:string = usePathname();
+    const pathname = usePathname();
     
     return (
         <>

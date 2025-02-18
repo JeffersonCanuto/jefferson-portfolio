@@ -11,7 +11,7 @@ interface PageTransitionProps {
 };
 
 const PageTransition:React.FC<PageTransitionProps> = ({ children }) => {
-    const pathname:string = usePathname();
+    const pathname = usePathname();
 
     return (
         <AnimatePresence>
