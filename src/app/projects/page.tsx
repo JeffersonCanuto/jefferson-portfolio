@@ -1,23 +1,29 @@
 "use client";
 
 import React, { useState, ReactNode } from "react";
-import { motion } from "framer-motion"; 
 
-import { Swiper as SwiperType } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-
-import { SiPython, SiDjango, SiPostgresql, SiJinja, SiDocker } from "react-icons/si";
-
+import {
+    SiPython,
+    SiDjango,
+    SiPostgresql,
+    SiJinja,
+    SiDocker
+} from "react-icons/si";
 import { BsGithub } from "react-icons/bs";
+
+import { motion } from "framer-motion";
+
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger
 } from "@/components/ui/tooltip";
-
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+
+import { Swiper as SwiperType } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -86,7 +92,7 @@ const Projects:React.FC = () => {
 
     const handleSlide = (swiper:SwiperType) => {
         // Get current slide index
-        const currentIndex:number = swiper.activeIndex;
+        const currentIndex = swiper.activeIndex;
         
         // Update project state based on current slide index
         setProject(projects[currentIndex]);

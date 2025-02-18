@@ -1,12 +1,18 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 import { SiHyperskill } from "react-icons/si";
 import { IoOpenOutline } from "react-icons/io5";
 
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { motion } from "framer-motion";
+
+import { 
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger
+} from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import Link from "next/link";
@@ -113,7 +119,7 @@ const Experiences:React.FC = () => {
                 transition: { delay: 2,  duration: 0.4, ease: "easeIn" }
             }}
         >
-            <div className="mt-[-30] container mx-auto">
+            <div className="mt-[-20] container mx-auto">
                 <ScrollArea className="h-[80vh] pr-5">
                     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                         {experience.items.map((item:ExperienceItems<string>) => {

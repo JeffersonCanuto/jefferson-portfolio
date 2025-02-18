@@ -2,10 +2,17 @@
 
 import React from "react";
 
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { CiMenuFries } from 'react-icons/ci';
+
+import {
+    Sheet,
+    SheetContent,
+    SheetTitle,
+    SheetTrigger
+} from '@/components/ui/sheet';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { CiMenuFries } from 'react-icons/ci';
 
 interface LinkItems {
     index: number;
@@ -47,7 +54,7 @@ const links:LinkItems[] = [
 ];
 
 const MobileNav:React.FC = () => {
-    const pathname:string = usePathname();
+    const pathname = usePathname();
     
     return (
         <Sheet>

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+
 import { usePathname } from "next/navigation";
 
 const Copyright:React.FC = () => {
@@ -10,14 +11,22 @@ const Copyright:React.FC = () => {
     return (
         <div
             className={`container mx-auto
-                ${ ["/", "/projects"].includes(pathname) ?
-                    "mt-[-55]"
+                ${pathname === "/" ?
+                    "mt-[-25]"
+                : pathname === "/education" ?
+                    "mt-[-5]"
                 : pathname === "/experiences" ?
-                    "mt-2"
+                    "mt-1"
+                : pathname === "/skills" ? 
+                    "mt-[-2]"
+                : pathname === "/projects" ?
+                    "mt-[-15]"
+                : pathname === "/about" ?
+                    "mt-8"
                 :
-                    "mt-0"
-                }`
-            }
+                    ""
+                }
+            `}
         >
             <div className="flex justify-center items-center">
                 <div className="flex-grow border-b border-gray-600"></div>

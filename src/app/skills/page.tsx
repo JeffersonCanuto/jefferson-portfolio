@@ -2,7 +2,13 @@
 
 import React, { ReactNode } from "react";
 
-import { FaJs, FaHtml5, FaCss3, FaReact, FaNodeJs } from "react-icons/fa";
+import {
+    FaJs,
+    FaHtml5,
+    FaCss3,
+    FaReact,
+    FaNodeJs
+} from "react-icons/fa";
 import { 
     SiExpress,
     SiTailwindcss,
@@ -17,14 +23,14 @@ import {
     SiHyperskill
 } from "react-icons/si";
 
+import { motion } from "framer-motion";
+
 import { 
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger
 } from "@/components/ui/tooltip";
-
-import { motion } from "framer-motion";
 
 type Competence = {
     index: number;
@@ -131,12 +137,12 @@ const Skills:React.FC = () => {
                 transition: { delay: 2, duration: 0.4, ease: "easeIn" }
             }}
         >
-            <div className="mt-[-30] container mx-auto">
+            <div className="mt-[-10] container mx-auto">
                 <div className="flex flex-col gap-[21px]">
                     <div className="flex flex-col gap-[30px] text-center xl:text-left">
                         <p className="w-full text-justify mx-auto xl:mx-0 cursor-default">{competences.description}</p>
                     </div>
-                    <ul className="grid grid-cols-3 md:grid-cols-5 gap-4 xl:gap-[12px]">
+                    <ul className="grid grid-cols-3 md:grid-cols-5 gap-4 xl:gap-[18px]">
                         {competences.skills.map((item:Competence) => {
                             return (
                                 <li key={item.index}>

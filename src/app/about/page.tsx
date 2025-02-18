@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+
 import { motion } from "framer-motion";
 
 type InfoItems<T> = {
@@ -77,7 +78,7 @@ const About = () => {
                 transition: { delay: 2, duration: 0.4, ease: "easeIn" }
             }}
         >
-            <div className="mt-[-20] mb-4 container mx-auto">
+            <div className="mb-4 container mx-auto">
                 <div className="flex flex-col gap-[40px] cursor-default">
                     <p className="w-full text-white/60 text-justify mx-auto xl:mx-0">{about.description}</p>
                     <div className="w-full grid grid-cols-1 md:flex md:justify-start gap-10">

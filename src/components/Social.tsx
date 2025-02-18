@@ -1,15 +1,18 @@
 import React, { ReactNode } from "react";
+
 import {
     FaGithub,
     FaLinkedinIn,
     FaInstagram
 } from "react-icons/fa";
+
 import { 
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger
 } from "@/components/ui/tooltip";
+
 import Link from "next/link";
 
 interface SocialItems {

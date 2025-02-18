@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 import { FaGraduationCap } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
 import { LiaGraduationCapSolid } from "react-icons/lia";
+
+import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 
@@ -120,7 +121,7 @@ const certifications:CertificationItems<string>[] = [
 
 const Education:React.FC = () => {
     return (
-        <section className="mt-[-22] min-h-[80vh] flex flex-col justify-start py-12 xl:py-0">
+        <section className="mt-[-10] min-h-[80vh] flex flex-col justify-start py-12 xl:py-0">
             <div className="container mx-auto">
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -140,7 +141,7 @@ const Education:React.FC = () => {
                         opacity: 1, 
                         transition: { delay: 2, duration: 0.4, ease: "easeIn" }
                     }}
-                    className="mt-[-3] grid grid-cols-1 md:grid-cols-2 gap-[60px]"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
                 >
                     {education.map((ed:EducationItems<string>) => (
                             <div className="flex flex-1 flex-col justify-center gap-6 group cursor-default" key={ed.index}>
@@ -168,7 +169,7 @@ const Education:React.FC = () => {
                 </motion.div>
             </div>
             <br />
-            <div className="mt-[-10] container mx-auto">
+            <div className="container mx-auto">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{
@@ -192,7 +193,7 @@ const Education:React.FC = () => {
                         opacity: 1,
                         transition: { delay: 2, duration: 0.4, ease: "easeIn" }
                     }}
-                    className="mt-[-20] grid grid-cols-1 md:grid-cols-3 gap-[60px]"
+                    className="mt-[-8] grid grid-cols-1 md:grid-cols-3 gap-[60px]"
                 >
                     {certifications.map((certification:CertificationItems<string>) => {
                         return (
