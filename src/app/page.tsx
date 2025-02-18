@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 import { FiDownload } from "react-icons/fi";
 import { IoOpenOutline } from "react-icons/io5";
@@ -10,8 +13,15 @@ import Stats from "@/components/Stats";
 
 const Home:React.FC = () => {
 	return (
-		<section className="h-full">
-			<div className="container mx-auto h-full">
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{
+				opacity: 1,
+				transition: { delay: 2, duration: 0.4, ease: "easeIn" }
+			}} 
+			className="relative bottom-5 mb-[-2] h-full"
+		>
+			<main className="container mx-auto h-full">
 				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
 					{/* Text */}
 					<div className="text-center xl:text-left order-2 xl:order-none">
@@ -52,10 +62,9 @@ const Home:React.FC = () => {
 						<Photo />
 					</div>
 				</div>
-			</div>
-			{/* Stats */}
+			</main>
 			<Stats />
-		</section>
+		</motion.div>
 	);
 }
 

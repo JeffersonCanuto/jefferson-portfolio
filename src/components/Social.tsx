@@ -1,8 +1,16 @@
 import React, { ReactNode } from "react";
-
+import {
+    FaGithub,
+    FaLinkedinIn,
+    FaInstagram
+} from "react-icons/fa";
+import { 
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger
+} from "@/components/ui/tooltip";
 import Link from "next/link";
-
-import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 interface SocialItems {
     icon: ReactNode;
@@ -32,7 +40,7 @@ const socials:SocialItems[] = [
 const Social:React.FC<SocialProps> = ({ containerStyles, iconStyles }) => {
     return (
         <div className={containerStyles}>
-            {socials.map((social:SocialItems) => {
+            {socials.map((social:SocialItems, index:number) => {
                 return (
                     <Link
                         key={social.path}
@@ -40,7 +48,26 @@ const Social:React.FC<SocialProps> = ({ containerStyles, iconStyles }) => {
                         target="_blank"
                         className={iconStyles}
                     >
-                        {social.icon}
+                        <TooltipProvider delayDuration={100}>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    {social.icon}
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    {
+                                        index === 0 ?
+                                            "GitHub"
+                                        : index === 1 ?
+                                            "LinkedIn"
+                                        : index === 2 ?
+                                            "Instagram"
+                                        : 
+                                            ""
+                                    }
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                        
                     </Link>
                 )
             })}

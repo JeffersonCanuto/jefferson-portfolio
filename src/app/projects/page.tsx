@@ -99,7 +99,7 @@ const Projects:React.FC = () => {
                 { 
                     opacity: 1, 
                     transition: { 
-                        delay: 2.4, 
+                        delay: 2, 
                         duration: 0.4, 
                         ease: "easeIn"
                     }
@@ -152,7 +152,7 @@ const Projects:React.FC = () => {
                                                     <BsGithub className="text-white text-xl md:text-3xl group-hover:text-accent" />
                                                 </TooltipTrigger>
                                                 <TooltipContent>
-                                                    <p>Go to GitHub</p>
+                                                    <p>GitHub</p>
                                                 </TooltipContent>
                                             </Tooltip>
                                         </TooltipProvider>

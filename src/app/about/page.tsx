@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-
 import { motion } from "framer-motion";
 
 type InfoItems<T> = {
@@ -75,14 +74,14 @@ const About = () => {
             initial = {{ opacity: 0 }}
             animate = {{
                 opacity: 1,
-                transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
+                transition: { delay: 2, duration: 0.4, ease: "easeIn" }
             }}
         >
-            <div className="container mx-auto">
+            <div className="mt-[-20] mb-4 container mx-auto">
                 <div className="flex flex-col gap-[40px] cursor-default">
                     <p className="w-full text-white/60 text-justify mx-auto xl:mx-0">{about.description}</p>
                     <div className="w-full grid grid-cols-1 md:flex md:justify-start gap-10">
-                        <figure id="avatar">
+                        <figure id="avatar" className="flex justify-center">
                             <img src={`${about.avatar}`} width="320" alt="avatar" />
                         </figure>
                         <ul className="grid grid-cols-1 text-[15px] xl:grid-cols-2 gap-y-6 max-w-[900px] max-auto xl:mx-0">
