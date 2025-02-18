@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+
 import CountUp from "react-countup";
 
 import { motion } from "framer-motion";
 
-import { gitHubService, UserInfoItems } from "../services";
-
 import Link from "next/link";
+
+import { gitHubService, UserInfoItems } from "../services";
 
 interface StatItems {
     index: number;

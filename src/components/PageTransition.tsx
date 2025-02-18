@@ -1,7 +1,9 @@
 "use client";
 
 import React, { ReactNode } from "react";
+
 import { AnimatePresence, motion } from "framer-motion";
+
 import { usePathname } from "next/navigation";
 
 interface PageTransitionProps {

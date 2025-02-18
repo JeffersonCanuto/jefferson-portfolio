@@ -1,9 +1,14 @@
 "use client";
 
 import React from "react";
+
+import {
+    PiCaretLeftBold,
+    PiCaretRightBold
+} from "react-icons/pi";
+
 import { Swiper } from "swiper";
 import { useSwiper } from "swiper/react";
-import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
 
 interface WorkSlidersBtnsProps {
     containerStyles: string;
