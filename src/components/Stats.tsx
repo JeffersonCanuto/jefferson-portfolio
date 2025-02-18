@@ -84,7 +84,7 @@ const Stats:React.FC = () => {
     }, [ghubProjectsCount, ghubCommitCount]);
 
     return (
-        <section className="relative bottom-12 pt-12 mb-[-15] xl:pt-0">
+        <section className="relative bottom-8 pt-12 mb-[-15] xl:pt-0">
             <div className="container max-auto">
                 <div className="grid grid-cols-2 xl:flex xl:flex-wrap gap-10 max-w-[80vw] mx-auto xl:max-w-none">
                     {stats.map((stat:StatItems, index:number) => {

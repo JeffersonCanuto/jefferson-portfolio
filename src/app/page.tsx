@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 import { FiDownload } from "react-icons/fi";
 import { IoOpenOutline } from "react-icons/io5";
+
+import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import Social from "@/components/Social";
@@ -19,7 +20,7 @@ const Home:React.FC = () => {
 				opacity: 1,
 				transition: { delay: 2, duration: 0.4, ease: "easeIn" }
 			}} 
-			className="relative bottom-5 mb-[-2] h-full"
+			className="h-full"
 		>
 			<main className="container mx-auto h-full">
 				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
