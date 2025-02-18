@@ -27,6 +27,7 @@ const Photo:React.FC = () => {
                         priority
                         quality={100}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 33vw"
                         alt="profile-image"
                         className="object-contain ml-11 mt-11 xl:ml-10 xl:mt-10"
                     />
