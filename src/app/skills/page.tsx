@@ -137,7 +137,7 @@ const Skills:React.FC = () => {
                 transition: { delay: 2, duration: 0.4, ease: "easeIn" }
             }}
         >
-            <div className="mt-[-10] container mx-auto">
+            <div className="-mt-3 container mx-auto">
                 <div className="flex flex-col gap-[21px]">
                     <div className="flex flex-col gap-[30px] text-center xl:text-left">
                         <p className="w-full text-justify mx-auto xl:mx-0 cursor-default">{competences.description}</p>

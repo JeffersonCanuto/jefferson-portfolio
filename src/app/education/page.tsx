@@ -121,7 +121,7 @@ const certifications:CertificationItems<string>[] = [
 
 const Education:React.FC = () => {
     return (
-        <section className="mt-[-10] min-h-[80vh] flex flex-col justify-start py-12 xl:py-0">
+        <section className="-mt-2 min-h-[80vh] flex flex-col justify-start py-12 xl:py-0">
             <div className="container mx-auto">
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -193,7 +193,7 @@ const Education:React.FC = () => {
                         opacity: 1,
                         transition: { delay: 2, duration: 0.4, ease: "easeIn" }
                     }}
-                    className="mt-[-8] grid grid-cols-1 md:grid-cols-3 gap-[60px]"
+                    className="-mt-2 grid grid-cols-1 md:grid-cols-3 gap-[60px]"
                 >
                     {certifications.map((certification:CertificationItems<string>) => {
                         return (
