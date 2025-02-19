@@ -32,13 +32,13 @@ const experience:{items: ExperienceItems<string>[]} = {
         {
             index: 1,
             description: "In 2019, I started my career as a Software Engineer working as a Fullstack Developer for LOGICA SISTEMAS DE INFORMACAO EIRELI, which is a small-sized \
-            company that provides services for the Telecom industry. As my main attributions, I was in charge of designing, building and maintaining entire modules (Frontend \
-            and Backend) of their main business product, a SaaS solution called Logica Flow. Broadly speaking, I was responsible for maintaining existing APIs designed to \
-            collect internet data traffic (IPv4/IPv6 and CDN/Non-CDN) coming from different Internet Service Providers (ISPs), process them in the Backend and display them in \
-            the Frontend by building multiple Dashboards - containing multiple Charts, Graphs and Tables. Furthermore, I was responsible for designing, building and maintaining \
-            microservices to perform periodical data transfer between storage units and VACUUM in some db tables. At last, I was in charge of designing, building and maintaining \
-            a full feature that was meant to generate custom PDF report documents periodically for each client (ISP) based upon their own data traffic, enabling efficient and \
-            precise data monitoring, analysis and visualization in a real-time basis.",
+                company that provides services for the Telecom industry. As my main attributions, I was in charge of designing, building and maintaining entire modules \
+                (Frontend and Backend) of their main business product, a SaaS solution called Logica Flow. Broadly speaking, I was responsible for maintaining existing \
+                APIs designed to collect internet data traffic (IPv4/IPv6 and CDN/Non-CDN) coming from different Internet Service Providers (ISPs), process them in the \
+                Backend and display them in the Frontend by building multiple Dashboards - containing multiple Charts, Graphs and Tables. Furthermore, I was responsible \
+                for designing, building and maintaining microservices to perform periodical data transfer between storage units and VACUUM in some db tables. At last, I \
+                was in charge of designing, building and maintaining a full feature that was meant to generate custom PDF report documents periodically for each client \
+                (ISP) based upon their own data traffic, enabling efficient and precise data monitoring, analysis and visualization in a real-time basis.",
             company: "LOGICA SISTEMAS DE INFORMAÇÃO EIRELI",
             website: "https://novaintranet.logicasistemas.com.br/",
             position: "Frontend Developer (Web)",
@@ -73,13 +73,13 @@ const experience:{items: ExperienceItems<string>[]} = {
         {
             index: 2,
             description: "In 2021, I joined SIDIA (Samsung Electronics' R&D center in Latin America) as a Frontend Software Engineer, working with both Web and Android. As my \
-            main attribution, I was the Principal Frontend Engineer and Technical Leader for the Automation Team, responsible for designing, building and maintaining internal \
-            software tools (TRO.IA, PLMN and PLM Reporter). Furthermore, I was responsible for conducting bugfixes for Samsung Android Native apps (Dialer, InCallUI, Contacts, \
-            Messages, etc) and managing and implementing LATAM telephony operator requirements. In 2024, I started working as the Project Leader for the delivery of STIR/Shaken \
-            and RCD solutions in Brazil from Samsung side. For this major project, I worked alongside representatives of other leading manufacturers (Google, Apple, Motorola, \
-            Positivo, etc), Brazilian telephony operators (TIM, Claro and Vivo) and client (ANATEL), to discuss all technical features and challenges. On the other hand, I was \
-            also in charge of intermediating the discussions between client (Brazil) and Samsung part (UX and Dev teams and Product Owners in HQ), assist with the trials after \
-            each deliverable iteration and analyze Android logs and debug the code whenever needed.",
+                main attribution, I was the Principal Frontend Engineer and Technical Leader for the Automation Team, responsible for designing, building and maintaining \
+                internal software tools (TRO.IA, PLMN and PLM Reporter). Furthermore, I was responsible for conducting bugfixes for Samsung Android Native apps (Dialer, \
+                InCallUI, Contacts, Messages, etc) and managing and implementing LATAM telephony operator requirements. In 2024, I started working as the Project Leader \
+                for the delivery of STIR/Shaken and RCD solutions in Brazil from Samsung side. For this major project, I worked alongside representatives of other leading \
+                manufacturers (Google, Apple, Motorola, Positivo, etc), Brazilian telephony operators (TIM, Claro and Vivo) and client (ANATEL), to discuss all technical \
+                features and challenges. On the other hand, I was also in charge of intermediating the discussions between client (Brazil) and Samsung part (UX and Dev teams \
+                and Product Owners in HQ), assist with the trials after each deliverable iteration and analyze Android logs and debug the code whenever needed.",
             company: "SIDIA INSTITUTO DE CIENCIA E TECNOLOGIA",
             website: "https://sidia.com/",
             position: "Frontend Engineer (Web/Android)",
@@ -91,8 +91,8 @@ const experience:{items: ExperienceItems<string>[]} = {
                 },
                 {
                     index: 2,
-                    title: "Frontend Engineer responsible for designing PLM Reporter tool from scratch and implementing client main pages and features \
-                    (Login page with JWT Auth, Dashboards page with multiple Graphs, Charts and Tables, Statistics page, Load .xml files, User profile, etc)."
+                    title: "Frontend Engineer responsible for designing PLM Reporter tool from scratch and implementing client main pages and features (Login page with \
+                        JWT Auth, Dashboards page with multiple Graphs, Charts and Tables, Statistics page, Load .xml files, User profile, etc)."
                 },
                 {
                     index: 3,
@@ -104,7 +104,8 @@ const experience:{items: ExperienceItems<string>[]} = {
                 },
                 {
                     index: 5,
-                    title: "Skills: JavaScript | TypeScript | HTML5 | CSS3 | React | Chart.js | Redux/ContextAPI | Material UI | Python | Django REST | PostgreSQL | Android (Java) | QuickBuild | Docker | Git | P4V | Swarm | Linux | Agile (Scrum/Kanban)"
+                    title: "Skills: JavaScript | TypeScript | HTML5 | CSS3 | React | Chart.js | Redux/ContextAPI | Material UI | Python | Django REST | PostgreSQL | \
+                        Android (Java) | QuickBuild | Docker | Git | P4V | Swarm | Linux | Agile (Scrum/Kanban)"
                 }
             ]
         }
@@ -130,7 +131,7 @@ const Experiences:React.FC = () => {
                                     <li className={`${item.index === 1 && "-mt-5"} bg-[#232329] h-[220px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1`}>
                                         <h3 className="text-accent text-xl max-w-[400px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
                                         <p className="text-[14px] min-w-[60px] min-h-[60px] text-center lg:text-left">{item.company}</p>
-                                        <div className="w-full flex justify-between">
+                                        <div className="w-full flex sm:justify-center sm:gap-6 xl:justify-between">
                                             <div className="flex items-center gap-3">
                                                 {/* Dot */}
                                                 <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
