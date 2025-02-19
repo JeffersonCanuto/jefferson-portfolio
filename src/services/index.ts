@@ -97,7 +97,7 @@ const gitHubService = ():GitHubServiceItems => {
                 } catch(error:any) {
                     console.error(`${error.message}`);
 
-                    return [];
+                    return 0;
                 }
             }));
         } catch(error:any) {
