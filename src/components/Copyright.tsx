@@ -12,17 +12,17 @@ const Copyright:React.FC = () => {
         <div
             className={`container mx-auto
                 ${pathname === "/" ?
-                    "-mt-6"
+                    "-mt-9"
                 : pathname === "/education" ?
                     "-mt-2"
                 : pathname === "/experiences" ?
                     "mt-2"
                 : pathname === "/skills" ? 
-                    "mt-0"
+                    "-mt-3"
                 : pathname === "/projects" ?
-                    "-mt-5"
+                    "-mt-8"
                 : pathname === "/about" ?
-                    "mt-7"
+                    "mt-4"
                 :
                     ""
                 }
