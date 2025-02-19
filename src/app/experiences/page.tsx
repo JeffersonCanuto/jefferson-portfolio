@@ -112,14 +112,14 @@ const experience:{items: ExperienceItems<string>[]} = {
 
 const Experiences:React.FC = () => {
     return (
-        <motion.div 
+        <motion.div
             initial={{ opacity: 0 }} 
             animate={{
                 opacity: 1, 
                 transition: { delay: 2,  duration: 0.4, ease: "easeIn" }
             }}
         >
-            <div className="mt-[-20] container mx-auto">
+            <div className="-mt-6 container mx-auto">
                 <ScrollArea className="h-[80vh] pr-5">
                     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                         {experience.items.map((item:ExperienceItems<string>) => {
