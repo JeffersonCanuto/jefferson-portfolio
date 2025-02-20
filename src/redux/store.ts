@@ -23,7 +23,7 @@ const persistConfig:PersistConfig<ReturnType<typeof rootReducer>> = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Create redux store
-const store = configureStore({
+export const store = configureStore({
     reducer: persistedReducer,
     middleware: getDefaultMiddleware => 
         getDefaultMiddleware({

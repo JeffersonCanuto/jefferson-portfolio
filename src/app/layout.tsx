@@ -1,5 +1,9 @@
 import React, { ReactNode } from "react";
 
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "../redux/store";
+
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -27,12 +31,16 @@ const jetbrainsMono = JetBrains_Mono({
 const RootLayout:React.FC<{children:ReactNode}> = ({ children }) => {
 	return (
 		<html lang="en">
-    		<body className={jetbrainsMono.variable}>
-				<Header />
-				<StairTransition />
-				<PageTransition>{children}</PageTransition>
-				<Copyright />
-      		</body>
+			<Provider store={store}>
+				<PersistGate loading={null} persistor={persistor}>
+    				<body className={jetbrainsMono.variable}>
+						<Header />
+						<StairTransition />
+						<PageTransition>{children}</PageTransition>
+						<Copyright />
+      				</body>
+				</PersistGate>
+			</Provider>
     	</html>
   );
 }
