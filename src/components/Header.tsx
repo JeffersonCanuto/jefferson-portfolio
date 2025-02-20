@@ -1,4 +1,6 @@
-import React, { Fragment }from "react";
+"use client";
+
+import React, { useCallback, Fragment }from "react";
 
 import { FcGlobe } from "react-icons/fc";
 
@@ -20,6 +22,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Header:React.FC = () => {
+    const handleLangButtonClick = useCallback(() => {
+        console.log("Hi");
+    }, []);
+    
     return (
         <header className="py-8 xl:py-12 text-white">
             <div className="container mx-auto flex justify-between items-center">
@@ -32,8 +38,8 @@ const Header:React.FC = () => {
                 {/* Language */}
                 <div className="w-[220px] flex gap-5">
                     <div className="flex items-center gap-1">
-                        <FcGlobe className="text-[20px]"/>
-                        <p className="text-[14px] text-white/60">Language:</p>
+                        <FcGlobe aria-describedby="language" className="text-[20px]"/>
+                        <p className="text-[14px] text-white/60" id="language">Language:</p>
                     </div>
                     <div className="w-[90px] flex justify-between items-center gap-3">
                         {[...Array(2)].map((_:undefined, index:number) => (
@@ -41,12 +47,14 @@ const Header:React.FC = () => {
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger>
-                                            <Image
-                                                src={index === 0 ? BrFlag : UsFlag}
-                                                width={`${index === 0 ? "35": "30"}`}
-                                                height={`${index === 0 ? "55": "50"}`}
-                                                alt={`${index === 0 ? "brazil-flag" : "usa-flag"}`}
-                                            />  
+                                            <div onClick={handleLangButtonClick}>
+                                                <Image
+                                                    src={index === 0 ? BrFlag : UsFlag}
+                                                    width={`${index === 0 ? "35": "30"}`}
+                                                    height={`${index === 0 ? "55": "50"}`}
+                                                    alt={`${index === 0 ? "brazil-flag" : "usa-flag"}`}
+                                                />
+                                            </div>
                                         </TooltipTrigger>
                                         <TooltipContent>
                                             {
