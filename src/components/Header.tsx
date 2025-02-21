@@ -2,7 +2,6 @@
 
 import React, {
     useState,
-    useEffect,
     useCallback,
     Fragment,
     MouseEvent
