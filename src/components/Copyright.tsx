@@ -2,9 +2,17 @@
 
 import React from "react";
 
+import { useSelector } from "react-redux";
+
+import { RootState } from "@/redux/store";
+
 import { usePathname } from "next/navigation";
 
+import CopyrightString from "@/strings/Copyright";
+
 const Copyright:React.FC = () => {
+    const language = useSelector((state:RootState) => state.language.preferred);
+
     const currentYear = new Date().getFullYear();
     const pathname = usePathname();
     
@@ -30,7 +38,9 @@ const Copyright:React.FC = () => {
         >
             <div className="flex justify-center items-center">
                 <div className="flex-grow border-b border-gray-600"></div>
-                <p className="p-4 text-[12px] text-white/60">© {currentYear} Jefferson Canuto. All rights reserved.</p>
+                <p className="p-4 text-[12px] text-white/60">
+                    © {currentYear} Jefferson Canuto. {language.includes("en-us") ? CopyrightString.en.text : CopyrightString.br.text}
+                </p>
                 <div className="flex-grow border-b border-gray-600"></div>
             </div>
         </div>

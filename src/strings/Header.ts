@@ -1,6 +1,6 @@
 
 export interface HeaderStringItems {
-    br: {
+    en: {
         language: string;
         navigation: {
             home: string;
@@ -11,7 +11,7 @@ export interface HeaderStringItems {
             about: string;
         };
     };
-    en: {
+    br: {
         language: string;
         navigation: {
             home: string;
