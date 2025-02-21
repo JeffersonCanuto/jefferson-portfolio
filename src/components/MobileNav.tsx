@@ -10,9 +10,9 @@ import {
     SheetTitle,
     SheetTrigger
 } from '@/components/ui/sheet';
+import { HeaderStringItems } from "@/strings/Header";
 
 import { getLanguageLabel } from "./Nav";
-import { HeaderStringItems } from "./Header";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

@@ -5,7 +5,7 @@ import React from "react";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { HeaderStringItems } from "./Header";
+import { HeaderStringItems } from "@/strings/Header";
 
 interface LinkItems {
     index: number;

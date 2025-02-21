@@ -1,15 +1,30 @@
-const HeaderStrings = {
+
+export interface HeaderStringItems {
     br: {
-        language: "Idiomas",
+        language: string;
         navigation: {
-            home: "Início",
-            education: "Educação",
-            experiences: "Experiências",
-            skills: "Habilidades",
-            projects: "Projetos",
-            about: "Sobre mim"
-        }
-    },
+            home: string;
+            education: string;
+            experiences: string;
+            skills: string;
+            projects: string;
+            about: string;
+        };
+    };
+    en: {
+        language: string;
+        navigation: {
+            home: string;
+            education: string;
+            experiences: string;
+            skills: string;
+            projects: string;
+            about: string;
+        };
+    };
+};
+
+const HeaderStrings:HeaderStringItems = {
     en: {
         language: "Languages",
         navigation: {
@@ -19,6 +34,17 @@ const HeaderStrings = {
             skills: "Skills",
             projects: "Projects",
             about: "About me"
+        }
+    },
+    br: {
+        language: "Idiomas",
+        navigation: {
+            home: "Início",
+            education: "Educação",
+            experiences: "Experiências",
+            skills: "Habilidades",
+            projects: "Projetos",
+            about: "Sobre mim"
         }
     }
 };

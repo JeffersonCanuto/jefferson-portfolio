@@ -34,31 +34,6 @@ import UsFlag from "../../public/assets/others/us-flag.svg";
 import Link from "next/link";
 import Image from "next/image";
 
-export interface HeaderStringItems {
-    br: {
-        language: string;
-        navigation: {
-            home: string;
-            education: string;
-            experiences: string;
-            skills: string;
-            projects: string;
-            about: string;
-        };
-    };
-    en: {
-        language: string;
-        navigation: {
-            home: string;
-            education: string;
-            experiences: string;
-            skills: string;
-            projects: string;
-            about: string;
-        };
-    };
-};
-
 const Header:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);
     const dispatch = useDispatch<AppDispatch>();
