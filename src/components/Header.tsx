@@ -32,26 +32,40 @@ import UsFlag from "../../public/assets/others/us-flag.svg";
 import Link from "next/link";
 import Image from "next/image";
 
+import HeaderStrings from "@/strings/Header";
+
+export interface HeaderStringItems {
+    br: {
+        language: string;
+        navigation: {
+            home: string;
+            education: string;
+            experiences: string;
+            skills: string;
+            projects: string;
+            about: string;
+        };
+    };
+    en: {
+        language: string;
+        navigation: {
+            home: string;
+            education: string;
+            experiences: string;
+            skills: string;
+            projects: string;
+            about: string;
+        };
+    };
+};
+
 const Header:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);
-
-    const [ isEnglishActive, setIsEnglishActive ] = useState(() => {
-        if (language.includes("en-us")) {
-            return true;
-        } else {
-            return false;
-        }
-    });
-    const [ isPortugueseActive, setIsPortugueseActive ] = useState(() => {
-        if (language.includes("pt-br")) {
-            return true;
-        } else {
-            return false;
-        }
-    });
-    
     const dispatch = useDispatch<AppDispatch>();
 
+    const [ isEnglishActive, setIsEnglishActive ] = useState(() => language.includes("en-us"));
+    const [ isPortugueseActive, setIsPortugueseActive ] = useState(() => language.includes("pt-br"));
+    
     const handleLangButtonClick = useCallback((event:MouseEvent<HTMLDivElement>, index: number) => {    
         event.preventDefault();
         
@@ -78,10 +92,17 @@ const Header:React.FC = () => {
                     </h1>
                 </Link>
                 {/* Language Preference */}
-                <div className="w-[270px] flex gap-5">
+                <div className={`${isEnglishActive ? "w-[270px]" : "w-[240px]"} flex gap-5`}>
                     <div className="flex items-center gap-1">
                         <FcGlobe aria-describedby="language" className="text-[20px]"/>
-                        <p className="text-[14px] text-white/60" id="language">Languages:</p>
+                        <p className="text-[14px] text-white/60" id="language">
+                            { language.includes("en-us") ?
+                                HeaderStrings.en.language
+                            :
+                                HeaderStrings.br.language
+                            }
+                            :
+                        </p>
                     </div>
                     <div className="w-full flex justify-between items-center gap-3">
                         {[...Array(2)].map((_:undefined, index:number) => (
@@ -112,14 +133,14 @@ const Header:React.FC = () => {
                                 { index === 0 ? (
                                     isEnglishActive ?
                                         <div className="border-2 border-accent rounded-full flex justify-center items-center p-1">
-                                            <FaCheck className="text-[10px] text-accent"/>
+                                            <FaCheck className="text-[9px] text-accent"/>
                                         </div>
                                     :
                                         <></>
                                 ):(
                                     isPortugueseActive ?
                                         <div className="border-2 border-accent rounded-full flex justify-center items-center p-1">
-                                            <FaCheck className="text-[10px] text-accent"/>
+                                            <FaCheck className="text-[9px] text-accent"/>
                                         </div>
                                     :
                                         <></>
@@ -133,12 +154,12 @@ const Header:React.FC = () => {
                 </div>
                 {/* Desktop Navbar & Contact button */}
                 <div className="hidden xl:flex items-center gap-8">
-                    <Nav />
+                    <Nav language={language} HeaderStrings={HeaderStrings} />
                 </div>
 
                 {/* Mobile Navbar */}
                 <div className="xl:hidden">
-                    <MobileNav />
+                    <MobileNav language={language} HeaderStrings={HeaderStrings} />
                 </div>
             </div>
         </header>
