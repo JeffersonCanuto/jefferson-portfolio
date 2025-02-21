@@ -1,16 +1,9 @@
 import React, { ReactNode } from "react";
 
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "../redux/store";
-
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-import Header from "@/components/Header";
-import StairTransition from "@/components/StairTransition";
-import PageTransition from "@/components/PageTransition";
-import Copyright from "@/components/Copyright";
+import Main from "./main";
 
 interface MetaDataItems {
 	title: string;
@@ -31,16 +24,9 @@ const jetbrainsMono = JetBrains_Mono({
 const RootLayout:React.FC<{children:ReactNode}> = ({ children }) => {
 	return (
 		<html lang="en">
-			<Provider store={store}>
-				<PersistGate loading={null} persistor={persistor}>
-    				<body className={jetbrainsMono.variable}>
-						<Header />
-						<StairTransition />
-						<PageTransition>{children}</PageTransition>
-						<Copyright />
-      				</body>
-				</PersistGate>
-			</Provider>
+			<body className={jetbrainsMono.variable}>
+				<Main>{children}</Main>
+			</body>
     	</html>
   );
 }
