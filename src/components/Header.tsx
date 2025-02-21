@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 import { setPreferredLanguage } from "@/redux/slices/languageSlice";
 
+import HeaderStrings from "@/strings/Header";
+
 import { Button } from "./ui/button";
 import MobileNav from "./MobileNav";
 import Nav from "./Nav";
@@ -31,8 +33,6 @@ import UsFlag from "../../public/assets/others/us-flag.svg";
 
 import Link from "next/link";
 import Image from "next/image";
-
-import HeaderStrings from "@/strings/Header";
 
 export interface HeaderStringItems {
     br: {

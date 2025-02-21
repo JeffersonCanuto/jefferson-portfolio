@@ -13,7 +13,7 @@ interface LinkItems {
     path: string;
 };
 
-const getLanguageLabel = (
+export const getLanguageLabel = (
     language:string, 
     HeaderStrings:HeaderStringItems, 
     target:keyof HeaderStringItems["en"]["navigation"]
@@ -21,7 +21,9 @@ const getLanguageLabel = (
     return HeaderStrings[language.includes("en-us") ? "en" : "br"].navigation[target];
 };
 
-const Nav:React.FC<{language: string, HeaderStrings:HeaderStringItems}> = ({ language, HeaderStrings}) => {
+const Nav:React.FC<{ language: string; HeaderStrings:HeaderStringItems }> = ({ language, HeaderStrings}) => {
+    const pathname = usePathname();
+    
     const links:LinkItems[] = [
         {
             index: 1,
@@ -54,8 +56,6 @@ const Nav:React.FC<{language: string, HeaderStrings:HeaderStringItems}> = ({ lan
             path: "/about"
         }
     ];
-
-    const pathname:string = usePathname();
 
     return (
         <nav className="flex gap-8">
