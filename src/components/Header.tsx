@@ -1,14 +1,17 @@
 "use client";
 
 import React, {
+    useState,
+    useEffect,
     useCallback,
     Fragment,
     MouseEvent
 }from "react";
 
+import { FaCheck } from "react-icons/fa";
 import { FcGlobe } from "react-icons/fc";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { AppDispatch, RootState } from "@/redux/store";
 import { setPreferredLanguage } from "@/redux/slices/languageSlice";
@@ -31,6 +34,23 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Header:React.FC = () => {
+    const language = useSelector((state:RootState) => state.language.preferred);
+
+    const [ isEnglishActive, setIsEnglishActive ] = useState(() => {
+        if (language.includes("en-us")) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    const [ isPortugueseActive, setIsPortugueseActive ] = useState(() => {
+        if (language.includes("pt-br")) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    
     const dispatch = useDispatch<AppDispatch>();
 
     const handleLangButtonClick = useCallback((event:MouseEvent<HTMLDivElement>, index: number) => {    
@@ -38,8 +58,14 @@ const Header:React.FC = () => {
         
         if (!index) {
             dispatch(setPreferredLanguage("en-us"));
+
+            setIsEnglishActive(true);
+            setIsPortugueseActive(false);
         } else {
             dispatch(setPreferredLanguage("pt-br"));
+
+            setIsPortugueseActive(true);
+            setIsEnglishActive(false);
         }
     }, []);
 
@@ -53,12 +79,12 @@ const Header:React.FC = () => {
                     </h1>
                 </Link>
                 {/* Language Preference */}
-                <div className="w-[220px] flex gap-5">
+                <div className="w-[270px] flex gap-5">
                     <div className="flex items-center gap-1">
                         <FcGlobe aria-describedby="language" className="text-[20px]"/>
                         <p className="text-[14px] text-white/60" id="language">Languages:</p>
                     </div>
-                    <div className="w-[90px] flex justify-between items-center gap-3">
+                    <div className="w-full flex justify-between items-center gap-3">
                         {[...Array(2)].map((_:undefined, index:number) => (
                             <Fragment key={index}>
                                 <TooltipProvider>
@@ -70,6 +96,7 @@ const Header:React.FC = () => {
                                                     width={`${index === 0 ? "30": "35"}`}
                                                     height={`${index === 0 ? "50": "55"}`}
                                                     alt={`${index === 0 ? "usa-flag" : "brazil-flag"}`}
+                                                    className="flex flex-shrink-0"
                                                 />
                                             </div>
                                         </TooltipTrigger>
@@ -83,6 +110,21 @@ const Header:React.FC = () => {
                                         </TooltipContent>
                                     </Tooltip>
                                 </TooltipProvider>
+                                { index === 0 ? (
+                                    isEnglishActive ?
+                                        <div className="border-2 border-accent rounded-full flex justify-center items-center p-1">
+                                            <FaCheck className="text-[10px] text-accent"/>
+                                        </div>
+                                    :
+                                        <></>
+                                ):(
+                                    isPortugueseActive ?
+                                        <div className="border-2 border-accent rounded-full flex justify-center items-center p-1">
+                                            <FaCheck className="text-[10px] text-accent"/>
+                                        </div>
+                                    :
+                                        <></>
+                                )}
                                 { index === 0 && (
                                     <span>|</span>
                                 )}
