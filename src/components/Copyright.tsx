@@ -5,7 +5,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { RootState } from "@/redux/store";
-import CopyrightString from "@/strings/components/Copyright";
+import CopyrightStrings from "@/strings/components/Copyright";
 
 import { usePathname } from "next/navigation";
 
@@ -38,7 +38,7 @@ const Copyright:React.FC = () => {
             <div className="flex justify-center items-center">
                 <div className="flex-grow border-b border-gray-600"></div>
                 <p className="p-4 text-[12px] text-white/60">
-                    © {currentYear} Jefferson Canuto. {language.includes("en-us") ? CopyrightString.en.text : CopyrightString.br.text}
+                    © {currentYear} Jefferson Canuto. {language.includes("en-us") ? CopyrightStrings.en.text : CopyrightStrings.br.text}
                 </p>
                 <div className="flex-grow border-b border-gray-600"></div>
             </div>

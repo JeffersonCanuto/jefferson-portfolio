@@ -7,7 +7,7 @@ interface CopyrightItems {
     };
 };
 
-const CopyrightString:CopyrightItems = {
+const CopyrightStrings:CopyrightItems = {
     en: {
         text: "All rights reserved."
     },
@@ -16,4 +16,4 @@ const CopyrightString:CopyrightItems = {
     }
 };
 
-export default CopyrightString;
+export default CopyrightStrings;
