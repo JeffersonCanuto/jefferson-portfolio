@@ -2,21 +2,23 @@ import { combineReducers } from "redux";
 
 import { configureStore } from "@reduxjs/toolkit";
 
-import { persistStore, persistReducer } from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 
 import storage from "redux-persist/lib/storage";
 import { PersistConfig } from "redux-persist/es/types";
 
+import languageReducer from "./slices/languageSlice";
+
 // Combine all existing reducers
 const rootReducer = combineReducers({
-    languagePreference: setLanguagePreference
+    language: languageReducer
 });
 
 // Configure info persistence
 const persistConfig:PersistConfig<ReturnType<typeof rootReducer>> = {
     key: "root",
     storage,
-    whitelist: ["languagePreference"]
+    whitelist: ["language"]
 };
 
 // Wrap config and reducers to create persistedReducer

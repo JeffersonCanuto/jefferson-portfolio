@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState:{preferred:string} = {
-    preferred: "pt-br"
+    preferred: "en-us"
 };
 
 const languageSlice = createSlice({
