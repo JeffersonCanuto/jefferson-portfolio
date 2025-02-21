@@ -1,4 +1,4 @@
-export const strings = {
+const HeaderStrings = {
     br: {
         language: "Idiomas",
         navigation: {
@@ -22,3 +22,5 @@ export const strings = {
         }
     }
 };
+
+export default HeaderStrings;
