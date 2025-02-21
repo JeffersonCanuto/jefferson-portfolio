@@ -5,10 +5,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { RootState } from "@/redux/store";
+import CopyrightString from "@/strings/components/Copyright";
 
 import { usePathname } from "next/navigation";
-
-import CopyrightString from "@/strings/Copyright";
 
 const Copyright:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);

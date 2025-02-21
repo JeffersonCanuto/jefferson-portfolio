@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 import { setPreferredLanguage } from "@/redux/slices/languageSlice";
 
-import HeaderStrings from "@/strings/Header";
+import HeaderStrings from "@/strings/components/Header";
 
 import { Button } from "./ui/button";
 import MobileNav from "./MobileNav";

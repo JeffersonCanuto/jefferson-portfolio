@@ -2,10 +2,10 @@
 
 import React from "react";
 
+import { HeaderStringItems } from "@/strings/components/Header";
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-import { HeaderStringItems } from "@/strings/Header";
 
 interface LinkItems {
     index: number;
