@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 
 import CountUp from "react-countup";
 
-import { motion } from "framer-motion";
+import StatsStrings from "@/strings/components/Stats";
+import { StatsStringItems } from "@/strings/components/Stats";
+import { gitHubService, UserInfoItems } from "../services";
 
 import Link from "next/link";
-
-import { gitHubService, UserInfoItems } from "../services";
 
 interface StatItems {
     index: number;
@@ -16,31 +16,17 @@ interface StatItems {
     text: string;
 };
 
-const Stats:React.FC = () => {
+const getStatsText = (
+    language:string, 
+    text:keyof StatsStringItems["en"]
+):string => {
+    return StatsStrings[language.includes("en-us") ? "en" : "br"][text];
+}
+
+const Stats:React.FC<{ language:string }> = ({ language }) => {
     const [ ghubProjectsCount, setGhubProjectsCount ] = useState<number>(0);
     const [ ghubCommitCount, setGhubCommitCount ]     = useState<number>(0);
-    const [ stats, setStats ]                         = useState<StatItems[]>([
-        {
-            index: 1,
-            value: 0,
-            text: "Years of experience"
-        },
-        {
-            index: 2,
-            value: 0,
-            text: "Study/Work Technologies"
-        },
-        {
-            index: 3,
-            value: 0,
-            text: "Coding Projects (GitHub)"
-        },
-        {
-            index: 4,
-            value: 0,
-            text: "Code Commits (GitHub)"
-        },
-    ]);  
+    const [ stats, setStats ]                         = useState<StatItems[]>([]);  
 
     useEffect(() => {
         (async function fetchData() {
@@ -63,26 +49,26 @@ const Stats:React.FC = () => {
                 {
                     index: 1,
                     value: 5,
-                    text: "Years of Experience"
+                    text: getStatsText(language, "experience")
                 },
                 {
                     index: 2,
                     value: 15,
-                    text: "Coding Technologies"
+                    text: getStatsText(language, "technologies")
                 },
                 {
                     index: 3,
                     value: ghubProjectsCount,
-                    text: "Code Projects (GitHub)"
+                    text: getStatsText(language, "projects")
                 },
                 {
                     index: 4,
                     value: ghubCommitCount,
-                    text: "Code Commits (GitHub)"
+                    text: getStatsText(language, "commits")
                 }
             ]);
         }
-    }, [ghubProjectsCount, ghubCommitCount]);
+    }, [language, ghubProjectsCount, ghubCommitCount]);
 
     return (
         <section className="relative bottom-8 pt-12 xl:pt-0">
@@ -97,14 +83,7 @@ const Stats:React.FC = () => {
                                         target={ index === 2 || index == 3 ? "_blank" : "" }
                                         className="group-hover:text-accent transition-all duration-500"
                                     >
-                                        <motion.div
-                                            initial = {{ opacity: 0 }}
-                                            animate = {{
-                                                opacity: 1,
-                                                transition: { delay: 2, duration: 0.4, ease: "easeIn" }
-                                            }}
-                                            className="flex justify-between"
-                                        >
+                                        <div className="flex justify-between">
                                             <CountUp
                                                 end={stat.value}
                                                 duration={5}
@@ -113,9 +92,9 @@ const Stats:React.FC = () => {
                                             />
                                             { index === 0 && <p className="relative left-1 text-xl top-1 xl:text-4xl xl:top-2 font-bold">+</p> }
                                             <p className={`${stat.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} flex flex-col xl:flex-row justify-center leading-snug text-white/80 relative left-5 xl:top-2 xl:left-6 text-[13px] xl:text-[16px] group-hover:text-accent transition-all duration-500`}>{stat.text}</p>
-                                        </motion.div>
+                                        </div>
                                     </Link>
-                                </div>                   
+                                </div>       
                             </div>
                         )
                     })}

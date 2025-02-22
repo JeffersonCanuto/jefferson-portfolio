@@ -2,6 +2,8 @@
 
 import React from "react";
 
+import { useSelector } from "react-redux";
+
 import { FiDownload } from "react-icons/fi";
 import { IoOpenOutline } from "react-icons/io5";
 
@@ -11,8 +13,11 @@ import { Button } from "@/components/ui/button";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
+import { RootState } from "@/redux/store";
 
 const Home:React.FC = () => {
+	const language = useSelector((state:RootState) => state.language.preferred);
+
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -64,7 +69,7 @@ const Home:React.FC = () => {
 					</div>
 				</div>
 			</main>
-			<Stats />
+			<Stats language={language} />
 		</motion.div>
 	);
 }

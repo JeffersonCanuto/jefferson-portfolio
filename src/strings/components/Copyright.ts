@@ -1,4 +1,4 @@
-interface CopyrightItems {
+interface CopyrightStringItems {
     en: {
         text: string
     };
@@ -7,7 +7,7 @@ interface CopyrightItems {
     };
 };
 
-const CopyrightStrings:CopyrightItems = {
+const CopyrightStrings:CopyrightStringItems = {
     en: {
         text: "All rights reserved."
     },
