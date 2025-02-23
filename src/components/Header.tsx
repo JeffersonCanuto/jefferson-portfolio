@@ -71,12 +71,7 @@ const Header:React.FC = () => {
                     <div className="flex items-center gap-1">
                         <FcGlobe aria-describedby="language" className="text-[20px]"/>
                         <p className="text-[14px] text-white/60" id="language">
-                            { language.includes("en-us") ?
-                                HeaderStrings.en.language
-                            :
-                                HeaderStrings.br.language
-                            }
-                            :
+                            {HeaderStrings[language.includes("en-us") ? "en" : "br"].language}:
                         </p>
                     </div>
                     <div className="w-full flex justify-between items-center gap-3">

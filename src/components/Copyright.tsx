@@ -19,7 +19,7 @@ const Copyright:React.FC = () => {
         <div
             className={`container mx-auto
                 ${pathname === "/" ?
-                    "-mt-9"
+                    "-mt-14"
                 : pathname === "/education" ?
                     "-mt-2"
                 : pathname === "/experiences" ?
@@ -38,7 +38,7 @@ const Copyright:React.FC = () => {
             <div className="flex justify-center items-center">
                 <div className="flex-grow border-b border-gray-600"></div>
                 <p className="p-4 text-[12px] text-white/60">
-                    © {currentYear} Jefferson Canuto. {language.includes("en-us") ? CopyrightStrings.en.text : CopyrightStrings.br.text}
+                    © {currentYear} Jefferson Canuto. {CopyrightStrings[language.includes("en-us") ? "en" : "br"].text}
                 </p>
                 <div className="flex-grow border-b border-gray-600"></div>
             </div>
