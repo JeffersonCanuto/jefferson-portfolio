@@ -15,6 +15,8 @@ import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 import { RootState } from "@/redux/store";
 
+import HomeStrings from "@/strings/pages/Home";
+
 const Home:React.FC = () => {
 	const language = useSelector((state:RootState) => state.language.preferred);
 
@@ -25,33 +27,44 @@ const Home:React.FC = () => {
 				opacity: 1,
 				transition: { delay: 2, duration: 0.4, ease: "easeIn" }
 			}} 
-			className="h-full"
+			className="relative -top-10 h-full"
 		>
 			<main className="container mx-auto h-full">
 				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
 					{/* Text */}
 					<div className="text-center xl:text-left order-2 xl:order-none">
-						<span className="text-2xl">Software Engineer</span>
+						<span className="text-2xl">
+							{HomeStrings[language.includes("en-us") ? "en" : "br"].title}
+						</span>
 						<h1 className="h1 mt-4 animate-typing">
-							Hello, I'm <br /> <span className="text-accent">Jefferson Canuto</span>
+							{ language.includes("en-us") ? "Hello, I'm" :  "Olá, Eu sou" } <br /> <span className="text-accent">Jefferson Canuto</span>
 						</h1>
 						<p className="max-w-[615px] mt-8 mb-10 text-white/80 text-justify">
-							I am a Frontend/Fullstack Engineer, experienced in building Web Apps for many 
-							purposes and using different technologies. You can navigate through all of the
-							other sections to learn more about my skills, competences, experiences and myself
-							as well. Also, feel free to contact me through one of my social media below &#128578;
+							{HomeStrings[language.includes("en-us") ? "en" : "br"].introduction} &#128578;
 						</p>
 						{/* Button and Socials */}
-						<div className="flex flex-col xl:flex-row items-center gap-4">
-							<a href="/resumes/resume.pdf" target="_blank">
+						<div 
+							className={`flex flex-col xl:flex-row items-center ${language.includes("en-us") ? "gap-4" : "gap-8"}`}
+						>
+							<a 
+								href={language.includes("en-us") ? "/resumes/resume.pdf" : "/resumes/cv.pdf"} 
+								target="_blank"
+							>
 								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
-									<span className="text-[12px]">Open Resume</span>
+									<span className="text-[12px]">
+										{HomeStrings[language.includes("en-us") ? "en" : "br"].openButton}
+									</span>
 									<IoOpenOutline className="text-xl mb-1" />
 								</Button>
 							</a>
-							<a href="/resumes/resume.pdf" download="Resume - Jefferson Canuto.pdf">
+							<a 
+								href={`${language.includes("en-us") ? "/resumes/resume.pdf" : "/resumes/cv.pdf"}`}
+								download={`${language.includes("en-us") ? "Resume - Jefferson Canuto.pdf" : "CV - Jefferson Canuto.pdf"}`}
+							>
 								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
-									<span className="text-[12px]">Download Resume</span>
+									<span className="text-[12px]">
+										{HomeStrings[language.includes("en-us") ? "en" : "br"].downloadButton}
+									</span>
 									<FiDownload className="text-xl mb-1" />
 								</Button>
 							</a>
