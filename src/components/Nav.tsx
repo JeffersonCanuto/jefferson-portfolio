@@ -13,7 +13,7 @@ interface LinkItems {
     path: string;
 };
 
-export const getPreferredLanguage = (
+export const getNavFieldNames = (
     language:string, 
     HeaderStrings:HeaderStringItems, 
     target:keyof HeaderStringItems["en"]["navigation"]
@@ -27,32 +27,32 @@ const Nav:React.FC<{ language: string; HeaderStrings:HeaderStringItems }> = ({ l
     const links:LinkItems[] = [
         {
             index: 1,
-            name: getPreferredLanguage(language, HeaderStrings, "home"),
+            name: getNavFieldNames(language, HeaderStrings, "home"),
             path: "/"
         },
         {
             index: 2,
-            name: getPreferredLanguage(language, HeaderStrings, "education"),
+            name: getNavFieldNames(language, HeaderStrings, "education"),
             path: "/education"
         },
         {
             index: 3,
-            name: getPreferredLanguage(language, HeaderStrings, "experiences"),
+            name: getNavFieldNames(language, HeaderStrings, "experiences"),
             path: "/experiences"
         },
         {
             index: 4,
-            name: getPreferredLanguage(language, HeaderStrings, "skills"),
+            name: getNavFieldNames(language, HeaderStrings, "skills"),
             path: "/skills"
         },
         {
             index: 5,
-            name: getPreferredLanguage(language, HeaderStrings, "projects"),
+            name: getNavFieldNames(language, HeaderStrings, "projects"),
             path: "/projects"
         },
         {
             index: 6,
-            name: getPreferredLanguage(language, HeaderStrings, "about"),
+            name: getNavFieldNames(language, HeaderStrings, "about"),
             path: "/about"
         }
     ];
