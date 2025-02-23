@@ -4,12 +4,14 @@ interface HomeStringItems {
         introduction:string;
         openButton:string;
         downloadButton: string;
+        socialMedia: string;
     };
     br: {
         title:string;
         introduction:string;
         openButton:string;
         downloadButton:string;
+        socialMedia: string;
     };
 };
 
@@ -20,8 +22,9 @@ const HomeStrings:HomeStringItems = {
         web applications for many purposes and using different technologies. Feel free to explore the other \
         sections to learn more about my education, experiences, skills, projects and about me as well, or even \
         reach out to me through one of my social media channels below",
-        openButton: "Open Resume",
-        downloadButton: "Download Resume"
+        openButton: "Open Resume" ,
+        downloadButton: "Download Resume",
+        socialMedia: "Social Media"
     },
     br: {
         title: "Engenheiro de Software",
@@ -29,8 +32,9 @@ const HomeStrings:HomeStringItems = {
         aplicações web para muitos propósitos e utilizando várias tecnologias. Sinta-se à vontade para \
         explorar as outras seções, para saber mais sobre a minha educação, experiências, habilidades,  \
         projetos e sobre mim, ou até mesmo entrar em contato comigo através das redes sociais abaixo",
-        openButton: "Abrir CV",
-        downloadButton: "Baixar CV"
+        openButton: "Abrir Curriculo" ,
+        downloadButton: "Baixar Curriculo",
+        socialMedia: "Redes Sociais"
     }
 };
 

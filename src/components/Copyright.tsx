@@ -14,8 +14,6 @@ import packageJson from "../../package.json";
 const Copyright:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);
 
-    console.log(process);
-
     const currentYear = new Date().getFullYear();
     const pathname = usePathname();
     
@@ -23,7 +21,7 @@ const Copyright:React.FC = () => {
         <div
             className={`container mx-auto
                 ${pathname === "/" ?
-                    "-mt-14"
+                    "-mt-5"
                 : pathname === "/education" ?
                     "-mt-2"
                 : pathname === "/experiences" ?

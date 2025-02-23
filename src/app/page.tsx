@@ -4,6 +4,7 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
+import { FaSitemap } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 import { IoOpenOutline } from "react-icons/io5";
 
@@ -27,7 +28,7 @@ const Home:React.FC = () => {
 				opacity: 1,
 				transition: { delay: 2, duration: 0.4, ease: "easeIn" }
 			}} 
-			className="relative -top-10 h-full"
+			className="relative -top-6 h-full"
 		>
 			<main className="container mx-auto h-full">
 				<div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
@@ -44,7 +45,7 @@ const Home:React.FC = () => {
 						</p>
 						{/* Button and Socials */}
 						<div 
-							className={`flex flex-col xl:flex-row items-center ${language.includes("en-us") ? "gap-4" : "gap-8"}`}
+							className={`flex flex-col xl:flex-row items-center ${language.includes("en-us") ? "gap-8" : "gap-3"}`}
 						>
 							<a 
 								href={language.includes("en-us") ? "/resumes/resume.pdf" : "/resumes/cv.pdf"} 
@@ -68,10 +69,16 @@ const Home:React.FC = () => {
 									<FiDownload className="text-xl mb-1" />
 								</Button>
 							</a>
-							<div className="mb-8 xl:mb-0">
+							<div className="grid grid-cols-1 mb-8 xl:mb-0 gap-3">
+								<p className="flex justify-center items-center gap-2 border-b border-accent">
+									<FaSitemap className="text-accent"/>
+									<span className="text-accent text-[13px]">
+										{HomeStrings[language.includes("en-us") ? "en" : "br"].socialMedia}
+									</span>
+								</p>
 								<Social
 									containerStyles="flex gap-6"
-									iconStyles="w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
+									iconStyles="w-7 h-7 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
 								/>
 							</div>
 						</div>
