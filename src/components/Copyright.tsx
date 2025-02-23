@@ -9,8 +9,12 @@ import CopyrightStrings from "@/strings/components/Copyright";
 
 import { usePathname } from "next/navigation";
 
+import packageJson from "../../package.json";
+
 const Copyright:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);
+
+    console.log(process);
 
     const currentYear = new Date().getFullYear();
     const pathname = usePathname();
@@ -38,7 +42,7 @@ const Copyright:React.FC = () => {
             <div className="flex justify-center items-center">
                 <div className="flex-grow border-b border-gray-600"></div>
                 <p className="p-4 text-[12px] text-white/60">
-                    © {currentYear} Jefferson Canuto. {CopyrightStrings[language.includes("en-us") ? "en" : "br"].text}
+                    © {currentYear} Jefferson Canuto. {CopyrightStrings[language.includes("en-us") ? "en" : "br"].text} (v{packageJson.version}).
                 </p>
                 <div className="flex-grow border-b border-gray-600"></div>
             </div>

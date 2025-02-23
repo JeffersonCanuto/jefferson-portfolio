@@ -9,10 +9,10 @@ interface CopyrightStringItems {
 
 const CopyrightStrings:CopyrightStringItems = {
     en: {
-        text: "All rights reserved."
+        text: "All rights reserved"
     },
     br: {
-        text: "Todos os direitos reservados."
+        text: "Todos os direitos reservados"
     }
 };
 
