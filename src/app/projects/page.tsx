@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState, ReactNode } from "react";
+import React, { useState, useEffect, useCallback, ReactNode } from "react";
+
+import { useSelector } from "react-redux";
 
 import {
     SiPython,
@@ -20,6 +22,8 @@ import {
     TooltipTrigger
 } from "@/components/ui/tooltip";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+import ProjectStrings, { ProjectStringItems } from "@/strings/pages/Projects";
+import { RootState } from "@/redux/store";
 
 import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -46,57 +50,72 @@ type ProjectItems<T, U> = {
     github: T;
 };
 
-const projects:ProjectItems<string,StackItems>[] = [
-    {
-        index: 1,
-        num: '01',
-        category: 'fullstack',
-        type: 'SSR',
-        title: "BT Real Estate",
-        description: "BT Real Estate is a business app designed to be a platform that can connect customers having their needs and realtors who hold properties available \
-        for sale in all across the USA.",
-        stack: [
-            {
-                index: 1,
-                name: "Python",
-                icon: <SiPython />
-            },
-            {
-                index: 2,
-                name: "Django",
-                icon: <SiDjango />
-            },
-            {
-                index: 3,
-                name: "Jinja",
-                icon: <SiJinja />
-            },
-            {
-                index: 4,
-                name: "PostgreSQL",
-                icon: <SiPostgresql />
-            },
-            {
-                index: 5,
-                name: "Docker",
-                icon: <SiDocker />
-            }
-        ],
-        image: "/assets/projects/btreapp.png",
-        github: "https://github.com/JeffersonCanuto/Btre-App"
-    }
-];
+const getProjectsFieldNames = (
+    language: string,
+    field: keyof ProjectStringItems["en"],
+    type: keyof ProjectStringItems["en"]["first"]
+) => {
+    return ProjectStrings[language.includes("en-us") ? "en" : "br"][field][type];
+}
 
 const Projects:React.FC = () => {
-    const [ project, setProject ] = useState<ProjectItems<string,StackItems>>(projects[0]);
+    const language = useSelector((state:RootState) => state.language.preferred);
+    
+    const projects:ProjectItems<string,StackItems>[] = [
+        {
+            index: 1,
+            num: '01',
+            title: getProjectsFieldNames(language, "first", "title"),
+            category: getProjectsFieldNames(language, "first", "category"),
+            description: getProjectsFieldNames(language, "first", "description"),
+            type: 'SSR',
+            stack: [
+                {
+                    index: 1,
+                    name: "Python",
+                    icon: <SiPython />
+                },
+                {
+                    index: 2,
+                    name: "Django",
+                    icon: <SiDjango />
+                },
+                {
+                    index: 3,
+                    name: "Jinja",
+                    icon: <SiJinja />
+                },
+                {
+                    index: 4,
+                    name: "PostgreSQL",
+                    icon: <SiPostgresql />
+                },
+                {
+                    index: 5,
+                    name: "Docker",
+                    icon: <SiDocker />
+                }
+            ],
+            image: "/assets/projects/btreapp.png",
+            github: "https://github.com/JeffersonCanuto/Btre-App"
+        }
+    ];
 
-    const handleSlide = (swiper:SwiperType) => {
+    const [ project, setProject ] = useState<ProjectItems<string, StackItems>>(projects[0]);
+    const [ currentIndex, setCurrentIndex ] = useState<number>(0);
+
+    useEffect(() => {
+        setProject(projects[currentIndex]);
+    }, [language]);
+
+    const handleSlide = useCallback((swiper:SwiperType) => {
         // Get current slide index
         const currentIndex = swiper.activeIndex;
         
         // Update project state based on current slide index
+        setCurrentIndex(currentIndex);
         setProject(projects[currentIndex]);
-    }
+    }, []);
 
     return (
         <motion.section 
@@ -127,13 +146,19 @@ const Projects:React.FC = () => {
                                 </div>
                             </div>
                             {/* Project category */}
-                            <h2 className="text-[35px] text-white font-bold leading-none group-hover:text-accent transition-all duration-500 capitalize">{project.category} project {`(${project.type})`}</h2>
+                            <h2 className="text-[35px] text-white font-bold leading-none group-hover:text-accent transition-all duration-500 capitalize">{project.category} {`(${project.type})`}</h2>
                             {/* Project description */}
                             <p className="text-white/60 text-justify">{project.description}</p>
                             {/* Stack */}
                             <div className="flex justify-between">
-                                <div className="flex items-center gap-4 text-[16px] md:text-xl text-white/60">
-                                    Technologies:
+                                <div className="flex items-center gap-4 text-[16px] md:text-[17px] text-white/60">
+                                    {
+                                        language.includes("en-us") ?
+                                            "Technologies"
+                                        :
+                                            "Tecnologias"
+                                    }
+                                    :
                                     {project.stack.map((item:StackItems) => {
                                         return (
                                             <TooltipProvider key={item.index}>
@@ -150,20 +175,18 @@ const Projects:React.FC = () => {
                                     })}
                                 </div>
                                 {/* Github project button */}
-                                <>
-                                    <Link href={project.github} target="_blank">
-                                        <TooltipProvider delayDuration={100}>
-                                            <Tooltip>
-                                                <TooltipTrigger className="w-[40px] h-[40px] md:w-[70px] md:h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                    <BsGithub className="text-white text-xl md:text-3xl group-hover:text-accent" />
-                                                </TooltipTrigger>
-                                                <TooltipContent>
-                                                    <p>GitHub</p>
-                                                </TooltipContent>
-                                            </Tooltip>
-                                        </TooltipProvider>
-                                    </Link>
-                                </>
+                                <Link href={project.github} target="_blank">
+                                    <TooltipProvider delayDuration={100}>
+                                        <Tooltip>
+                                            <TooltipTrigger className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] rounded-full bg-white/5 flex justify-center items-center group">
+                                                <BsGithub className="text-white text-xl md:text-2xl group-hover:text-accent" />
+                                            </TooltipTrigger>
+                                            <TooltipContent>
+                                                <p>GitHub</p>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                </Link>
                             </div>
                             {/* Border */}
                             <div className="border border-white/20"></div>

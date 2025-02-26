@@ -26,10 +26,10 @@ const Copyright:React.FC = () => {
                     "-mt-2"
                 : pathname === "/experiences" ?
                     "mt-2"
-                : pathname === "/skills" ? 
+                : pathname === "/skills" ?
                     "-mt-1"
                 : pathname === "/projects" ?
-                    "-mt-8"
+                    "-mt-5"
                 : pathname === "/about" ?
                     "mt-4"
                 :
