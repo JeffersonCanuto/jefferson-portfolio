@@ -31,7 +31,7 @@ const Copyright:React.FC = () => {
                 : pathname === "/projects" ?
                     "-mt-5"
                 : pathname === "/about" ?
-                    "mt-4"
+                    "-mt-3"
                 :
                     ""
                 }
