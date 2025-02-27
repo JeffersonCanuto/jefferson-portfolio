@@ -12,10 +12,12 @@ import { usePathname } from "next/navigation";
 import packageJson from "../../package.json";
 
 const Copyright:React.FC = () => {
+    const pathname = usePathname();
+
     const language = useSelector((state:RootState) => state.language.preferred);
+    const releaseDate = language.includes("en-us") ? process.env.NEXT_PUBLIC_RELEASE_EN : process.env.NEXT_PUBLIC_RELEASE_PT;
 
     const currentYear = new Date().getFullYear();
-    const pathname = usePathname();
     
     return (
         <div
@@ -40,7 +42,7 @@ const Copyright:React.FC = () => {
             <div className="flex justify-center items-center">
                 <div className="flex-grow border-b border-gray-600"></div>
                 <p className="p-4 text-[12px] text-white/60">
-                    © {currentYear} Jefferson Canuto. {CopyrightStrings[language.includes("en-us") ? "en" : "br"].text} (v{packageJson.version}).
+                    © {currentYear} Jefferson Canuto. {CopyrightStrings[language.includes("en-us") ? "en" : "br"].text}. {CopyrightStrings[language.includes("en-us") ? "en" : "br"].version} {packageJson.version} ({releaseDate}).
                 </p>
                 <div className="flex-grow border-b border-gray-600"></div>
             </div>

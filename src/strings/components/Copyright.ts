@@ -1,18 +1,22 @@
 interface CopyrightStringItems {
     en: {
-        text: string
+        text: string;
+        version: string;
     };
     br: {
-        text: string
+        text: string;
+        version: string;
     };
 };
 
 const CopyrightStrings:CopyrightStringItems = {
     en: {
-        text: "All rights reserved"
+        text: "All rights reserved",
+        version: "Version"
     },
     br: {
-        text: "Todos os direitos reservados"
+        text: "Todos os direitos reservados",
+        version: "Versão"
     }
 };
 
