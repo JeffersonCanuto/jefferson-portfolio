@@ -5,7 +5,7 @@ import React, {
     useCallback,
     Fragment,
     MouseEvent
-}from "react";
+} from "react";
 
 import { FaCheck } from "react-icons/fa";
 import { FcGlobe } from "react-icons/fc";
