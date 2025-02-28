@@ -26,7 +26,28 @@ const getStatsText = (
 const Stats:React.FC<{ language:string }> = ({ language }) => {
     const [ ghubProjectsCount, setGhubProjectsCount ] = useState<number>(0);
     const [ ghubCommitCount, setGhubCommitCount ]     = useState<number>(0);
-    const [ stats, setStats ]                         = useState<StatItems[]>([]);  
+    const [ stats, setStats ]                         = useState<StatItems[]>([
+        {
+            index: 1,
+            value: 0,
+            text: getStatsText(language, "experience")
+        },
+        {
+            index: 2,
+            value: 0,
+            text: getStatsText(language, "technologies")
+        },
+        {
+            index: 3,
+            value: 0,
+            text: getStatsText(language, "projects")
+        },
+        {
+            index: 4,
+            value: 0,
+            text: getStatsText(language, "commits")
+        }
+    ]);  
 
     useEffect(() => {
         (async function fetchData() {
