@@ -1,12 +1,10 @@
-"use client";
-
 import { combineReducers } from "redux";
 
 import { configureStore } from "@reduxjs/toolkit";
 
 import { persistReducer, persistStore } from "redux-persist";
+import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
-import storage from "redux-persist/lib/storage";
 import { PersistConfig } from "redux-persist/es/types";
 
 import languageReducer from "./slices/languageSlice";
@@ -15,6 +13,15 @@ import languageReducer from "./slices/languageSlice";
 const rootReducer = combineReducers({
     language: languageReducer
 });
+
+// Create Noop storage (Fix persistence error in Next.js SSR)
+const createNoopStorage = () => ({
+    getItem() { return Promise.resolve(null) },
+    setItem() { return Promise.resolve() },
+    removeItem() { return Promise.resolve() }
+});
+
+const storage = typeof window !== "undefined" ? createWebStorage("local") : createNoopStorage();
 
 // Configure info persistence
 const persistConfig:PersistConfig<ReturnType<typeof rootReducer>> = {
@@ -36,7 +43,7 @@ export const store = configureStore({
 });
 
 // Create the persistor element
-export const persistor = persistStore(store);
+export const persistor = typeof window !== "undefined" ? persistStore(store) : null;
 
 // Set RootState and AppDispatch types
 export type RootState = ReturnType<typeof store.getState>;
