@@ -71,7 +71,7 @@ const Home:React.FC = () => {
 							</a>
 							<div className="grid grid-cols-1 mb-8 xl:mb-0 gap-3">
 								<p className="flex justify-center items-center gap-1">
-									<FaSitemap className="text-accent"/>
+									<FaSitemap className="text-accent text-[12px]"/>
 									<span className="text-accent text-[13px]">|</span>
 									<span className="text-accent text-[13px]">
 										{HomeStrings[language.includes("en-us") ? "en" : "br"].socialMedia}

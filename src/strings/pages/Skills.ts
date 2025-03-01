@@ -14,7 +14,7 @@ const SkillStrings = {
         description: "I have been working as a Frontend/Fullstack Software Engineer over the past 5+ years, designing and building web apps from scratch, using for that \
             technologies such as JavaScript, TypeScript, HTML5, CSS3, React, Python, Django REST, PostgreSQL, Docker, Git and Linux. Since the last year, I have been \
             investing quite a while in learning new technologies, such as Tailwind CSS, Next.js and Node.js/Express, so that I can expand my skillset and thus deliver \
-            software solutions with better excellence.",
+            software solutions with greater excellence.",
         competences: "OOP/SOLID Principles | Unit Testing (Jest/RTL) | Agile (Scrum/Kanban) | Technical Leadership | Code Review | English (C2)"
     },
     br: {

@@ -16,13 +16,13 @@ export interface StatsStringItems {
 const StatsStrings:StatsStringItems = {
     en: {
         experience: "Years of Experience",
-        technologies: "Software Technologies",
+        technologies: "Learned Technologies",
         projects: "Code Projects (GitHub)",
         commits: "Code Commits (GitHub)"
     },
     br: {
         experience: "Anos de Experiência",
-        technologies: "Tecnologias de Software",
+        technologies: "Tecnologias Aprendidas",
         projects: "Projetos de Código (GitHub)",
         commits: "Commits de Código (GitHub)"
     }

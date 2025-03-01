@@ -80,7 +80,7 @@ const AboutStrings:AboutStringItems = {
             fifth: "+5592982818369",
             sixth: "jeffersondscanuto@gmail.com",
             seventh: "Portuguese",
-            eighth: "English (C2)"
+            eighth: "English (C1)"
         }
     },
     br: {
@@ -112,7 +112,7 @@ const AboutStrings:AboutStringItems = {
             fifth: "(92) 98281-8369",
             sixth: "jeffersondscanuto@gmail.com",
             seventh: "Português",
-            eighth: "Inglês (C2)"
+            eighth: "Inglês (C1)"
         }
     }
 };
