@@ -31,7 +31,7 @@ const Photo:React.FC = () => {
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 33vw"
                         alt="profile-image"
-                        className="object-contain ml-11 mt-11 xl:ml-10 xl:mt-10"
+                        className="object-contain ml-12 mt-12 xl:ml-10 xl:mt-10"
                     />
                 </motion.div>
                 {/* Circle */}

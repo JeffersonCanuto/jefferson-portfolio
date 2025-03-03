@@ -2,6 +2,8 @@
 
 import React from "react";
 
+import { useSelector } from "react-redux";
+
 import { FaGraduationCap } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
 import { LiaGraduationCapSolid } from "react-icons/lia";
@@ -9,6 +11,8 @@ import { LiaGraduationCapSolid } from "react-icons/lia";
 import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
+import { RootState } from "@/redux/store";
+import EducationStrings, { EducationStringItems } from "@/strings/pages/Education";
 
 import Image from "next/image";
 
@@ -31,95 +35,105 @@ type CertificationItems<T> = {
     competences: {index: number; name: T}[];
 };
 
-const education:EducationItems<string>[] = [
-    {
-        index: 1,
-        label: "01",
-        course: "Science and Technology (BSc)",
-        university: "Universidade Federal do Rio Grande do Norte",
-        start: "January/2013",
-        end: "July/2017"
-    },
-    {
-        index: 2,
-        label: "02",
-        course: "Telecommunications Engineering (BEng)",
-        university: "Universidade Federal do Rio Grande do Norte",
-        start: "July/2017",
-        end: "Unfinished"
-    }
-];
-
-const certifications:CertificationItems<string>[] = [
-    {
-        index: 1, 
-        title: "EF SET 72/100 (C2 Proficient)",
-        school: "EF SET",
-        icon: "/assets/logos/efset.svg",
-        issuance: "Issued in Jun. 2024",
-        credential: "https://cert.efset.org/y5Vos2",
-        competences: [
-            {
-                index: 1,
-                name: "English"
-            }
-        ]
-    },
-    {
-        index: 2, 
-        title: "Python Django Dev To Deployment",
-        school: "Udemy",
-        icon: "/assets/logos/udemy.svg",
-        issuance: "Issued in Sept. 2024",
-        credential: "https://www.udemy.com/certificate/UC-3f85dfa1-3b48-4c65-b6b7-017fa6c55ae4/",
-        competences: [
-            {
-                index: 1,
-                name: "Python"
-            },
-            {
-                index: 2,
-                name: "|"
-            },
-            {
-                index: 3,
-                name: "Django"
-            }
-        ]
-    },
-    {
-        index: 3, 
-        title: "Agile Fundamentals: Scrum & Kanban",
-        school: "Udemy",
-        icon: "/assets/logos/udemy.svg",
-        issuance: "Issued in Oct. 2024",
-        credential: "https://www.udemy.com/certificate/UC-da696552-b9f8-4a2e-90b6-456dadcb7191/",
-        competences: [
-            {
-                index: 1,
-                name: "Scrum"
-            },
-            {
-                index: 2,
-                name: "|"
-            },
-            {
-                index: 3,
-                name: "Kanban"
-            },
-            {
-                index: 4,
-                name: "|"
-            },
-            {
-                index: 5,
-                name: "Scrumban"
-            }
-        ]
-    }
-];
+const getDegreeFieldNames = (
+    language:string,
+    index: keyof EducationStringItems["en"]["degrees"],
+    field: keyof EducationStringItems["en"]["degrees"]["first" | "second"]
+) => {
+    return EducationStrings[language.includes("en-us") ? "en" : "br"]["degrees"][index][field];
+}
 
 const Education:React.FC = () => {
+    const language = useSelector((state:RootState) => state.language.preferred);
+
+    const education:EducationItems<string>[] = [
+        {
+            index: 1,
+            label: "01",
+            course: getDegreeFieldNames(language, "first", "name"),
+            university: "Universidade Federal do Rio Grande do Norte",
+            start: getDegreeFieldNames(language, "first", "start"),
+            end: getDegreeFieldNames(language, "first", "end")
+        },
+        {
+            index: 2,
+            label: "02",
+            course: getDegreeFieldNames(language, "second", "name"),
+            university: "Universidade Federal do Rio Grande do Norte",
+            start: getDegreeFieldNames(language, "second", "start"),
+            end: getDegreeFieldNames(language, "second", "end")
+        }
+    ];
+
+    const certifications:CertificationItems<string>[] = [
+        {
+            index: 1, 
+            title: `EF SET 72/100 (C2 - ${ language.includes("en-us") ? "Proficient" : "Proficiente" })`,
+            school: "EF SET",
+            icon: "/assets/logos/efset.svg",
+            issuance: `${language.includes("en-us") ? "Issued in Jun. 2024" : "Emitido em Jun. 2024"}`,
+            credential: "https://cert.efset.org/y5Vos2",
+            competences: [
+                {
+                    index: 1,
+                    name: `${language.includes("en-us") ? "English" : "Inglês"}`
+                }
+            ]
+        },
+        {
+            index: 2, 
+            title: "Python Django Dev To Deployment",
+            school: "Udemy",
+            icon: "/assets/logos/udemy.svg",
+            issuance: `${language.includes("en-us") ? "Issued in Sept. 2024" : "Emitido em Set. 2024"}`,
+            credential: "https://www.udemy.com/certificate/UC-3f85dfa1-3b48-4c65-b6b7-017fa6c55ae4/",
+            competences: [
+                {
+                    index: 1,
+                    name: "Python"
+                },
+                {
+                    index: 2,
+                    name: "|"
+                },
+                {
+                    index: 3,
+                    name: "Django"
+                }
+            ]
+        },
+        {
+            index: 3, 
+            title: "Agile Fundamentals: Scrum & Kanban",
+            school: "Udemy",
+            icon: "/assets/logos/udemy.svg",
+            issuance: `${language.includes("en-us") ? "Issued in Oct. 2024" : "Emitido em Out. 2024"}`,
+            credential: "https://www.udemy.com/certificate/UC-da696552-b9f8-4a2e-90b6-456dadcb7191/",
+            competences: [
+                {
+                    index: 1,
+                    name: "Scrum"
+                },
+                {
+                    index: 2,
+                    name: "|"
+                },
+                {
+                    index: 3,
+                    name: "Kanban"
+                },
+                {
+                    index: 4,
+                    name: "|"
+                },
+                {
+                    index: 5,
+                    name: "Scrumban"
+                }
+            ]
+        }
+    ];
+
     return (
         <section className="-mt-2 min-h-[80vh] flex flex-col justify-start py-12 xl:py-0">
             <div className="container mx-auto">
@@ -131,7 +145,14 @@ const Education:React.FC = () => {
                     }}
                 >
                     <h3 className="w-full h-[70px] flex justify-center text-accent">
-                        <span className="mx-3 text-[21px]">DEGREES</span>
+                        <span className="mx-3 text-[21px]">
+                            { 
+                                language.includes("en-us") ?
+                                    "DEGREES"
+                                :
+                                    "GRADUAÇÕES"
+                            }
+                        </span>
                         <LiaGraduationCapSolid className="mt-2 text-2xl"/>
                     </h3>
                 </motion.div>
@@ -153,13 +174,17 @@ const Education:React.FC = () => {
                                     </div>
                                 </div>
                                 {/* Course */}
-                                <h2 className="mt-3 text-[26px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{ed.course}</h2>
+                                <h2 className="mt-3 text-[22px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{ed.course}</h2>
                                 {/* University */}
                                 <p className="font-bold text-white group-hover:text-accent transition-all duration-500">{ed.university}</p>
                                 {/* Start and End dates */}
                                 <p className="text-white/60 flex justify-between items-start">
-                                    <span>Start: {ed.start}</span>
-                                    <span>End: {ed.end}</span>
+                                    <span>
+                                        { language.includes("en-us") ? "Start" : "Início" }: {ed.start}
+                                    </span>
+                                    <span>
+                                        { language.includes("en-us") ? "End" : "Fim" }: {ed.end}
+                                    </span>
                                 </p>
                                 {/* Border */}
                                 <div className="border-b border-white/20 w-full"></div>
@@ -178,12 +203,24 @@ const Education:React.FC = () => {
                     }}
                 >
                     <h3 className="w-full flex justify-center text-accent mt-4">
-                        <span className="mx-3 text-[21px]">CERTIFICATES</span>
+                        <span className="mx-3 text-[21px]">
+                            {
+                                language.includes("en-us") ?
+                                    "CERTIFICATES"
+                                :
+                                    "CERTIFICADOS"
+                            }
+                        </span>
                         <img
                             width="15"
                             height="35"
                             src="/assets/others/badge.svg" 
-                            alt="certificate-badge" 
+                            alt={
+                                language.includes("en-us") ?
+                                    "certification-icon"
+                                :
+                                    "icone-certificado"
+                            }
                         />
                     </h3>
                 </motion.div>
@@ -202,8 +239,16 @@ const Education:React.FC = () => {
                                     <h4 className="text-[14px] font-bold hover:text-accent">{certification.title}</h4>
                                     <p className="text-white/60">{certification.school}</p>
                                     <p className="text-white/60">{certification.issuance}</p>
-                                    <div className="text-[13px] md:text-[15px] flex flex-row">
-                                        <span className="mr-2">Skills:</span>
+                                    <div className="text-[14px] md:text-[12px] flex flex-row">
+                                        <span className="mr-2">
+                                            {
+                                                language.includes("en-us") ?
+                                                    "Skills"
+                                                :
+                                                    "Habilidades"
+                                            }
+                                            :
+                                        </span>
                                         <div className="flex justify-between items-end">
                                             {certification.competences.map((competence:{index: number; name: string}) => {
                                                 return (
@@ -226,12 +271,23 @@ const Education:React.FC = () => {
                                             src={certification.icon}
                                             height={100}
                                             width={75}
-                                            alt="certification-icon"
+                                            alt={
+                                                language.includes("en-us") ?
+                                                    "certification-icon"
+                                                :
+                                                    "icone-certificado"
+                                            }
+                                            
                                         />
                                     </figure>
                                     <a href={`${certification.credential}`} target="_blank" className="flex justify-center items-center">
                                         <Button size="sm">
-                                            Open
+                                            {
+                                                language.includes("en-us") ?
+                                                    "Open"
+                                                :
+                                                    "Abrir"
+                                            }
                                             <FiExternalLink className="ml-1" />
                                         </Button>
                                     </a>

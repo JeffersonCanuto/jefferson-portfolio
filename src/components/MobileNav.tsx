@@ -10,6 +10,9 @@ import {
     SheetTitle,
     SheetTrigger
 } from '@/components/ui/sheet';
+import { HeaderStringItems } from "@/strings/components/Header";
+
+import { getNavFieldNames } from "./Nav";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -20,42 +23,42 @@ interface LinkItems {
     path: string;
 };
 
-const links:LinkItems[] = [
-    {
-        index: 1,
-        name: "Home",
-        path: "/"
-    },
-    {
-        index: 2,
-        name: "Education",
-        path: "/education"
-    },
-    {
-        index: 3,
-        name: "Experiences",
-        path: "/experiences"
-    },
-    {
-        index: 4,
-        name: "Skills",
-        path: "/skills"
-    },
-    {
-        index: 5,
-        name: "Projects",
-        path: "/projects"
-    },
-    {
-        index: 6,
-        name: "About Me",
-        path: "/about"
-    }
-];
-
-const MobileNav:React.FC = () => {
+const MobileNav:React.FC<{ language: string; HeaderStrings:HeaderStringItems }> = ({ language, HeaderStrings }) => {
     const pathname = usePathname();
-    
+
+    const links:LinkItems[] = [
+        {
+            index: 1,
+            name: getNavFieldNames(language, HeaderStrings, "home"),
+            path: "/"
+        },
+        {
+            index: 2,
+            name: getNavFieldNames(language, HeaderStrings, "education"),
+            path: "/education"
+        },
+        {
+            index: 3,
+            name: getNavFieldNames(language, HeaderStrings, "experiences"),
+            path: "/experiences"
+        },
+        {
+            index: 4,
+            name: getNavFieldNames(language, HeaderStrings, "skills"),
+            path: "/skills"
+        },
+        {
+            index: 5,
+            name: getNavFieldNames(language, HeaderStrings, "projects"),
+            path: "/projects"
+        },
+        {
+            index: 6,
+            name: getNavFieldNames(language, HeaderStrings, "about"),
+            path: "/about"
+        }
+    ];
+
     return (
         <Sheet>
             <SheetTrigger className="flex justify-center items-center">
@@ -78,7 +81,7 @@ const MobileNav:React.FC = () => {
                             <Link
                                 href={link.path} 
                                 key={link.index} 
-                                className={`${link.path === pathname && "text-accent border-b-2 border-accent"} text-xl capitalize hover:text-accent transition-all`}
+                                className={`${link.path === pathname && "text-accent border-b-2 border-accent"} text-xl hover:text-accent transition-all`}
                             >
                                 {link.name}
                             </Link>

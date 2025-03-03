@@ -1,6 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { Fragment } from "react";
+
+import { useSelector } from "react-redux";
 
 import { SiHyperskill } from "react-icons/si";
 import { IoOpenOutline } from "react-icons/io5";
@@ -14,6 +16,9 @@ import {
     TooltipTrigger
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { RootState } from "@/redux/store";
+
+import ExperienceStrings, { ExperienceStringItems } from "@/strings/pages/Experiences";
 
 import Link from "next/link";
 
@@ -29,101 +34,101 @@ type ExperienceItems<T> = {
     attributions: { index: number; title: T }[];
 };
 
-const experience:{items: ExperienceItems<string>[]} = {
-    items: [
-        {
-            index: 1,
-            description: "In 2019, I started my career as a Software Engineer working as a Frontend Developer for LOGICA SISTEMAS DE INFORMACAO EIRELI, which is a small-sized \
-                company that provides services for the Telecom industry. As my main attributions, I was in charge of designing, building and maintaining entire modules \
-                (Frontend and Backend) of their main business product, a SaaS solution called Logica Flow. Broadly speaking, I was responsible for maintaining existing \
-                APIs designed to collect internet data traffic (IPv4/IPv6 and CDN/Non-CDN) coming from different Internet Service Providers (ISPs), process them in the \
-                Backend and display them in the Frontend by building multiple Dashboards - containing multiple Charts, Graphs and Tables. Furthermore, I was responsible \
-                for designing, building and maintaining microservices to perform periodical data transfer between storage units and VACUUM in some db tables. At last, I \
-                was in charge of designing, building and maintaining a full feature that was meant to generate custom PDF report documents periodically for each client \
-                (ISP) based upon their own data traffic, enabling efficient and precise data monitoring, analysis and visualization in a real-time basis.",
-            company: "LOGICA SISTEMAS DE INFORMACAO EIRELI",
-            website: "https://novaintranet.logicasistemas.com.br/",
-            position: "Frontend Developer (Web)",
-            location: "Natal, RN, Brazil",
-            regime: "On-Site",
-            duration: "Aug/2019 - Nov/2020",
-            attributions: [
-                {
-                    index: 1,
-                    title: "Implementation of multiple Dashboards to monitor IPv4/IPv6 and CDN/Non-CDN data traffic coming from different ISPs."
-                },
-                {
-                    index: 2,
-                    title: "Implementation of APIs designed to collect and process IPv4/IPv6 and CDN/Non-CDN data traffic coming from different ISPs."
-                },
-                {
-                    index: 3,
-                    title: "Implementation of Microservices to perform periodical data transfer between unit storages and VACUUM in some specific Database tables."
-                },
-                {
-                    index: 4,
-                    title: "Implementation of a full feature (Frontend and Backend) to generate automatic reports from IPv4/IPv6 and CDN/Non-CDN data traffic."
-                },
-                {
-                    index: 5,
-                    title: "Implementation of other full features (Frontend and Backend) for the company's primary SaaS solution called Logica Flow."
-                },
-                {
-                    index: 6,
-                    title: "Skills: JavaScript | HTML5 | CSS3 | React.js | Chart.js | Redux | Python | Django REST | PostgreSQL | Docker | Git | Linux"
-                }
-            ]
-        },
-        {
-            index: 2,
-            description: "In 2021, I joined SIDIA (Samsung Electronics' R&D center in Latin America) as a Frontend Software Engineer, working with both Web and Android. As my \
-                main attribution, I was the Principal Frontend Engineer and Technical Leader for the Automation Team, responsible for designing, building and maintaining \
-                internal software tools (TRO.IA, PLMN and PLM Reporter). Furthermore, I was responsible for conducting bugfixes for Samsung Android Native apps (Dialer, \
-                InCallUI, Contacts, Messages, etc) and managing and implementing LATAM telephony operator requirements. In 2024, I started working as the Project Leader \
-                for the delivery of STIR/Shaken and RCD solutions in Brazil from Samsung side. For this major project, I worked alongside representatives of other leading \
-                manufacturers (Google, Apple, Motorola, Positivo, etc), Brazilian telephony operators (TIM, Claro and Vivo) and client (ANATEL), to discuss all technical \
-                features and challenges. On the other hand, I was also in charge of intermediating the discussions between client (Brazil) and Samsung part (UX and Dev teams \
-                and Product Owners in HQ), assist with the trials after each deliverable iteration and analyze Android logs and debug the code whenever needed.",
-            company: "SIDIA INSTITUTO DE CIENCIA E TECNOLOGIA",
-            website: "https://sidia.com/",
-            position: "Frontend Engineer (Web/Android)",
-            location: "Manaus, AM, Brazil",
-            regime: "On-Site",
-            duration: "Apr/2021 - Jun/2024",
-            attributions: [
-                {
-                    index: 1,
-                    title: "Principal Frontend Engineer and Technical Leader for the Automation Team (Tools: PLM Reporter, TRO.IA and PLMN/MVNO)."
-                },
-                {
-                    index: 2,
-                    title: "Frontend Engineer responsible for designing PLM Reporter tool from scratch and implementing client main pages and features (Login page with \
-                        JWT Auth, Dashboards page with multiple Graphs, Charts and Tables, Statistics page, Load .xml files, User profile, etc)."
-                },
-                {
-                    index: 3,
-                    title: "Project Leader for the implementation and delivery of STIR/Shaken and RCD solutions in Brazil, representing Samsung side."
-                },
-                {
-                    index: 4,
-                    title: "Bugfixes for Samsung Android native apps (Dialer, InCallUI, Contacts, Messages), including Android log analysis."
-                },
-                {
-                    index: 5,
-                    title: "Skills: JavaScript | TypeScript | HTML5 | CSS3 | React | Chart.js | Redux/ContextAPI | Material UI | Python | Django REST | PostgreSQL | \
-                        Android (Java) | QuickBuild | Docker | Git | P4V | Swarm | Linux | Agile (Scrum/Kanban)"
-                }
-            ]
-        }
-    ]
+const getExperienceFieldNames = <
+    L extends keyof ExperienceStringItems,
+    I extends keyof ExperienceStringItems[L],
+    F extends keyof ExperienceStringItems[L][I],
+    S extends keyof ExperienceStringItems[L][I][F]
+>(
+    language: L,
+    index: I,
+    field: F,
+    subfield: S
+): ExperienceStringItems[L][I][F][S] => {
+    return ExperienceStrings[language][index][field][subfield];
 };
 
 const Experiences:React.FC = () => {
+    const language = (useSelector((state:RootState) => state.language.preferred)).includes("en-us") ? "en" : "br";
+
+    const experience:{items: ExperienceItems<string>[]} = {
+        items: [
+            {
+                index: 1,
+                description: getExperienceFieldNames(language, "first", "description", "title"),
+                company: "LOGICA SISTEMAS DE INFORMACAO EIRELI",
+                website: "https://novaintranet.logicasistemas.com.br/",
+                position: getExperienceFieldNames(language, "first", "card", "position"),
+                location: getExperienceFieldNames(language, "first", "card", "location"),
+                regime: getExperienceFieldNames(language, "first", "card", "regime"),
+                duration: getExperienceFieldNames(language, "first", "card", "duration"),
+                attributions: [
+                    {
+                        index: 1,
+                        title: getExperienceFieldNames(language, "first", "attributions", "first")
+                    },
+                    {
+                        index: 2,
+                        title: getExperienceFieldNames(language, "first", "attributions", "second")
+                    },
+                    {
+                        index: 3,
+                        title: getExperienceFieldNames(language, "first", "attributions", "third")
+                    },
+                    {
+                        index: 4,
+                        title: getExperienceFieldNames(language, "first", "attributions", "fourth")
+                    },
+                    {
+                        index: 5,
+                        title: getExperienceFieldNames(language, "first", "attributions", "fifth")
+                    },
+                    {
+                        index: 6,
+                        title: getExperienceFieldNames(language, "first", "attributions", "sixth")
+                    }
+                ]
+            },
+            {
+                index: 2,
+                description: getExperienceFieldNames(language, "second", "description", "title"),
+                company: "SIDIA INSTITUTO DE CIENCIA E TECNOLOGIA",
+                website: "https://sidia.com/",
+                position: getExperienceFieldNames(language, "second", "card", "position"),
+                location: getExperienceFieldNames(language, "second", "card", "location"),
+                regime: getExperienceFieldNames(language, "second", "card", "regime"),
+                duration: getExperienceFieldNames(language, "second", "card", "duration"),
+                attributions: [
+                    {
+                        index: 1,
+                        title: getExperienceFieldNames(language, "second", "attributions", "first")
+                    },
+                    {
+                        index: 2,
+                        title: getExperienceFieldNames(language, "second", "attributions", "second")
+                    },
+                    {
+                        index: 3,
+                        title: getExperienceFieldNames(language, "second", "attributions", "third")
+                    },
+                    {
+                        index: 4,
+                        title: getExperienceFieldNames(language, "second", "attributions", "fourth")
+                    },
+                    {
+                        index: 5,
+                        title: getExperienceFieldNames(language, "second", "attributions", "fifth")
+                    }
+                ]
+            }
+        ]
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0 }} 
             animate={{
-                opacity: 1, 
+                opacity: 1,
                 transition: { delay: 2,  duration: 0.4, ease: "easeIn" }
             }}
         >
@@ -134,13 +139,15 @@ const Experiences:React.FC = () => {
                             return (
                                 <div className="grid gap-10 cursor-default" key={item.index}>
                                     <span className="text-[15px] text-justify">{item.description}</span>
-                                    <li className={`${item.index === 1 && "-mt-5"} bg-[#232329] h-[235px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1`}>
+                                    <li className={`${item.index === 1 && language.includes("en") ? "-mt-2" : item.index === 1 && language.includes("br") ? "-mt-5" : ""} bg-[#232329] h-[235px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1`}>
                                         <h3 className="text-accent text-xl max-w-[400px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
                                         <div className="flex flex-col mb-5">
                                             <p className="text-[14px] min-w-[60px] min-h-[15px] text-center lg:text-left">{item.company}</p>
-                                            <p className="max-h-screen xl:max-w-[225px] flex justify-center xl:justify-between gap-4 xl:gap-0 text-[13px] text-white/60">
+                                            <p 
+                                                className={`max-h-screen ${language.includes("en") ? "xl:max-w-[220px]" : "xl:max-w-[240px]"} flex justify-center xl:justify-between gap-4 xl:gap-0 text-[13px] text-white/60`}
+                                            >
                                                 <span>{item.location}</span>
-                                                <span className="w-[5px] h-[5px] rounded-full bg-accent mt-[10px]"></span>
+                                                <span className="text-accent text-[13px]">|</span>
                                                 <span>{item.regime}</span>
                                             </p>
                                         </div>
@@ -164,12 +171,11 @@ const Experiences:React.FC = () => {
                                             </Link>
                                         </div>
                                     </li>
-                                    <div className={`${item.index === 2 && "relative top-4"} grid grid-cols-1 gap-4`}>
+                                    <div className={`relative  ${item.index === 2 && language.includes("en") ? "top-1" : item.index === 2 && language.includes("br") ? "top-5" : ""} grid grid-cols-1 gap-4`}>
                                         {item.attributions.map((attribution:{index:number; title:string}) => {
                                             return (
-                                                <>
+                                                <Fragment key={attribution.index}>
                                                     <div 
-                                                        key={attribution.index} 
                                                         className={
                                                             `${attribution.index !== item.attributions.length ? 
                                                                 "text-white/60"
@@ -185,12 +191,12 @@ const Experiences:React.FC = () => {
                                                         </p>
                                                     </div>
                                                     {attribution.index === item.attributions.length ? (
-                                                        <div className={`border-b border-b-gray-600 ${item.index === 1 && "relative top-4"}`}></div>
+                                                        <div className={`border-b border-b-gray-600 relative ${item.index === 1 && language.includes("en") ? "top-1" : item.index === 1 && language.includes("br") ? "top-5" : ""}`}></div>
                                                     ):
                                                         <></>
                                                     }
                                                     
-                                                </>
+                                                </Fragment>
                                             )
                                         })}
                                     </div>

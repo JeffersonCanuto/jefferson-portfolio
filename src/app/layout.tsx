@@ -3,10 +3,7 @@ import React, { ReactNode } from "react";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-import Header from "@/components/Header";
-import StairTransition from "@/components/StairTransition";
-import PageTransition from "@/components/PageTransition";
-import Copyright from "@/components/Copyright";
+import Main from "./main";
 
 interface MetaDataItems {
 	title: string;
@@ -27,12 +24,9 @@ const jetbrainsMono = JetBrains_Mono({
 const RootLayout:React.FC<{children:ReactNode}> = ({ children }) => {
 	return (
 		<html lang="en">
-    		<body className={jetbrainsMono.variable}>
-				<Header />
-				<StairTransition />
-				<PageTransition>{children}</PageTransition>
-				<Copyright />
-      		</body>
+			<body className={jetbrainsMono.variable}>
+				<Main>{children}</Main>
+			</body>
     	</html>
   );
 }

@@ -1,3 +1,4 @@
+
 import React, { forwardRef, ButtonHTMLAttributes } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -20,7 +21,7 @@ const buttonVariants = cva(
         default: "h-[44px] px-6",
         sm: "h-[32px] text-[13px] px-4",
         md: "h-[48px] px-6",
-        lg: "h-[56px] px-8 text-sm uppercase tracking-[2px]"
+        lg: "h-[56px] py-9 px-7 text-sm uppercase tracking-[2px]"
       },
     },
     defaultVariants: {
