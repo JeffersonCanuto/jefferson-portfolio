@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 
 import { configureStore } from "@reduxjs/toolkit";
 
-import { persistReducer, persistStore } from "redux-persist";
+import { persistReducer, persistStore, Persistor } from "redux-persist";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
 import { PersistConfig } from "redux-persist/es/types";
@@ -43,7 +43,7 @@ export const store = configureStore({
 });
 
 // Create the persistor element
-export const persistor = typeof window !== "undefined" ? persistStore(store) : null;
+export const persistor = typeof window !== "undefined" ? persistStore(store) : ({} as Persistor);
 
 // Set RootState and AppDispatch types
 export type RootState = ReturnType<typeof store.getState>;
