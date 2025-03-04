@@ -92,7 +92,7 @@ const Stats:React.FC<{ language:string }> = ({ language }) => {
     }, [language, ghubProjectsCount, ghubCommitCount]);
 
     return (
-        <section className="-mt-14 pt-12 xl:pt-0">
+        <section className="-mt-16 pt-12 xl:pt-0">
             <div className="container max-auto">
                 <div className="grid grid-cols-2 xl:flex xl:flex-wrap gap-10 max-w-[80vw] mx-auto xl:max-w-none">
                     {stats.map((stat:StatItems, index:number) => {
