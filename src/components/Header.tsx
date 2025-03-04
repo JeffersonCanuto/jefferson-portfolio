@@ -67,10 +67,10 @@ const Header:React.FC = () => {
                     </h1>
                 </Link>
                 {/* Language Preference */}
-                <div className={`${isEnglishActive ? "w-[270px]" : "w-[240px]"} flex gap-5`}>
+                <div className={`${isEnglishActive ? "w-[210px] xl:w-[270px]" : "w-[200px] xl:w-[240px]"} flex gap-5`}>
                     <div className="flex items-center gap-1">
-                        <FcGlobe aria-describedby="language" className="text-[20px]"/>
-                        <p className="text-[14px] text-white/60" id="language">
+                        <FcGlobe aria-describedby="language" className="text-[13px] xl:text-[20px]"/>
+                        <p className="text-[10px] xl:text-[14px] text-white/60" id="language">
                             {HeaderStrings[language.includes("en-us") ? "en" : "br"].language}:
                         </p>
                     </div>
@@ -103,14 +103,14 @@ const Header:React.FC = () => {
                                 { index === 0 ? (
                                     isEnglishActive ?
                                         <div className="border-2 border-accent rounded-full flex justify-center items-center p-1">
-                                            <FaCheck className="text-[9px] text-accent"/>
+                                            <FaCheck className="text-[6px] xl:text-[9px] text-accent"/>
                                         </div>
                                     :
                                         <></>
                                 ):(
                                     isPortugueseActive ?
                                         <div className="border-2 border-accent rounded-full flex justify-center items-center p-1">
-                                            <FaCheck className="text-[9px] text-accent"/>
+                                            <FaCheck className="text-[6px] xl:text-[9px] text-accent"/>
                                         </div>
                                     :
                                         <></>

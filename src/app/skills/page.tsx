@@ -170,7 +170,7 @@ const Skills:React.FC = () => {
                             )
                         })}  
                     </ul>
-                    <div className="-mt-2 w-full text-[14px] text-white/60 cursor-default">
+                    <div className="-mt-1 w-full text-[14px] text-white/60 cursor-default">
                         <div className="flex items-center">
                             <SiHyperskill className="mr-2 flex-shrink-0"/>
                             <p className="ml-1 text-justify">
