@@ -63,7 +63,8 @@ const Header:React.FC = () => {
                 {/* Logo */}
                 <Link href="/">
                     <h1 className="text-4xl font-semibold">
-                        JC <span className="text-accent">.</span>
+                        <span>JC</span>
+                        <span className="text-accent ml-2">.</span>
                     </h1>
                 </Link>
                 {/* Language Preference */}

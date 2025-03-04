@@ -67,11 +67,11 @@ const MobileNav:React.FC<{ language: string; HeaderStrings:HeaderStringItems }> 
             <SheetContent className="flex flex-col">
                 <SheetTitle className="w-[30px] text-white mt-2">Menu</SheetTitle> 
                 {/* Logo */}
-                <div className="my-20 text-center text-2xl">
+                <div className="text-center text-2xl">
                     <Link href="/">
                         <h1 className="text-4xl font-semibold">
                             <span>JC</span>
-                            <span className="-ml-3 text-accent">.</span>
+                            <span className="text-accent">.</span>
                         </h1>
                     </Link>
                 </div>
