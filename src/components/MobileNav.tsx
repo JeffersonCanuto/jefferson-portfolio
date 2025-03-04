@@ -70,7 +70,8 @@ const MobileNav:React.FC<{ language: string; HeaderStrings:HeaderStringItems }> 
                 <div className="my-20 text-center text-2xl">
                     <Link href="/">
                         <h1 className="text-4xl font-semibold">
-                            JC <span className="text-accent">.</span>
+                            <span>JC</span>
+                            <span className="-ml-3 text-accent">.</span>
                         </h1>
                     </Link>
                 </div>

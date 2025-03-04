@@ -69,8 +69,8 @@ const Header:React.FC = () => {
                 {/* Language Preference */}
                 <div className={`${isEnglishActive ? "w-[210px] xl:w-[270px]" : "w-[200px] xl:w-[240px]"} flex gap-5`}>
                     <div className="flex items-center gap-1">
-                        <FcGlobe aria-describedby="language" className="text-[13px] xl:text-[20px]"/>
-                        <p className="text-[10px] xl:text-[14px] text-white/60" id="language">
+                        <FcGlobe aria-describedby="language" className="text-[15px] xl:text-[20px]"/>
+                        <p className="text-[11px] xl:text-[14px] text-white/60" id="language">
                             {HeaderStrings[language.includes("en-us") ? "en" : "br"].language}:
                         </p>
                     </div>
