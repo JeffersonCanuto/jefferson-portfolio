@@ -67,7 +67,7 @@ const MobileNav:React.FC<{ language: string; HeaderStrings:HeaderStringItems }> 
             <SheetContent className="flex flex-col">
                 <SheetTitle className="w-[30px] text-white mt-2">Menu</SheetTitle> 
                 {/* Logo */}
-                <div className="text-center text-2xl">
+                <div className="my-20 text-center text-2xl">
                     <Link href="/">
                         <h1 className="text-4xl font-semibold">
                             <span>JC</span>
