@@ -9,7 +9,7 @@ import { store, persistor } from "@/redux/store";
 import Header from "@/components/Header";
 import StairTransition from "@/components/StairTransition";
 import PageTransition from "@/components/PageTransition";
-import Copyright from "@/components/Copyright";
+import Disclaimer from "@/components/Disclaimer";
 
 const Main:React.FC<{ children: ReactNode }> = ({ children }) => {
     return (
@@ -18,7 +18,7 @@ const Main:React.FC<{ children: ReactNode }> = ({ children }) => {
                 <Header />
                 <StairTransition />
                 <PageTransition>{children}</PageTransition>
-                <Copyright />
+                <Disclaimer />
             </PersistGate>
         </Provider>
     );

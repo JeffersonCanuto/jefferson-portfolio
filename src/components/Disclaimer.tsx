@@ -5,13 +5,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { RootState } from "@/redux/store";
-import CopyrightStrings from "@/strings/components/Copyright";
+import DisclaimerStrings from "@/strings/components/Disclaimer";
 
 import { usePathname } from "next/navigation";
 
 import packageJson from "../../package.json";
 
-const Copyright:React.FC = () => {
+const Disclaimer:React.FC = () => {
     const pathname = usePathname();
 
     const language = useSelector((state:RootState) => state.language.preferred);
@@ -42,7 +42,7 @@ const Copyright:React.FC = () => {
             <div className="flex justify-center items-center">
                 <div className="flex-grow border-b border-gray-600"></div>
                 <p className="p-4 text-[8px] xl:text-[11px] text-white/60">
-                    © {currentYear} Jefferson Canuto. {CopyrightStrings[language.includes("en-us") ? "en" : "br"].text}. {CopyrightStrings[language.includes("en-us") ? "en" : "br"].version} {packageJson.version} ({releaseDate}).
+                    © {currentYear} Jefferson Canuto. {DisclaimerStrings[language.includes("en-us") ? "en" : "br"].text}. {DisclaimerStrings[language.includes("en-us") ? "en" : "br"].version} {packageJson.version} ({releaseDate}).
                 </p>
                 <div className="flex-grow border-b border-gray-600"></div>
             </div>
@@ -50,4 +50,4 @@ const Copyright:React.FC = () => {
     );
 }
 
-export default Copyright;
+export default Disclaimer;

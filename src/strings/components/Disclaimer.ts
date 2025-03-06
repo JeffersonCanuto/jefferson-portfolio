@@ -1,4 +1,4 @@
-interface CopyrightStringItems {
+interface DisclaimerStringItems {
     en: {
         text: string;
         version: string;
@@ -9,7 +9,7 @@ interface CopyrightStringItems {
     };
 };
 
-const CopyrightStrings:CopyrightStringItems = {
+const DisclaimerStrings:DisclaimerStringItems = {
     en: {
         text: "All rights reserved",
         version: "Version"
@@ -20,4 +20,4 @@ const CopyrightStrings:CopyrightStringItems = {
     }
 };
 
-export default CopyrightStrings;
+export default DisclaimerStrings;
