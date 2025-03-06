@@ -92,19 +92,19 @@ const ExperienceStrings:ExperienceStringItems = {
                     At last, I was in charge of designing, building and maintaining a full feature that was meant to generate custom PDF report documents periodically for \
                     each client (ISP) based upon their own data traffic, enabling efficient, precise and real-time data monitoring, analysis and visualization."
             },
-            card: {
+            card: { 
                 position: "Frontend Developer (Web)" ,
                 location: "Natal, RN, Brazil",
                 regime: "On-Site",
                 duration: "Aug/2019 - Nov/2020"
             },
             attributions: {
-                first: "Implementation of multiple Dashboards to monitor IPv4/IPv6 and CDN/Non-CDN data traffic coming from different Internet Providers.",
-                second: "Implementation of APIs designed to collect and process IPv4/IPv6 and CDN/Non-CDN data traffic coming from different Internet Providers.",
-                third: "Implementation of Microservices designed to perform periodical data transfer between different storage units and VACUUM in DB tables.",
-                fourth: "Implementation of user features (Frontend and Backend) for the company's primary SaaS solution called Logica Flow.",
-                fifth: "Implementation and maintenance (Frontend and Backend) of a feature to generate automatic reports from IPv4/IPv6 and CDN/Non-CDN data traffic, \
-                    for all Internet Providers that use Logica Flow.",
+                first: "Implementation of multiple Dashboards to monitor IPv4/IPv6 and CDN/Non-CDN data traffic from different Internet Service Providers.",
+                second: "Maintenance of APIs designed to collect and process IPv4/IPv6 and CDN/Non-CDN data traffic from different Internet Service Providers.",
+                third: "Implementation of user features and interfaces for the company's primary SaaS solution called Logica Flow.",
+                fourth: "Implementation of microservices designed to perform periodical data transfer between storage units and VACUUM in Logica Flow DB tables.",
+                fifth: "Implementation and maintenance of a full feature meant to generate automatic and periodical reports from IPv4/IPv6 and CDN/Non-CDN data traffic \
+                    for all Internet Service Providers that used Logica Flow.",
                 sixth: "Skills: JavaScript | HTML5 | CSS3 | React.js | Chart.js | Redux | Python | Django REST | PostgreSQL | Docker | Git | Linux"
             }
         },
@@ -112,7 +112,7 @@ const ExperienceStrings:ExperienceStringItems = {
             description: {
                 title: "In 2021, I joined SIDIA INSTITUTO DE CIÊNCIA E TECNOLOGIA (Samsung Electronics' R&D center in Latin America) as a Frontend Software Engineer, working \
                     with Web and Android. As my main attribution, I was the Principal Frontend Engineer and Technical Leader for the Automation Team, in charge of designing, \
-                    building and maintaining internal automation tools (PLM Reporter, TRO.IA and PLMN/MVNO). Furthermore, I was responsible for conducting bugfixes for \
+                    building and maintaining internal automation tools (PLM Reporter, TRO.IA and PLMN/MVNO). Furthermore, I was responsible for conducting bug fixes for \
                     Samsung Android Native apps (Dialer, InCallUI, Contacts, Messages, etc) and managing and implementing LATAM telephony operator requirements. In 2024, \
                     I started working as the Project Leader for the delivery of STIR/Shaken and RCD solutions in Brazil from Samsung side. For this major project, I worked \
                     alongside representatives of other leading manufacturers (Google, Apple, Motorola, Positivo, etc), Brazilian Telephony Operators (TIM, Claro and Vivo) \
@@ -131,7 +131,7 @@ const ExperienceStrings:ExperienceStringItems = {
                 second: "Frontend Project Leader responsible for creating PLM Reporter tool from scratch and implementing all main user interfaces and \
                     features (Login page with JWT Auth, Dashboards and Statistics pages with multiple Graphs and Tables, Load .xml files, User profile, etc).",
                 third: "Project Leader for the implementation and delivery of STIR/Shaken and RCD solutions in Brazil, representing Samsung side.",
-                fourth: "Bugfixes for Samsung Android native apps (Dialer, InCallUI, Contacts, Messages), including Android log analysis.",
+                fourth: "Bug fixes for Samsung Android native apps (Dialer, InCallUI, Contacts, Messages), including Android log analysis.",
                 fifth: "Skills: JavaScript | TypeScript | HTML5 | CSS3 | React | Chart.js | Redux/ContextAPI | Material UI | Python | Django REST | \
                     PostgreSQL | Android (Java) | QuickBuild | Docker | Git | P4V | Swarm | Linux | Agile (Scrum/Kanban)"
             }
@@ -158,12 +158,12 @@ const ExperienceStrings:ExperienceStringItems = {
             },
             attributions: {
                 first: "Implementação de Dashboards para monitoramento de tráfego de dados IPv4/IPv6 e CDN/Não-CDN, vindo de diferentes Provedores de Internet.",
-                second: "Implementação de APIs para coletar e processar tráfego de dados IPv4/IPv6 e CDN/Não-CDN, vindo de diferentes Provedores de Internet.",
-                third: "Implementação de Microsserviços para realizar periodicamente a transferência de dados entre unidades de armazenamento distintas e VACUUM \
-                    em tabelas dos Bancos de Dados.",
-                fourth: "Implementação de features de usuário (Frontend e Backend) para o principal produto da empresa, uma solução SaaS chamada Logica Flow.",
-                fifth: "Implementação completa e manutenção (Frontend e Backend) da feature de geração automática de relatórios de tráfego de dados IPv4/IPv6 e CDN/Não-CDN, \
-                    para os Provedores de Internet que usam o Logica Flow.",
+                second: "Manutenção de APIs feitas para coletar e processar tráfego de dados IPv4/IPv6 e CDN/Não-CDN, vindo de diferentes Provedores de Internet.",
+                third: "Implementação de features e interfaces de usuário para o principal produto da empresa, uma solução SaaS chamada Logica Flow.",
+                fourth: "Implementação de microsserviços feitos para realizar de forma periódica a transferência de dados entre unidades de armazenamento distintas \
+                    e VACUUM em tabelas dos Bancos de Dados do Logica Flow.",
+                fifth: "Implementação e manutenção de uma feature por completa de geração automática e periódica de relatórios de tráfego de dados IPv4/IPv6 e CDN/Não-CDN, \
+                    para Provedores de Internet que usavam o Logica Flow.",
                 sixth: "Habilidades: JavaScript | HTML5 | CSS3 | React.js | Chart.js | Redux | Python | Django REST | PostgreSQL | Docker | Git | Linux"
             }
         },
