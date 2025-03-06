@@ -101,7 +101,7 @@ const ExperienceStrings:ExperienceStringItems = {
             attributions: {
                 first: "Implementation of multiple Dashboards to monitor IPv4/IPv6 and CDN/Non-CDN data traffic from different Internet Service Providers.",
                 second: "Maintenance of APIs designed to collect and process IPv4/IPv6 and CDN/Non-CDN data traffic from different Internet Service Providers.",
-                third: "Implementation of user features and interfaces for the company's primary SaaS solution called Logica Flow.",
+                third: "Implementation of user interfaces and features for the company's primary SaaS solution called Logica Flow.",
                 fourth: "Implementation of microservices designed to perform periodical data transfer between storage units and VACUUM in Logica Flow DB tables.",
                 fifth: "Implementation and maintenance of a full feature meant to generate automatic and periodical reports from IPv4/IPv6 and CDN/Non-CDN data traffic \
                     for all Internet Service Providers that used Logica Flow.",
@@ -159,9 +159,9 @@ const ExperienceStrings:ExperienceStringItems = {
             attributions: {
                 first: "Implementação de Dashboards para monitoramento de tráfego de dados IPv4/IPv6 e CDN/Não-CDN, vindo de diferentes Provedores de Internet.",
                 second: "Manutenção de APIs feitas para coletar e processar tráfego de dados IPv4/IPv6 e CDN/Não-CDN, vindo de diferentes Provedores de Internet.",
-                third: "Implementação de features e interfaces de usuário para o principal produto da empresa, uma solução SaaS chamada Logica Flow.",
+                third: "Implementação de interfaces e features de usuário para o principal produto da empresa, uma solução SaaS chamada Logica Flow.",
                 fourth: "Implementação de microsserviços feitos para realizar de forma periódica a transferência de dados entre unidades de armazenamento distintas \
-                    e VACUUM em tabelas dos Bancos de Dados do Logica Flow.",
+                    e VACUUM em tabelas do Banco de Dados do Logica Flow.",
                 fifth: "Implementação e manutenção de uma feature por completa de geração automática e periódica de relatórios de tráfego de dados IPv4/IPv6 e CDN/Não-CDN, \
                     para Provedores de Internet que usavam o Logica Flow.",
                 sixth: "Habilidades: JavaScript | HTML5 | CSS3 | React.js | Chart.js | Redux | Python | Django REST | PostgreSQL | Docker | Git | Linux"
