@@ -27,12 +27,12 @@ interface SocialProps {
 
 const socials:SocialItems[] = [
     {
-        icon: <FaGithub />,
-        path: "https://github.com/JeffersonCanuto"
-    },
-    {
         icon: <FaLinkedinIn />,
         path: "https://www.linkedin.com/in/jefferson-canuto-aa3b46163/"
+    },
+    {
+        icon: <FaGithub />,
+        path: "https://github.com/JeffersonCanuto"
     },
     {
         icon: <FaInstagram />,
@@ -59,9 +59,9 @@ const Social:React.FC<SocialProps> = ({ containerStyles, iconStyles }) => {
                                 <TooltipContent>
                                     {
                                         index === 0 ?
-                                            "GitHub"
-                                        : index === 1 ?
                                             "LinkedIn"
+                                        : index === 1 ?
+                                            "GitHub"
                                         : index === 2 ?
                                             "Instagram"
                                         : 
