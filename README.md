@@ -2,6 +2,7 @@
 
 This project is designed to be a tool where I can showcase my education, experiences, skills, competences and projects, along with a bit of myself (my journey as a Frontend/Fullstack Software Engineer over the past 5+ years, passions, etc). Also, it is meant to be a project in which I can feel free to practice my skills, explore new ideas and implement some new concepts, as I keep studying and delving deeper into the Dev world.
 
+
 ### ✅ Features
 
 - Language selector to choose preferred language and apply string translation for all the project pages.
@@ -15,9 +16,10 @@ This project is designed to be a tool where I can showcase my education, experie
 - Experience overview of previous work experiences with their respective responsibilities in Experiences page.
 - Card section containing job title, company name, location, regime, duration and hyperlinks in Experiences page.
 - Overview of technology-related skills, display learned technologies and other competences in Skills page.
-- Overview about my personal projects, technologies used and hyperlinks to their GitHub repositories in Projects page.
+- Overview about my personal projects, technologies used and hyperlinks to their repositories in Projects page.
 - Swiper component to swipe across multiple projects and show their respective info accordingly in Projects page.
 - General introduction, avatar photo and also some relevant personal information about me in About page.
+
 
 ### 🛠️ Technologies
 
@@ -28,9 +30,11 @@ This project is designed to be a tool where I can showcase my education, experie
 - **ShadCN/UI:** React component library used to have access to a set of customizable UI components.
 - **React Icons:** React library used to have access to a collection of icon packs for web applications.
 
+
 ### 🌐 Live Demo
 
-Check out the live version deployed at Vercel: [demo](https://jefferson-portfolio-taupe.vercel.app/)
+Check out the live version deployed at Vercel: https://jefferson-portfolio-taupe.vercel.app/
+
 
 ### 📂 How To Run It Locally
 
@@ -41,8 +45,6 @@ HTTPS:
 ```bash
 git clone https://github.com/JeffersonCanuto/jefferson-portfolio.git
 ```
-
-OR
 
 SSH:
 
