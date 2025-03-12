@@ -38,7 +38,7 @@ const Home:React.FC = () => {
 							{HomeStrings[language.includes("en-us") ? "en" : "br"].title}
 						</span>
 						<h1 className="h1 mt-4 animate-typing">
-							{ language.includes("en-us") ? "Hello, I'm" :  "Olá, Eu sou" } <br /> <span className="text-accent">Jefferson Canuto</span>
+							{ language.includes("en-us") ? "Hello, I'm" :  "Olá, Me chamo" } <br /> <span className="text-accent">Jefferson Canuto</span>
 						</h1>
 						<p className="max-w-[615px] mt-8 mb-10 text-white/80 text-justify">
 							{HomeStrings[language.includes("en-us") ? "en" : "br"].introduction} &#128578;
