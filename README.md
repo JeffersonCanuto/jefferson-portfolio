@@ -2,7 +2,6 @@
 
 This project is designed to be a tool where I can showcase my education, experiences, skills, competences and projects, along with a bit of myself (my journey as a Frontend/Fullstack Software Engineer over the past 5+ years, passions, etc). Also, it is meant to be a project in which I can feel free to practice my skills, explore new ideas and implement some new concepts, as I keep studying and delving deeper into the Dev world.
 
-
 ### ✅ Features
 
 - Language selector to choose preferred language and apply string translation for all the project pages.
@@ -20,7 +19,6 @@ This project is designed to be a tool where I can showcase my education, experie
 - Swiper component to swipe across multiple projects and show their respective info accordingly in Projects page.
 - General introduction, avatar photo and also some relevant personal information about me in About page.
 
-
 ### 🛠️ Technologies
 
 - **TypeScript:** Language used to ensure static type safety and ease detecting interface-related bugs.
@@ -30,11 +28,9 @@ This project is designed to be a tool where I can showcase my education, experie
 - **ShadCN/UI:** React component library used to have access to a set of customizable UI components.
 - **React Icons:** React library used to have access to a collection of icon packs for web applications.
 
-
 ### 🌐 Live Demo
 
-Check out the live version deployed at Vercel: https://jefferson-portfolio-taupe.vercel.app/
-
+Check out the live version deployed at Vercel: https://jeffersoncanuto-portfolio.vercel.app/
 
 ### 📂 How To Run It Locally
 
