@@ -36,13 +36,13 @@ Check out the live version deployed at Vercel: https://jeffersoncanuto-portfolio
 
 1. Clone repository (HTTPS or SSH):
 
-HTTPS:
+* HTTPS:
 
 ```bash
 git clone https://github.com/JeffersonCanuto/jefferson-portfolio.git
 ```
 
-SSH:
+* SSH:
 
 ```bash
 git clone git@github.com:JeffersonCanuto/jefferson-portfolio.git
