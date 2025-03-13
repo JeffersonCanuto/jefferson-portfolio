@@ -40,7 +40,7 @@ const HireStrings:HireStringItems<string> = {
         phoneTitle: "Phone",
         phoneName: "+5592982818369",
         addressTitle: "Address",
-        addressName: "833 Ana C B Dias Street, No. 2. Salvador - BA, Brazil"
+        addressName: "833 Ana C B Dias Street, No. 2. Lauro de Freitas - BA, Brazil"
     },
     br: {
         title: "Vamos trabalhar juntos!",
