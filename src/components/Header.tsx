@@ -14,7 +14,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { AppDispatch, RootState } from "@/redux/store";
 import { setPreferredLanguage } from "@/redux/slices/languageSlice";
-
 import HeaderStrings from "@/strings/components/Header";
 
 import { Button } from "./ui/button";
@@ -27,6 +26,8 @@ import {
     TooltipProvider,
     TooltipTrigger
 } from "@/components/ui/tooltip";
+
+import { getHeaderFieldNames } from "./Nav";
 
 import BrFlag from "../../public/assets/others/br-flag.svg";
 import UsFlag from "../../public/assets/others/us-flag.svg";
@@ -123,11 +124,14 @@ const Header:React.FC = () => {
                         ))}
                     </div>
                 </div>
-                {/* Desktop Navbar & Contact button */}
+                {/* Desktop Navbar & Hire button */}
                 <div className="hidden xl:flex items-center gap-8">
                     <Nav language={language} HeaderStrings={HeaderStrings} />
+                    <Link href="/hire">
+                        <Button>{getHeaderFieldNames(language, HeaderStrings, "hire")}</Button>
+                    </Link>
                 </div>
-
+                
                 {/* Mobile Navbar */}
                 <div className="xl:hidden">
                     <MobileNav language={language} HeaderStrings={HeaderStrings} />

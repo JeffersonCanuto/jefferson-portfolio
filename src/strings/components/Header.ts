@@ -9,6 +9,7 @@ export interface HeaderStringItems {
             skills: string;
             projects: string;
             about: string;
+            hire: string;
         };
     };
     br: {
@@ -20,6 +21,7 @@ export interface HeaderStringItems {
             skills: string;
             projects: string;
             about: string;
+            hire: string;
         };
     };
 };
@@ -33,7 +35,8 @@ const HeaderStrings:HeaderStringItems = {
             experiences: "Experiences",
             skills: "Skills",
             projects: "Projects",
-            about: "About me"
+            about: "About me",
+            hire: "Hire"
         }
     },
     br: {
@@ -44,7 +47,8 @@ const HeaderStrings:HeaderStringItems = {
             experiences: "Experiências",
             skills: "Habilidades",
             projects: "Projetos",
-            about: "Sobre mim"
+            about: "Sobre mim",
+            hire: "Contratar"
         }
     }
 };

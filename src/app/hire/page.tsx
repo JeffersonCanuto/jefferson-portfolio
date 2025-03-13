@@ -2,6 +2,8 @@
 
 import React, { ReactNode } from "react";
 
+import { useSelector } from "react-redux";
+
 import { motion } from "framer-motion";
 
 import { FaWhatsapp, FaPhoneAlt, FaLinkedinIn, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
@@ -10,7 +12,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+import { RootState } from "@/redux/store";
+
 import Link from "next/link";
+
+import HireStrings, { HireStringItems } from "@/strings/pages/Hire";
 
 interface InfoItems {
     index: number;
@@ -19,34 +25,46 @@ interface InfoItems {
     description: string;
 };
 
-const infos:InfoItems[] = [
-    {
-        index: 1,
-        icon: <FaLinkedinIn />,
-        title: "LinkedIn",
-        description: "https://www.linkedin.com/in/jefferson-canuto-aa3b46163/"
-    },
-    {
-        index: 2,
-        icon: <FaEnvelope />,
-        title: "Email",
-        description: "jeffersondscanuto@gmail.com"
-    },
-    {
-        index: 3,
-        icon: <FaPhoneAlt />,
-        title: "Phone",
-        description: "+5592982818369"
-    },
-    {
-        index: 4,
-        icon: <FaMapMarkerAlt />,
-        title: "Address",
-        description: "112 Jose Prado Montoro Street, Ap 53. Sao Paulo, SP, Brazil"
-    },
-];
+const getHireFieldNames = <
+    L extends keyof HireStringItems<string>,
+    F extends keyof HireStringItems<string>[L]
+>(
+    language:L,
+    field: F
+):HireStringItems<string>[L][F] => {
+    return HireStrings[language][field];
+} 
 
-const Contact:React.FC = () => {
+const Hire:React.FC = () => {
+    const language = (useSelector((state:RootState) => state.language.preferred)) === "en-us" ? "en" : "br";
+    
+    const infos:InfoItems[] = [
+        {
+            index: 1,
+            icon: <FaLinkedinIn />,
+            title: "LinkedIn",
+            description: "https://www.linkedin.com/in/jefferson-canuto-aa3b46163/"
+        },
+        {
+            index: 2,
+            icon: <FaEnvelope />,
+            title: "Email",
+            description: "jeffersondscanuto@gmail.com"
+        },
+        {
+            index: 3,
+            icon: <FaPhoneAlt />,
+            title: getHireFieldNames(language, "phoneTitle"),
+            description: getHireFieldNames(language, "phoneName")
+        },
+        {
+            index: 4,
+            icon: <FaMapMarkerAlt />,
+            title: getHireFieldNames(language, "addressTitle"),
+            description: getHireFieldNames(language, "addressName")
+        },
+    ];
+
     return (
         <motion.section
             initial={{ opacity: 0}}
@@ -65,20 +83,24 @@ const Contact:React.FC = () => {
                     {/* Form */}
                     <div className="xl:h-[54%] order-2 xl:order-none ">
                         <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-                            <h3 className="text-4xl text-accent">Let's work together</h3>
-                            <p className="text-white/60 text-justify">Do you want me to join you in enhancing end user experience by designing and also building impactful, innovative and multifunctional apps? Let's have a proper chat over <b className="text-accent">WhatsApp</b>!</p>
+                            <h3 className="text-4xl text-accent">
+                                {getHireFieldNames(language, "title")}
+                            </h3>
+                            <p className="text-white/60 text-justify">
+                                {getHireFieldNames(language, "description")}
+                            </p>
                             {/* Input */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <Input type="firstName" placeholder="First name"/>
-                                <Input type="lastName" placeholder="Last name"/>
-                                <Input type="jobTitle" placeholder="Job Title"/>
-                                <Input type="email" placeholder="E-mail"/>
+                                <Input type="firstName" placeholder={getHireFieldNames(language, "inputHolderFirstName")} />
+                                <Input type="lastName" placeholder={getHireFieldNames(language, "inputHolderLastname")} />
+                                <Input type="jobTitle" placeholder={getHireFieldNames(language, "inputHolderJobTitle")} />
+                                <Input type="email" placeholder="Email"/>
                             </div>
                             {/* Textarea */}
-                            <Textarea className="h-[200px]" placeholder="Type your message here..."/>
+                            <Textarea className="h-[200px]" placeholder={getHireFieldNames(language, "messageHolder")} />
                             {/* Button */}
-                            <Button size="md" className="max-w-[10vw] flex justify-between">
-                                Send message
+                            <Button size="md" className={`${language.includes("en") ? "max-w-[120px]" : "max-w-[140px]"} flex justify-between`}>
+                                {getHireFieldNames(language, "sendButton")}
                                 <FaWhatsapp className="text-2xl text-[#000]"/>
                             </Button>
                         </form>
@@ -117,4 +139,4 @@ const Contact:React.FC = () => {
     );
 }
 
-export default Contact;
+export default Hire;
