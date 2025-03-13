@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { RootState } from "@/redux/store";
-
 import ExperienceStrings, { ExperienceStringItems } from "@/strings/pages/Experiences";
 
 import Link from "next/link";

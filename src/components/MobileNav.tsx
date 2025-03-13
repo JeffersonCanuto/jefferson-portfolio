@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/sheet';
 import { HeaderStringItems } from "@/strings/components/Header";
 
-import { getNavFieldNames } from "./Nav";
+import { getHeaderFieldNames } from "./Nav";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -29,33 +29,38 @@ const MobileNav:React.FC<{ language: string; HeaderStrings:HeaderStringItems }> 
     const links:LinkItems[] = [
         {
             index: 1,
-            name: getNavFieldNames(language, HeaderStrings, "home"),
+            name: getHeaderFieldNames(language, HeaderStrings, "home"),
             path: "/"
         },
         {
             index: 2,
-            name: getNavFieldNames(language, HeaderStrings, "education"),
+            name: getHeaderFieldNames(language, HeaderStrings, "education"),
             path: "/education"
         },
         {
             index: 3,
-            name: getNavFieldNames(language, HeaderStrings, "experiences"),
+            name: getHeaderFieldNames(language, HeaderStrings, "experiences"),
             path: "/experiences"
         },
         {
             index: 4,
-            name: getNavFieldNames(language, HeaderStrings, "skills"),
+            name: getHeaderFieldNames(language, HeaderStrings, "skills"),
             path: "/skills"
         },
         {
             index: 5,
-            name: getNavFieldNames(language, HeaderStrings, "projects"),
+            name: getHeaderFieldNames(language, HeaderStrings, "projects"),
             path: "/projects"
         },
         {
             index: 6,
-            name: getNavFieldNames(language, HeaderStrings, "about"),
+            name: getHeaderFieldNames(language, HeaderStrings, "about"),
             path: "/about"
+        },
+        {
+            index: 7,
+            name: getHeaderFieldNames(language, HeaderStrings, "hire"),
+            path: "/hire"
         }
     ];
 
