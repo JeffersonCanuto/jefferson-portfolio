@@ -1,15 +1,9 @@
-interface DisclaimerStringItems {
-    en: {
-        text: string;
-        version: string;
-    };
-    br: {
-        text: string;
-        version: string;
-    };
+type DisclaimerStrings = {
+    text: string;
+    version: string;
 };
 
-const DisclaimerStrings:DisclaimerStringItems = {
+const disclaimerStrings:Record<"en" | "br", DisclaimerStrings> = {
     en: {
         text: "All rights reserved",
         version: "Version"
@@ -20,4 +14,4 @@ const DisclaimerStrings:DisclaimerStringItems = {
     }
 };
 
-export default DisclaimerStrings;
+export default disclaimerStrings;
