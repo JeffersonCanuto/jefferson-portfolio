@@ -131,7 +131,7 @@ const ExperienceStrings:ExperienceStringItems = {
                 second: "Frontend Project Leader responsible for creating PLM Reporter tool from scratch and implementing all main user interfaces and \
                     features (Login page with JWT Auth, Dashboards and Statistics pages with multiple Graphs and Tables, Load .xml files, User profile, etc).",
                 third: "Project Leader for the implementation and delivery of STIR/Shaken and RCD solutions in Brazil, representing Samsung side.",
-                fourth: "Bug fixes for Samsung Android native apps (Dialer, InCallUI, Contacts, Messages), including Android log analysis.",
+                fourth: "Bug fixes for Samsung Android native apps (Dialer, InCallUI, Contacts, Messages, Settings, etc), including Android log analysis.",
                 fifth: "Skills: JavaScript | TypeScript | HTML5 | CSS3 | React | Chart.js | Redux/ContextAPI | Material UI | Python | Django REST | \
                     PostgreSQL | Android (Java) | QuickBuild | Docker | Git | P4V | Swarm | Linux | Agile (Scrum/Kanban)"
             }
@@ -189,9 +189,11 @@ const ExperienceStrings:ExperienceStringItems = {
             attributions: {
                 first: "Principal Engenheiro Frontend e Líder Técnico para o Time de Automação (ferramentas: PLM Reporter, TRO.IA e PLMN/MVNO).",
                 second: "Líder de Projeto Frontend responsável por criar a ferramenta PLM Reporter do zero e implementar as principais interfaces \
-                    e features de usuário (Login com JWT Auth, Páginas de Dashboards e Estatísticas com múltiplos Gráficos e Tabelas, Carregamento de arquivos .xml, Perfil de Usuário, etc).",
+                    e features de usuário (Login com JWT Auth, Páginas de Dashboards e Estatísticas com múltiplos Gráficos e Tabelas, Carregamento \
+                    de arquivos .xml, Perfil de Usuário, etc).",
                 third: "Líder de Projeto para a implementação e entrega das soluções de STIR/Shaken e RCD no Brasil, representando a Samsung.",
-                fourth: "Correção de bugs para aplicaçõs nativas em Android da Samsung (Dialer, InCallUI, Contacts, Messages), incluindo análise de log de Android.",
+                fourth: "Correção de bugs em aplicações nativas para Android da Samsung (Dialer, InCallUI, Contacts, Messages, Settings, etc), incluindo \
+                    análises de log de Android da camada de Aplicação até Framework.",
                 fifth: "Habilidades: JavaScript | TypeScript | HTML5 | CSS3 | React | Chart.js | Redux/ContextAPI | Material UI | Python | Django REST | PostgreSQL | \
                     Android (Java) | QuickBuild | Docker | Git | P4V | Swarm | Linux | Agile (Scrum/Kanban)"
             }
