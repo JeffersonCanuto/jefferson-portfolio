@@ -18,7 +18,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { RootState } from "@/redux/store";
 
-import ExperienceStrings, { ExperienceStringItems } from "@/strings/pages/Experiences";
+import experienceStrings, { ExperienceStrings } from "@/strings/pages/Experiences";
 
 import Link from "next/link";
 
@@ -35,17 +35,17 @@ type ExperienceItems<T> = {
 };
 
 const getExperienceFieldNames = <
-    L extends keyof ExperienceStringItems,
-    I extends keyof ExperienceStringItems[L],
-    F extends keyof ExperienceStringItems[L][I],
-    S extends keyof ExperienceStringItems[L][I][F]
+    L extends keyof Record<"en" | "br", ExperienceStrings>,
+    I extends keyof Record<"en" | "br", ExperienceStrings>[L],
+    F extends keyof Record<"en" | "br", ExperienceStrings>[L][I],
+    S extends keyof Record<"en" | "br", ExperienceStrings>[L][I][F]
 >(
     language: L,
     index: I,
     field: F,
     subfield: S
-): ExperienceStringItems[L][I][F][S] => {
-    return ExperienceStrings[language][index][field][subfield];
+): Record<"en" | "br", ExperienceStrings>[L][I][F][S] => {
+    return experienceStrings[language][index][field][subfield];
 };
 
 const Experiences:React.FC = () => {
