@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { RootState } from "@/redux/store";
-import EducationStrings, { EducationStringItems } from "@/strings/pages/Education";
+import educationStrings, { EducationStrings } from "@/strings/pages/Education";
 
 import Image from "next/image";
 
@@ -35,12 +35,16 @@ type CertificationItems<T> = {
     competences: {index: number; name: T}[];
 };
 
-const getDegreeFieldNames = (
-    language:string,
-    index: keyof EducationStringItems["en"]["degrees"],
-    field: keyof EducationStringItems["en"]["degrees"]["first" | "second"]
+const getDegreeFieldNames = <
+    L extends string,
+    I extends keyof EducationStrings["degrees"],
+    F extends keyof EducationStrings["degrees"]["first" | "second"]
+>(
+    language:L,
+    index: I,
+    field: F
 ) => {
-    return EducationStrings[language.includes("en-us") ? "en" : "br"]["degrees"][index][field];
+    return educationStrings[language.includes("en-us") ? "en" : "br"]["degrees"][index][field];
 }
 
 const Education:React.FC = () => {
