@@ -1,21 +1,12 @@
-export interface ProjectStringItems {
-    en: {
-        first: {
-            title: string;
-            category: string;
-            description: string;
-        }
-    };
-    br: {
-        first: {
-            title: string;
-            category: string;
-            description: string;
-        }
-    };
+export type ProjectStrings = {
+    first: {
+        title: string;
+        category: string;
+        description: string;
+    }
 };
 
-const ProjectStrings:ProjectStringItems = {
+const projectStrings:Record<"en" | "br", ProjectStrings> = {
     en: {
         first: {
             title: "BT Real Estate",
@@ -34,4 +25,4 @@ const ProjectStrings:ProjectStringItems = {
     }
 };
 
-export default ProjectStrings;
+export default projectStrings;

@@ -22,7 +22,7 @@ import {
     TooltipTrigger
 } from "@/components/ui/tooltip";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
-import ProjectStrings, { ProjectStringItems } from "@/strings/pages/Projects";
+import projectStrings, { ProjectStrings } from "@/strings/pages/Projects";
 import { RootState } from "@/redux/store";
 
 import { Swiper as SwiperType } from "swiper";
@@ -50,12 +50,16 @@ type ProjectItems<T, U> = {
     github: T;
 };
 
-const getProjectsFieldNames = (
-    language: string,
-    field: keyof ProjectStringItems["en"],
-    type: keyof ProjectStringItems["en"]["first"]
-) => {
-    return ProjectStrings[language.includes("en-us") ? "en" : "br"][field][type];
+const getProjectsFieldNames = <
+    L extends string,
+    F extends keyof ProjectStrings,
+    T extends keyof ProjectStrings["first"]
+>(
+    language: L,
+    field: F,
+    type: T
+):string => {
+    return projectStrings[language.includes("en-us") ? "en" : "br"][field][type];
 }
 
 const Projects:React.FC = () => {
