@@ -10,7 +10,7 @@ import {
     SheetTitle,
     SheetTrigger
 } from '@/components/ui/sheet';
-import { HeaderStringItems } from "@/strings/components/Header";
+import { HeaderStrings } from "@/strings/components/Header";
 
 import { getNavFieldNames } from "./Nav";
 
@@ -23,38 +23,38 @@ interface LinkItems {
     path: string;
 };
 
-const MobileNav:React.FC<{ language: string; HeaderStrings:HeaderStringItems }> = ({ language, HeaderStrings }) => {
+const MobileNav:React.FC<{ language: string; headerStrings:Record<"en" | "br", HeaderStrings> }> = ({ language, headerStrings }) => {
     const pathname = usePathname();
 
     const links:LinkItems[] = [
         {
             index: 1,
-            name: getNavFieldNames(language, HeaderStrings, "home"),
+            name: getNavFieldNames(language, headerStrings, "home"),
             path: "/"
         },
         {
             index: 2,
-            name: getNavFieldNames(language, HeaderStrings, "education"),
+            name: getNavFieldNames(language, headerStrings, "education"),
             path: "/education"
         },
         {
             index: 3,
-            name: getNavFieldNames(language, HeaderStrings, "experiences"),
+            name: getNavFieldNames(language, headerStrings, "experiences"),
             path: "/experiences"
         },
         {
             index: 4,
-            name: getNavFieldNames(language, HeaderStrings, "skills"),
+            name: getNavFieldNames(language, headerStrings, "skills"),
             path: "/skills"
         },
         {
             index: 5,
-            name: getNavFieldNames(language, HeaderStrings, "projects"),
+            name: getNavFieldNames(language, headerStrings, "projects"),
             path: "/projects"
         },
         {
             index: 6,
-            name: getNavFieldNames(language, HeaderStrings, "about"),
+            name: getNavFieldNames(language, headerStrings, "about"),
             path: "/about"
         }
     ];

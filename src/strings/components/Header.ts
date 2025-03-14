@@ -1,30 +1,17 @@
 
-export interface HeaderStringItems {
-    en: {
-        language: string;
-        navigation: {
-            home: string;
-            education: string;
-            experiences: string;
-            skills: string;
-            projects: string;
-            about: string;
-        };
-    };
-    br: {
-        language: string;
-        navigation: {
-            home: string;
-            education: string;
-            experiences: string;
-            skills: string;
-            projects: string;
-            about: string;
-        };
+export type HeaderStrings = {
+    language: string;
+    navigation: {
+        home: string;
+        education: string;
+        experiences: string;
+        skills: string;
+        projects: string;
+        about: string;
     };
 };
 
-const HeaderStrings:HeaderStringItems = {
+const headerStrings:Record<"en" | "br", HeaderStrings> = {
     en: {
         language: "Languages",
         navigation: {
@@ -49,4 +36,4 @@ const HeaderStrings:HeaderStringItems = {
     }
 };
 
-export default HeaderStrings;
+export default headerStrings;

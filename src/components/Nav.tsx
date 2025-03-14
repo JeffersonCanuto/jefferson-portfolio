@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { HeaderStringItems } from "@/strings/components/Header";
+import { HeaderStrings } from "@/strings/components/Header";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -13,46 +13,50 @@ interface LinkItems {
     path: string;
 };
 
-export const getNavFieldNames = (
-    language:string, 
-    HeaderStrings:HeaderStringItems, 
-    target:keyof HeaderStringItems["en"]["navigation"]
+export const getNavFieldNames = <
+    L extends string,
+    H extends Record<"en" | "br", HeaderStrings>,
+    T extends keyof HeaderStrings["navigation"]
+>(
+    language:L,
+    headerStrings:H,
+    target:T
 ):string => {
-    return HeaderStrings[language.includes("en-us") ? "en" : "br"].navigation[target];
+    return headerStrings[language.includes("en-us") ? "en" : "br"].navigation[target];
 };
 
-const Nav:React.FC<{ language: string; HeaderStrings:HeaderStringItems }> = ({ language, HeaderStrings}) => {
+const Nav:React.FC<{ language: string; headerStrings:Record<"en" | "br", HeaderStrings> }> = ({ language, headerStrings}) => {
     const pathname = usePathname();
     
     const links:LinkItems[] = [
         {
             index: 1,
-            name: getNavFieldNames(language, HeaderStrings, "home"),
+            name: getNavFieldNames(language, headerStrings, "home"),
             path: "/"
         },
         {
             index: 2,
-            name: getNavFieldNames(language, HeaderStrings, "education"),
+            name: getNavFieldNames(language, headerStrings, "education"),
             path: "/education"
         },
         {
             index: 3,
-            name: getNavFieldNames(language, HeaderStrings, "experiences"),
+            name: getNavFieldNames(language, headerStrings, "experiences"),
             path: "/experiences"
         },
         {
             index: 4,
-            name: getNavFieldNames(language, HeaderStrings, "skills"),
+            name: getNavFieldNames(language, headerStrings, "skills"),
             path: "/skills"
         },
         {
             index: 5,
-            name: getNavFieldNames(language, HeaderStrings, "projects"),
+            name: getNavFieldNames(language, headerStrings, "projects"),
             path: "/projects"
         },
         {
             index: 6,
-            name: getNavFieldNames(language, HeaderStrings, "about"),
+            name: getNavFieldNames(language, headerStrings, "about"),
             path: "/about"
         }
     ];
