@@ -44,7 +44,7 @@ const getExperienceFieldNames = <
     index: I,
     field: F,
     subfield: S
-): Record<"en" | "br", ExperienceStrings>[L][I][F][S] => {
+):Record<"en" | "br", ExperienceStrings>[L][I][F][S] => {
     return experienceStrings[language][index][field][subfield];
 };
 

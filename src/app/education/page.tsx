@@ -43,7 +43,7 @@ const getDegreeFieldNames = <
     language:L,
     index: I,
     field: F
-) => {
+):string => {
     return educationStrings[language.includes("en-us") ? "en" : "br"]["degrees"][index][field];
 }
 

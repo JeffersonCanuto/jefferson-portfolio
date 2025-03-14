@@ -29,7 +29,7 @@ const getAboutFieldNames = <
     language: L,
     field: F,
     index: I
-) => {
+):Record<"en" | "br", AboutStrings>[L][F][I] => {
     return aboutStrings[language][field][index];
 }
 
