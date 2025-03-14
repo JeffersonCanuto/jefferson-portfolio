@@ -1,21 +1,12 @@
-interface HomeStringItems {
-    en: {
-        title:string;
-        introduction:string;
-        openButton:string;
-        downloadButton: string;
-        socialMedia: string;
-    };
-    br: {
-        title:string;
-        introduction:string;
-        openButton:string;
-        downloadButton:string;
-        socialMedia: string;
-    };
+type HomeStrings = {
+    title:string;
+    introduction:string;
+    openButton:string;
+    downloadButton: string;
+    socialMedia: string;
 };
 
-const HomeStrings:HomeStringItems = {
+const homeStrings:Record<"en" | "br", HomeStrings> = {
     en: {
         title: "Software Engineer",
         introduction: "I am a Frontend/Fullstack Software Engineer quite experienced in designing and building \
@@ -38,4 +29,4 @@ const HomeStrings:HomeStringItems = {
     }
 };
 
-export default HomeStrings;
+export default homeStrings;
