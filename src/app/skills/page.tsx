@@ -34,7 +34,7 @@ import {
     TooltipTrigger
 } from "@/components/ui/tooltip";
 import { RootState } from "@/redux/store";
-import SkillStrings, { SkillStringItems } from "@/strings/pages/Skills";
+import skillStrings, { SkillStrings } from "@/strings/pages/Skills";
 
 type Competence = {
     index: number;
@@ -48,8 +48,14 @@ type CompetenceItems<T> = {
     others: string;
 };
 
-const getSkillsFieldNames = (language:string, field: keyof SkillStringItems["en"]) => {
-    return SkillStrings[language.includes("en-us") ? "en" : "br"][field];
+const getSkillsFieldNames = <
+    L extends string, 
+    F extends keyof SkillStrings
+>(
+    language: L, 
+    field: F
+):string => {
+    return skillStrings[language.includes("en-us") ? "en" : "br"][field];
 };
 
 const Skills:React.FC = () => {
