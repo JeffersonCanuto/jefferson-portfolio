@@ -4,7 +4,7 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import AboutStrings, { AboutStringItems } from "@/strings/pages/About";
+import aboutStrings, { AboutStrings } from "@/strings/pages/About";
 import { RootState } from "@/redux/store";
 
 import { motion } from "framer-motion";
@@ -22,15 +22,15 @@ type AboutItems<T> = {
 };
 
 const getAboutFieldNames = <
-    L extends keyof AboutStringItems, 
-    F extends keyof AboutStringItems[L],
-    I extends keyof AboutStringItems[L][F]
+    L extends keyof Record<"en" | "br", AboutStrings>, 
+    F extends keyof Record<"en" | "br", AboutStrings>[L],
+    I extends keyof Record<"en" | "br", AboutStrings>[L][F]
 >(
     language: L,
     field: F,
     index: I
 ) => {
-    return AboutStrings[language][field][index];
+    return aboutStrings[language][field][index];
 }
 
 const About = () => {
