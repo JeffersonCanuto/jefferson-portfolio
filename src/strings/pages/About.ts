@@ -1,28 +1,4 @@
-export type AboutStrings = {
-    description: {
-        text: string;
-    };
-    labels: {
-        first: string;
-        second: string;
-        third: string;
-        fourth: string;
-        fifth: string;
-        sixth: string;
-        seventh: string;
-        eighth: string;
-    };
-    values: {
-        first: string;
-        second: string;
-        third: string;
-        fourth: string;
-        fifth: string;
-        sixth: string;
-        seventh: string;
-        eighth: string;
-    };
-};
+import { AboutStrings } from "@/types/pages/About";
 
 const aboutStrings:Record<"en" | "br", AboutStrings> = {
     en: {

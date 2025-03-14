@@ -4,22 +4,16 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import aboutStrings, { AboutStrings } from "@/strings/pages/About";
+import aboutStrings from "@/strings/pages/About";
+import { 
+    AboutStrings,
+    AboutItems,
+    InfoItems
+} from "@/types/pages/About";
+
 import { RootState } from "@/redux/store";
 
 import { motion } from "framer-motion";
-
-type InfoItems<T> = {
-    index: number
-    name: T;
-    value: T;
-};
-
-type AboutItems<T> = {
-    description: T;
-    avatar: T;
-    infos: InfoItems<T>[];
-};
 
 const getAboutFieldNames = <
     L extends keyof Record<"en" | "br", AboutStrings>, 
