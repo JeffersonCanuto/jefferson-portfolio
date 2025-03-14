@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 
 import CountUp from "react-countup";
 
-import statsStrings, { StatsStrings } from "@/strings/components/Stats";
+import statsStrings from "@/strings/components/Stats";
+import { StatsStrings } from "@/types/components/Stats";
 import { gitHubService, UserInfoItems } from "../services";
 
 import Link from "next/link";

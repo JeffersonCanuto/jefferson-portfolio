@@ -1,9 +1,4 @@
-export type StatsStrings = {
-    experience:string;
-    technologies:string;
-    projects:string;
-    commits:string;
-};
+import { StatsStrings } from "@/types/components/Stats";
 
 const statsStrings:Record<"en" | "br", StatsStrings> = {
     en: {

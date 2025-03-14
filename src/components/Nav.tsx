@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { HeaderStrings } from "@/strings/components/Header";
+import { HeaderStrings } from "@/types/components/Header";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

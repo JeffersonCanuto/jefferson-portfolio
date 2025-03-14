@@ -1,7 +1,4 @@
-type DisclaimerStrings = {
-    text: string;
-    version: string;
-};
+import { DisclaimerStrings } from "@/types/components/Disclaimer";
 
 const disclaimerStrings:Record<"en" | "br", DisclaimerStrings> = {
     en: {

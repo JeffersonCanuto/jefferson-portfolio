@@ -1,15 +1,4 @@
-
-export type HeaderStrings = {
-    language: string;
-    navigation: {
-        home: string;
-        education: string;
-        experiences: string;
-        skills: string;
-        projects: string;
-        about: string;
-    };
-};
+import { HeaderStrings } from "@/types/components/Header";
 
 const headerStrings:Record<"en" | "br", HeaderStrings> = {
     en: {

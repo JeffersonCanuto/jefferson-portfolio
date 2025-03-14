@@ -10,7 +10,7 @@ import {
     SheetTitle,
     SheetTrigger
 } from '@/components/ui/sheet';
-import { HeaderStrings } from "@/strings/components/Header";
+import { HeaderStrings } from "@/types/components/Header";
 
 import { getNavFieldNames } from "./Nav";
 
