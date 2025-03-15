@@ -1,33 +1,6 @@
-export type HireStringItems<T> = {
-    en: {
-        title: T;
-        description: T;
-        inputHolderFirstName: T;
-        inputHolderLastname: T;
-        inputHolderJobTitle: T;
-        messageHolder: T
-        sendButton: T;
-        phoneTitle: T;
-        phoneName: T;
-        addressTitle: T;
-        addressName: T;
-    };
-    br: {
-        title: T;
-        description: T;
-        inputHolderFirstName: T;
-        inputHolderLastname: T;
-        inputHolderJobTitle: T;
-        messageHolder: T
-        sendButton: T;
-        phoneTitle: T;
-        phoneName: T;
-        addressTitle: T;
-        addressName: T;
-    }
-};
+import { HireStrings } from "@/types/pages/Hire";
 
-const HireStrings:HireStringItems<string> = {
+const hireStrings:Record<"en" | "br", HireStrings<string>> = {
     en: {
         title: "Let's work together!",
         description: "Do you want me to join you in enhancing end user experience by designing and also \
@@ -58,4 +31,4 @@ const HireStrings:HireStringItems<string> = {
     }
 };
 
-export default HireStrings;
+export default hireStrings;

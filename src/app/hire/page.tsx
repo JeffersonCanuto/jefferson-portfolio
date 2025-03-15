@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { useSelector } from "react-redux";
 
@@ -16,23 +16,17 @@ import { RootState } from "@/redux/store";
 
 import Link from "next/link";
 
-import HireStrings, { HireStringItems } from "@/strings/pages/Hire";
-
-interface InfoItems {
-    index: number;
-    icon: ReactNode;
-    title: string;
-    description: string;
-};
+import hireStrings from "@/strings/pages/Hire";
+import { HireStrings, InfoItems } from "@/types/pages/Hire";
 
 const getHireFieldNames = <
-    L extends keyof HireStringItems<string>,
-    F extends keyof HireStringItems<string>[L]
+    L extends keyof Record<"en" | "br", HireStrings<string>>,
+    F extends keyof Record<"en" | "br", HireStrings<string>>[L]
 >(
     language:L,
     field: F
-):HireStringItems<string>[L][F] => {
-    return HireStrings[language][field];
+):Record<"en" | "br", HireStrings<string>>[L][F] => {
+    return hireStrings[language][field];
 } 
 
 const Hire:React.FC = () => {
