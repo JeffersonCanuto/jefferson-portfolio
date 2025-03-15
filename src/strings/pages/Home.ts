@@ -1,10 +1,4 @@
-type HomeStrings = {
-    title:string;
-    introduction:string;
-    openButton:string;
-    downloadButton: string;
-    socialMedia: string;
-};
+import { HomeStrings } from "@/types/pages/Home";
 
 const homeStrings:Record<"en" | "br", HomeStrings> = {
     en: {
