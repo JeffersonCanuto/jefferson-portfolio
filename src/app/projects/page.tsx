@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, ReactNode } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { useSelector } from "react-redux";
 
@@ -22,7 +22,12 @@ import {
     TooltipTrigger
 } from "@/components/ui/tooltip";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
-import ProjectStrings, { ProjectStringItems } from "@/strings/pages/Projects";
+import projectStrings from "@/strings/pages/Projects";
+import {
+    ProjectStrings,
+    ProjectItems,
+    StackItems
+} from "@/types/pages/Projects";
 import { RootState } from "@/redux/store";
 
 import { Swiper as SwiperType } from "swiper";
@@ -32,30 +37,16 @@ import "swiper/css";
 import Link from "next/link";
 import Image from "next/image";
 
-type StackItems = {
-    index: number;
-    name: string;
-    icon: ReactNode;
-};
-
-type ProjectItems<T, U> = {
-    index: number;
-    num: T;
-    category: T;
-    type: T;
-    title: T;
-    description: T;
-    stack: U[],
-    image: T;
-    github: T;
-};
-
-const getProjectsFieldNames = (
-    language: string,
-    field: keyof ProjectStringItems["en"],
-    type: keyof ProjectStringItems["en"]["first"]
-) => {
-    return ProjectStrings[language.includes("en-us") ? "en" : "br"][field][type];
+const getProjectsFieldNames = <
+    L extends string,
+    F extends keyof ProjectStrings,
+    T extends keyof ProjectStrings["first"]
+>(
+    language: L,
+    field: F,
+    type: T
+):string => {
+    return projectStrings[language.includes("en-us") ? "en" : "br"][field][type];
 }
 
 const Projects:React.FC = () => {

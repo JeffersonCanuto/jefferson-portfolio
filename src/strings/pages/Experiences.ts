@@ -1,85 +1,6 @@
-export interface ExperienceStringItems {
-    en: {
-        first: {
-            description: {
-                title: string
-            };
-            card: {
-                position: string;
-                location: string;
-                regime: string;
-                duration: string;
-            };
-            attributions: {
-                first: string;
-                second: string;
-                third: string;
-                fourth: string;
-                fifth: string;
-                sixth: string;
-            };
-        };
-        second: {
-            description: {
-                title: string
-            };
-            card: {
-                position: string;
-                location: string;
-                regime: string;
-                duration: string;
-            };
-            attributions: {
-                first: string;
-                second: string;
-                third: string;
-                fourth: string;
-                fifth: string;
-            };
-        };
-    },
-    br: {
-        first: {
-            description: {
-                title: string
-            };
-            card: {
-                position: string;
-                location: string;
-                regime: string;
-                duration: string;
-            };
-            attributions: {
-                first: string;
-                second: string;
-                third: string;
-                fourth: string;
-                fifth: string;
-                sixth: string;
-            };
-        };
-        second: {
-            description: {
-                title: string
-            };
-            card: {
-                position: string;
-                location: string;
-                regime: string;
-                duration: string;
-            };
-            attributions: {
-                first: string;
-                second: string;
-                third: string;
-                fourth: string;
-                fifth: string;
-            };
-        };
-    }
-};
+import { ExperienceStrings } from "@/types/pages/Experiences";
 
-const ExperienceStrings:ExperienceStringItems = {
+const experienceStrings:Record<"en" | "br", ExperienceStrings> = {
     en: {
         first: {
             description: {
@@ -201,4 +122,4 @@ const ExperienceStrings:ExperienceStringItems = {
     }
 };
 
-export default ExperienceStrings;
+export default experienceStrings;

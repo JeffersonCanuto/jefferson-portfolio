@@ -1,35 +1,6 @@
-export interface EducationStringItems {
-    en: {
-        degrees: {
-            first: {
-                name: string;
-                start: string;
-                end: string;
-            };
-            second: {
-                name: string;
-                start: string;
-                end: string;
-            };
-        };
-    };
-    br: {
-        degrees: {
-            first: {
-                name: string;
-                start: string;
-                end: string;
-            };
-            second: {
-                name: string;
-                start: string;
-                end: string;
-            };
-        };
-    }
-};
+import { EducationStrings } from "@/types/pages/Education";
 
-const EducationStrings:EducationStringItems = {
+const educationStrings:Record<"en" | "br", EducationStrings> = {
     en: {
         degrees: {
             first: {
@@ -60,4 +31,4 @@ const EducationStrings:EducationStringItems = {
     }
 };
 
-export default EducationStrings;
+export default educationStrings;

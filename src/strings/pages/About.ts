@@ -1,57 +1,6 @@
-export interface AboutStringItems {
-    en: {
-        description: {
-            text: string;
-        };
-        labels: {
-            first: string;
-            second: string;
-            third: string;
-            fourth: string;
-            fifth: string;
-            sixth: string;
-            seventh: string;
-            eighth: string;
-        };
-        values: {
-            first: string;
-            second: string;
-            third: string;
-            fourth: string;
-            fifth: string;
-            sixth: string;
-            seventh: string;
-            eighth: string;
-        };
-    };
-    br: {
-        description: {
-            text: string;
-        };
-        labels: {
-            first: string;
-            second: string;
-            third: string;
-            fourth: string;
-            fifth: string;
-            sixth: string;
-            seventh: string;
-            eighth: string;
-        };
-        values: {
-            first: string;
-            second: string;
-            third: string;
-            fourth: string;
-            fifth: string;
-            sixth: string;
-            seventh: string;
-            eighth: string;
-        };
-    };
-};
+import { AboutStrings } from "@/types/pages/About";
 
-const AboutStrings:AboutStringItems = {
+const aboutStrings:Record<"en" | "br", AboutStrings> = {
     en: {
         description: {
             text: "I am a tech enthusiast who seeks to delve deeper into the tech world, as I keep strengthening myself on a daily basis in terms of both professional and \
@@ -117,4 +66,4 @@ const AboutStrings:AboutStringItems = {
     }
 };
 
-export default AboutStrings;
+export default aboutStrings;

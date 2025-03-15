@@ -4,33 +4,27 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import AboutStrings, { AboutStringItems } from "@/strings/pages/About";
+import aboutStrings from "@/strings/pages/About";
+import { 
+    AboutStrings,
+    AboutItems,
+    InfoItems
+} from "@/types/pages/About";
+
 import { RootState } from "@/redux/store";
 
 import { motion } from "framer-motion";
 
-type InfoItems<T> = {
-    index: number
-    name: T;
-    value: T;
-};
-
-type AboutItems<T> = {
-    description: T;
-    avatar: T;
-    infos: InfoItems<T>[];
-};
-
 const getAboutFieldNames = <
-    L extends keyof AboutStringItems, 
-    F extends keyof AboutStringItems[L],
-    I extends keyof AboutStringItems[L][F]
+    L extends keyof Record<"en" | "br", AboutStrings>, 
+    F extends keyof Record<"en" | "br", AboutStrings>[L],
+    I extends keyof Record<"en" | "br", AboutStrings>[L][F]
 >(
     language: L,
     field: F,
     index: I
-) => {
-    return AboutStrings[language][field][index];
+):Record<"en" | "br", AboutStrings>[L][F][I] => {
+    return aboutStrings[language][field][index];
 }
 
 const About = () => {

@@ -1,15 +1,6 @@
-export interface SkillStringItems {
-    en: {
-        description: string;
-        competences: string;
-    };
-    br: {
-        description: string;
-        competences: string;
-    };
-};
+import { SkillStrings } from "@/types/pages/Skills";
 
-const SkillStrings = {
+const skillStrings:Record<"en" | "br", SkillStrings> = {
     en: {
         description: "I have been working as a Frontend/Fullstack Software Engineer over the past 5+ years, designing and building web apps from scratch, using for that \
             technologies such as JavaScript, TypeScript, HTML5, CSS3, React, Python, Django REST, PostgreSQL, Docker, Git and Linux. Since the last year, I have been \
@@ -26,4 +17,4 @@ const SkillStrings = {
     }
 };
 
-export default SkillStrings;
+export default skillStrings;

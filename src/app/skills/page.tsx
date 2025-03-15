@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode } from "react";
+import React from "react";
 
 import { useSelector } from "react-redux";
 
@@ -34,28 +34,27 @@ import {
     TooltipTrigger
 } from "@/components/ui/tooltip";
 import { RootState } from "@/redux/store";
-import SkillStrings, { SkillStringItems } from "@/strings/pages/Skills";
+import skillStrings from "@/strings/pages/Skills";
+import {
+    SkillStrings,
+    Competences,
+    Competence
+} from "@/types/pages/Skills";
 
-type Competence = {
-    index: number;
-    icon: ReactNode;
-    name: string;
-};
-
-type CompetenceItems<T> = {
-    description: string;
-    skills: T[];
-    others: string;
-};
-
-const getSkillsFieldNames = (language:string, field: keyof SkillStringItems["en"]) => {
-    return SkillStrings[language.includes("en-us") ? "en" : "br"][field];
+const getSkillsFieldNames = <
+    L extends string, 
+    F extends keyof SkillStrings
+>(
+    language: L, 
+    field: F
+):string => {
+    return skillStrings[language.includes("en-us") ? "en" : "br"][field];
 };
 
 const Skills:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);
 
-    const competences:CompetenceItems<Competence> = {
+    const competences:Competences<Competence> = {
         description: getSkillsFieldNames(language, "description"),
         skills: [
             {
