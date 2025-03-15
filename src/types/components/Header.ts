@@ -9,3 +9,9 @@ export type HeaderStrings = {
         about: string;
     };
 };
+
+export type LinkItems = {
+    index: number;
+    name: string;
+    path: string;
+};

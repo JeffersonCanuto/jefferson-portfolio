@@ -2,16 +2,10 @@
 
 import React from "react";
 
-import { HeaderStrings } from "@/types/components/Header";
+import { HeaderStrings, LinkItems } from "@/types/components/Header";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-interface LinkItems {
-    index: number;
-    name: string;
-    path: string;
-};
 
 export const getNavFieldNames = <
     L extends string,

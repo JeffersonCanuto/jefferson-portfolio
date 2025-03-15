@@ -5,16 +5,10 @@ import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 
 import statsStrings from "@/strings/components/Stats";
-import { StatsStrings } from "@/types/components/Stats";
+import { StatsStrings, StatItems } from "@/types/components/Stats";
 import { gitHubService, UserInfoItems } from "../services";
 
 import Link from "next/link";
-
-interface StatItems {
-    index: number;
-    value: number;
-    text: string;
-};
 
 const getStatsText = <
     L extends string,

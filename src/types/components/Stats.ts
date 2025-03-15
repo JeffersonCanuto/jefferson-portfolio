@@ -4,3 +4,9 @@ export type StatsStrings = {
     projects:string;
     commits:string;
 };
+
+export type StatItems = {
+    index: number;
+    value: number;
+    text: string;
+};

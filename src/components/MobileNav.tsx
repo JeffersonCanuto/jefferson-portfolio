@@ -10,18 +10,12 @@ import {
     SheetTitle,
     SheetTrigger
 } from '@/components/ui/sheet';
-import { HeaderStrings } from "@/types/components/Header";
+import { HeaderStrings, LinkItems } from "@/types/components/Header";
 
 import { getNavFieldNames } from "./Nav";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-interface LinkItems {
-    index: number;
-    name: string;
-    path: string;
-};
 
 const MobileNav:React.FC<{ language: string; headerStrings:Record<"en" | "br", HeaderStrings> }> = ({ language, headerStrings }) => {
     const pathname = usePathname();
