@@ -1,7 +1,4 @@
-export type SkillStrings = {
-    description: string;
-    competences: string;
-};
+import { SkillStrings } from "@/types/pages/Skills";
 
 const skillStrings:Record<"en" | "br", SkillStrings> = {
     en: {
