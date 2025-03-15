@@ -9,7 +9,7 @@ import { IoOpenOutline } from "react-icons/io5";
 
 import { motion } from "framer-motion";
 
-import { 
+import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
@@ -18,21 +18,10 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { RootState } from "@/redux/store";
 
-import experienceStrings, { ExperienceStrings } from "@/strings/pages/Experiences";
+import experienceStrings from "@/strings/pages/Experiences";
+import { ExperienceStrings, ExperienceItems } from "@/types/pages/Experiences";
 
 import Link from "next/link";
-
-type ExperienceItems<T> = {
-    index: number;
-    description: T;
-    company: T;
-    website: T;
-    position: T;
-    location: T;
-    regime: T;
-    duration: T;
-    attributions: { index: number; title: T }[];
-};
 
 const getExperienceFieldNames = <
     L extends keyof Record<"en" | "br", ExperienceStrings>,
