@@ -1,10 +1,4 @@
-export type ProjectStrings = {
-    first: {
-        title: string;
-        category: string;
-        description: string;
-    }
-};
+import { ProjectStrings } from "@/types/pages/Projects";
 
 const projectStrings:Record<"en" | "br", ProjectStrings> = {
     en: {
