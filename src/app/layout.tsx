@@ -5,12 +5,12 @@ import "./globals.css";
 
 import Main from "./main";
 
-interface MetaDataItems {
+interface MetaData {
 	title: string;
 	description: string;
 };
 
-export const metadata:MetaDataItems = {
+export const metadata:MetaData = {
 	title: "Porfolio - Jefferson Canuto",
 	description: "Porfolio - Jefferson Canuto",
 };

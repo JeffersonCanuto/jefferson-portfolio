@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import {
     FaGithub,
@@ -12,18 +12,9 @@ import {
     TooltipProvider,
     TooltipTrigger
 } from "@/components/ui/tooltip";
+import { SocialItems, SocialProps } from "@/types/components/Social";
 
 import Link from "next/link";
-
-interface SocialItems {
-    icon: ReactNode;
-    path: string;
-};
-
-interface SocialProps {
-    containerStyles: string;
-    iconStyles: string;
-};
 
 const socials:SocialItems[] = [
     {

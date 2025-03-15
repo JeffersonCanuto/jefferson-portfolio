@@ -4,23 +4,20 @@ import React, { useState, useEffect } from "react";
 
 import CountUp from "react-countup";
 
-import StatsStrings from "@/strings/components/Stats";
-import { StatsStringItems } from "@/strings/components/Stats";
+import statsStrings from "@/strings/components/Stats";
+import { StatsStrings, StatItems } from "@/types/components/Stats";
 import { gitHubService, UserInfoItems } from "../services";
 
 import Link from "next/link";
 
-interface StatItems {
-    index: number;
-    value: number;
-    text: string;
-};
-
-const getStatsText = (
-    language:string, 
-    text:keyof StatsStringItems["en"]
+const getStatsText = <
+    L extends string,
+    T extends keyof StatsStrings
+>(
+    language:L, 
+    text:T 
 ):string => {
-    return StatsStrings[language.includes("en-us") ? "en" : "br"][text];
+    return statsStrings[language.includes("en-us") ? "en" : "br"][text];
 }
 
 const Stats:React.FC<{ language:string }> = ({ language }) => {

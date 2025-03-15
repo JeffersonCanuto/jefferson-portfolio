@@ -14,7 +14,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { AppDispatch, RootState } from "@/redux/store";
 import { setPreferredLanguage } from "@/redux/slices/languageSlice";
-import HeaderStrings from "@/strings/components/Header";
+
+import headerStrings from "@/strings/components/Header";
 
 import { Button } from "./ui/button";
 import MobileNav from "./MobileNav";
@@ -68,12 +69,13 @@ const Header:React.FC = () => {
                         <span className="text-accent ml-2">.</span>
                     </h1>
                 </Link>
+                
                 {/* Language Preference */}
                 <div className={`${isEnglishActive ? "w-[210px] xl:w-[270px]" : "w-[200px] xl:w-[240px]"} flex gap-5`}>
                     <div className="flex items-center gap-1">
                         <FcGlobe aria-describedby="language" className="text-[15px] xl:text-[20px]"/>
                         <p className="text-[11px] xl:text-[14px] text-white/60" id="language">
-                            {HeaderStrings[language.includes("en-us") ? "en" : "br"].language}:
+                            {headerStrings[language.includes("en-us") ? "en" : "br"].language}:
                         </p>
                     </div>
                     <div className="w-full flex justify-between items-center gap-3">
@@ -126,15 +128,15 @@ const Header:React.FC = () => {
                 </div>
                 {/* Desktop Navbar & Hire button */}
                 <div className="hidden xl:flex items-center gap-8">
-                    <Nav language={language} HeaderStrings={HeaderStrings} />
+                    <Nav language={language} headerStrings={headerStrings} />
                     <Link href="/hire">
-                        <Button>{getHeaderFieldNames(language, HeaderStrings, "hire")}</Button>
+                        <Button>{getHeaderFieldNames(language, headerStrings, "hire")}</Button>
                     </Link>
                 </div>
                 
                 {/* Mobile Navbar */}
                 <div className="xl:hidden">
-                    <MobileNav language={language} HeaderStrings={HeaderStrings} />
+                    <MobileNav language={language} headerStrings={headerStrings} />
                 </div>
             </div>
         </header>

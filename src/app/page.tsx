@@ -16,7 +16,7 @@ import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 import { RootState } from "@/redux/store";
 
-import HomeStrings from "@/strings/pages/Home";
+import homeStrings from "@/strings/pages/Home";
 
 const Home:React.FC = () => {
 	const language = useSelector((state:RootState) => state.language.preferred);
@@ -35,13 +35,13 @@ const Home:React.FC = () => {
 					{/* Text */}
 					<div className="text-center xl:text-left order-2 xl:order-none">
 						<span className="text-2xl">
-							{HomeStrings[language.includes("en-us") ? "en" : "br"].title}
+							{homeStrings[language.includes("en-us") ? "en" : "br"].title}
 						</span>
 						<h1 className="h1 mt-4 animate-typing">
 							{ language.includes("en-us") ? "Hello, I'm" :  "Olá, Me chamo" } <br /> <span className="text-accent">Jefferson Canuto</span>
 						</h1>
 						<p className="max-w-[615px] mt-8 mb-10 text-white/80 text-justify">
-							{HomeStrings[language.includes("en-us") ? "en" : "br"].introduction} &#128578;
+							{homeStrings[language.includes("en-us") ? "en" : "br"].introduction} &#128578;
 						</p>
 						{/* Button and Socials */}
 						<div 
@@ -53,7 +53,7 @@ const Home:React.FC = () => {
 							>
 								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
 									<span className="text-[12px]">
-										{HomeStrings[language.includes("en-us") ? "en" : "br"].openButton}
+										{homeStrings[language.includes("en-us") ? "en" : "br"].openButton}
 									</span>
 									<IoOpenOutline className="text-xl mb-1" />
 								</Button>
@@ -64,7 +64,7 @@ const Home:React.FC = () => {
 							>
 								<Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
 									<span className="text-[12px]">
-										{HomeStrings[language.includes("en-us") ? "en" : "br"].downloadButton}
+										{homeStrings[language.includes("en-us") ? "en" : "br"].downloadButton}
 									</span>
 									<FiDownload className="text-xl mb-1" />
 								</Button>
@@ -74,7 +74,7 @@ const Home:React.FC = () => {
 									<FaSitemap className="text-accent text-[12px]"/>
 									<span className="text-accent text-[13px]">|</span>
 									<span className="text-accent text-[13px]">
-										{HomeStrings[language.includes("en-us") ? "en" : "br"].socialMedia}
+										{homeStrings[language.includes("en-us") ? "en" : "br"].socialMedia}
 									</span>
 								</p>
 								<Social

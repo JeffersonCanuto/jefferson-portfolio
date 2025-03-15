@@ -1,32 +1,6 @@
+import { HeaderStrings } from "@/types/components/Header";
 
-export interface HeaderStringItems {
-    en: {
-        language: string;
-        navigation: {
-            home: string;
-            education: string;
-            experiences: string;
-            skills: string;
-            projects: string;
-            about: string;
-            hire: string;
-        };
-    };
-    br: {
-        language: string;
-        navigation: {
-            home: string;
-            education: string;
-            experiences: string;
-            skills: string;
-            projects: string;
-            about: string;
-            hire: string;
-        };
-    };
-};
-
-const HeaderStrings:HeaderStringItems = {
+const headerStrings:Record<"en" | "br", HeaderStrings> = {
     en: {
         language: "Languages",
         navigation: {
@@ -53,4 +27,4 @@ const HeaderStrings:HeaderStringItems = {
     }
 };
 
-export default HeaderStrings;
+export default headerStrings;

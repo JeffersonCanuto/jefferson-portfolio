@@ -9,7 +9,7 @@ import { IoOpenOutline } from "react-icons/io5";
 
 import { motion } from "framer-motion";
 
-import { 
+import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
@@ -17,34 +17,24 @@ import {
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { RootState } from "@/redux/store";
-import ExperienceStrings, { ExperienceStringItems } from "@/strings/pages/Experiences";
+
+import experienceStrings from "@/strings/pages/Experiences";
+import { ExperienceStrings, ExperienceItems } from "@/types/pages/Experiences";
 
 import Link from "next/link";
 
-type ExperienceItems<T> = {
-    index: number;
-    description: T;
-    company: T;
-    website: T;
-    position: T;
-    location: T;
-    regime: T;
-    duration: T;
-    attributions: { index: number; title: T }[];
-};
-
 const getExperienceFieldNames = <
-    L extends keyof ExperienceStringItems,
-    I extends keyof ExperienceStringItems[L],
-    F extends keyof ExperienceStringItems[L][I],
-    S extends keyof ExperienceStringItems[L][I][F]
+    L extends keyof Record<"en" | "br", ExperienceStrings>,
+    I extends keyof Record<"en" | "br", ExperienceStrings>[L],
+    F extends keyof Record<"en" | "br", ExperienceStrings>[L][I],
+    S extends keyof Record<"en" | "br", ExperienceStrings>[L][I][F]
 >(
     language: L,
     index: I,
     field: F,
     subfield: S
-): ExperienceStringItems[L][I][F][S] => {
-    return ExperienceStrings[language][index][field][subfield];
+):Record<"en" | "br", ExperienceStrings>[L][I][F][S] => {
+    return experienceStrings[language][index][field][subfield];
 };
 
 const Experiences:React.FC = () => {

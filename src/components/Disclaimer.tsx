@@ -5,7 +5,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { RootState } from "@/redux/store";
-import DisclaimerStrings from "@/strings/components/Disclaimer";
+import disclaimerStrings from "@/strings/components/Disclaimer";
 
 import { usePathname } from "next/navigation";
 
@@ -42,7 +42,7 @@ const Disclaimer:React.FC = () => {
             <div className="flex justify-center items-center">
                 <div className="flex-grow border-b border-gray-600"></div>
                 <p className="p-4 text-[8px] xl:text-[11px] text-white/60">
-                    © {currentYear} Jefferson Canuto. {DisclaimerStrings[language.includes("en-us") ? "en" : "br"].text}. {DisclaimerStrings[language.includes("en-us") ? "en" : "br"].version} {packageJson.version} ({releaseDate}).
+                    © {currentYear} Jefferson Canuto. {disclaimerStrings[language.includes("en-us") ? "en" : "br"].text}. {disclaimerStrings[language.includes("en-us") ? "en" : "br"].version} {packageJson.version} ({releaseDate}).
                 </p>
                 <div className="flex-grow border-b border-gray-600"></div>
             </div>
