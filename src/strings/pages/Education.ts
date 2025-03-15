@@ -1,17 +1,4 @@
-export type EducationStrings = {
-    degrees: {
-        first: {
-            name: string;
-            start: string;
-            end: string;
-        };
-        second: {
-            name: string;
-            start: string;
-            end: string;
-        };
-    };
-};
+import { EducationStrings } from "@/types/pages/Education";
 
 const educationStrings:Record<"en" | "br", EducationStrings> = {
     en: {
