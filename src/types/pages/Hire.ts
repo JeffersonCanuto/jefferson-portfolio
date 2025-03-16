@@ -6,6 +6,7 @@ export type HireStrings<T> = {
     inputHolderFirstName: T;
     inputHolderLastname: T;
     inputHolderJobTitle: T;
+    inputHolderEmail: T;
     messageHolder: T
     sendButton: T;
     phoneTitle: T;
