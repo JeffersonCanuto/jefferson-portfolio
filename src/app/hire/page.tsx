@@ -6,18 +6,22 @@ import { useSelector } from "react-redux";
 
 import { motion } from "framer-motion";
 
-import { FaWhatsapp, FaPhoneAlt, FaLinkedinIn, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import {
+    FaWhatsapp,
+    FaPhoneAlt,
+    FaLinkedinIn,
+    FaEnvelope,
+    FaMapMarkerAlt
+} from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
+import hireStrings from "@/strings/pages/Hire";
+import { HireStrings, InfoItems } from "@/types/pages/Hire";
 import { RootState } from "@/redux/store";
 
 import Link from "next/link";
-
-import hireStrings from "@/strings/pages/Hire";
-import { HireStrings, InfoItems } from "@/types/pages/Hire";
 
 const getHireFieldNames = <
     L extends keyof Record<"en" | "br", HireStrings<string>>,
@@ -70,32 +74,66 @@ const Hire:React.FC = () => {
                     ease: "easeIn"
                 }
             }}
-            className="py-6"
+            className="-mt-8 xl:-mt-12 py-6"
         >
             <div className="container mx-auto cursor-default">
-                <div className="flex flex-col xl:flex-row gap-[30px]">
+                <div className="flex flex-col xl:flex-row gap-[15px] xl:gap-[30px]">
                     {/* Form */}
                     <div className="xl:h-[54%] order-2 xl:order-none ">
-                        <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-                            <h3 className="text-4xl text-accent">
+                        <form className="flex flex-col gap-6 px-10 py-9 bg-[#27272c] rounded-xl">
+                            <h3 className="text-[20px] xl:text-3xl text-accent">
                                 {getHireFieldNames(language, "title")}
                             </h3>
-                            <p className="text-white/60 text-justify">
+                            <p className="text-[13px] md:text-[16px] text-white/60 text-justify">
                                 {getHireFieldNames(language, "description")}
                             </p>
                             {/* Input */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <Input type="firstName" placeholder={getHireFieldNames(language, "inputHolderFirstName")} />
-                                <Input type="lastName" placeholder={getHireFieldNames(language, "inputHolderLastname")} />
-                                <Input type="jobTitle" placeholder={getHireFieldNames(language, "inputHolderJobTitle")} />
-                                <Input type="email" placeholder="Email"/>
+                                {[...Array(4)].map((_:undefined, index:number) => (
+                                    <Input
+                                        key={index}
+                                        type={
+                                            index === 0 ?
+                                                "firstName"
+                                            : index === 1 ?
+                                                "lastName"
+                                            : index === 2 ?
+                                                "jobTitle"
+                                            : index === 3 ?
+                                                "email"
+                                            :
+                                                ""
+                                        }
+                                        placeholder={
+                                            index === 0 ?
+                                                getHireFieldNames(language, "inputHolderFirstName")
+                                            : index === 1 ?
+                                                getHireFieldNames(language, "inputHolderLastname")
+                                            : index === 2 ?
+                                                getHireFieldNames(language, "inputHolderJobTitle")
+                                            : index === 3 ?
+                                                getHireFieldNames(language, "inputHolderEmail")
+                                            :
+                                                ""
+                                        }
+                                        className="text-[13px] xl:text-[16px]"
+                                    />
+                                ))}
                             </div>
                             {/* Textarea */}
-                            <Textarea className="h-[200px]" placeholder={getHireFieldNames(language, "messageHolder")} />
+                            <Textarea
+                                placeholder={getHireFieldNames(language, "messageHolder")}
+                                className="h-[200px] text-[13px] xl:text-[16px]"
+                            />
                             {/* Button */}
-                            <Button size="md" className={`${language.includes("en") ? "max-w-[120px]" : "max-w-[140px]"} flex justify-between`}>
+                            <Button
+                                className={
+                                    `${language.includes("en") ? "max-w-[90px] xl:max-w-[120px]" : "max-w-[105px] xl:max-w-[140px]"} 
+                                        h-[42px] xl:h-[48px] mt-2 px-4 xl:px-6 text-[13px] xl:text-[16px] flex justify-between`
+                                }
+                            >
                                 {getHireFieldNames(language, "sendButton")}
-                                <FaWhatsapp className="text-2xl text-[#000]"/>
+                                <FaWhatsapp className="text-[18px] xl:text-2xl"/>
                             </Button>
                         </form>
                     </div>
@@ -105,14 +143,14 @@ const Hire:React.FC = () => {
                             {infos.map((info:InfoItems) => {
                                 return (
                                     <li key={info.index} className="flex items-center gap-6">
-                                        <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex justify-center items-center">
-                                            <div className="text-[28px]">
+                                        <div className="w-[62px] h-[62px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex justify-center items-center">
+                                            <div className="text-[21px] xl:text-[28px]">
                                                 {info.icon}
                                             </div>
                                         </div>
                                         <div className="flex-1">
-                                            <p className="text-white/60">{info.title}</p>
-                                            <h3 className="text-xl hover:text-accent">
+                                            <p className="text-[12px] xl:text-[16px] text-white/60">{info.title}</p>
+                                            <h3 className="text-[12px] xl:text-xl hover:text-accent">
                                                 {info.index === 1 ? (
                                                     <Link href={`${info.description}`} target="_blank">
                                                         {info.description}
