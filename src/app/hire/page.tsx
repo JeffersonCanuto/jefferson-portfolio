@@ -49,12 +49,13 @@ const formatWhatsAppMessage = (
 const Hire:React.FC = () => {
     const language = (useSelector((state:RootState) => state.language.preferred)) === "en-us" ? "en" : "br";
 
-    const
+    let
         inputFirstNameRef = useRef<HTMLInputElement>(null),
         inputLastNameRef = useRef<HTMLInputElement>(null),
         inputJobTitleRef = useRef<HTMLInputElement>(null),
         inputEmailRef = useRef<HTMLInputElement>(null),
-        textAreaMessageRef = useRef<HTMLTextAreaElement>(null);
+        textAreaMessageRef = useRef<HTMLTextAreaElement>(null),
+        hireFormRef = useRef<HTMLFormElement>(null);
     
     const infos:InfoItems[] = [
         {
@@ -83,7 +84,7 @@ const Hire:React.FC = () => {
         },
     ];
 
-    const handleSendWhatsAppMessageButton = useCallback((event:MouseEvent<HTMLButtonElement>) => {
+    const handleButtonClick = useCallback((event:MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
 
         const message = formatWhatsAppMessage(
@@ -93,11 +94,14 @@ const Hire:React.FC = () => {
             inputEmailRef.current?.value,
             textAreaMessageRef.current?.value
         );
-        
+
+        /* Reset input field values after form submission */
+        if (hireFormRef.current) hireFormRef.current.reset();
+
         const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
         const encodedMessage = encodeURIComponent(message);
 
-        window.location.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
     }, []);
 
     return (
@@ -117,7 +121,10 @@ const Hire:React.FC = () => {
                 <div className="flex flex-col xl:flex-row gap-[15px] xl:gap-[30px]">
                     {/* Form */}
                     <div className="xl:h-[54%] order-2 xl:order-none ">
-                        <form className="flex flex-col gap-6 px-10 py-9 bg-[#27272c] rounded-xl">
+                        <form
+                            className="flex flex-col gap-6 px-10 py-9 bg-[#27272c] rounded-xl"
+                            ref={hireFormRef}
+                        >
                             <h3 className="text-[20px] xl:text-3xl text-accent">
                                 {getHireFieldNames(language, "title")}
                             </h3>
@@ -181,7 +188,8 @@ const Hire:React.FC = () => {
                                     `${language.includes("en") ? "max-w-[90px] xl:max-w-[120px]" : "max-w-[105px] xl:max-w-[140px]"} 
                                         h-[42px] xl:h-[48px] mt-2 px-4 xl:px-6 text-[13px] xl:text-[16px] flex justify-between`
                                 }
-                                onClick={handleSendWhatsAppMessageButton}
+                                type="button"
+                                onClick={handleButtonClick}
                             >
                                 {getHireFieldNames(language, "sendButton")}
                                 <FaWhatsapp className="text-[18px] xl:text-2xl"/>
