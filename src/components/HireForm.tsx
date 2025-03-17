@@ -1,4 +1,8 @@
-import React, { useRef, useCallback, MouseEvent } from "react";
+import React, { useRef, useCallback } from "react";
+
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,12 +12,22 @@ import { getHireFieldNames } from "@/app/hire/page";
 
 import { FaWhatsapp } from "react-icons/fa";
 
+const hireFormSchema = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    jobTitle: z.string(),
+    email: z.string(),
+    message: z.string()
+});
+
+type HireFormSchema = z.infer<typeof hireFormSchema>;
+
 const formatWhatsAppMessage = (
-    firstName:string | undefined,
-    lastName:string | undefined,
-    jobTitle:string | undefined,
-    email:string | undefined,
-    message:string | undefined
+    firstName:string,
+    lastName:string,
+    jobTitle:string,
+    email:string,
+    message:string
 ):string => {
     const formattedMessage = `From: My Portfolio \nName: ${firstName} ${lastName} \
         \nTitle: ${jobTitle} \nemail: ${email} \n \n${message}`;
@@ -22,30 +36,22 @@ const formatWhatsAppMessage = (
 }
 
 const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
-    const
-        inputFirstNameRef = useRef<HTMLInputElement>(null),
-        inputLastNameRef = useRef<HTMLInputElement>(null),
-        inputJobTitleRef = useRef<HTMLInputElement>(null),
-        inputEmailRef = useRef<HTMLInputElement>(null),
-        textAreaMessageRef = useRef<HTMLTextAreaElement>(null),
-        hireFormRef = useRef<HTMLFormElement>(null);
+    const hireFormRef = useRef<HTMLFormElement>(null);
+    
+    const { register , handleSubmit } = useForm<HireFormSchema>({
+        resolver: zodResolver(hireFormSchema)
+    });
 
-    const handleButtonClick = useCallback((event:MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
+    const handleButtonClick = useCallback((data:HireFormSchema) => {
+        const { firstName, lastName, jobTitle, email, message } = data;
 
-        const message = formatWhatsAppMessage(
-            inputFirstNameRef.current?.value,
-            inputLastNameRef.current?.value,
-            inputJobTitleRef.current?.value,
-            inputEmailRef.current?.value,
-            textAreaMessageRef.current?.value
-        );
+        const textMessage = formatWhatsAppMessage(firstName, lastName, jobTitle, email, message);
 
         /* Reset input field values after form submission */
         if (hireFormRef.current) hireFormRef.current.reset();
 
         const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
-        const encodedMessage = encodeURIComponent(message);
+        const encodedMessage = encodeURIComponent(textMessage);
 
         window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
     }, []);
@@ -67,30 +73,16 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
                 {[...Array(4)].map((_:undefined, index:number) => (
                     <Input
                         key={index}
-                        ref={
-                            index === 0 ?
-                                inputFirstNameRef
-                            : index === 1 ?
-                                inputLastNameRef
-                            : index === 2 ?
-                                inputJobTitleRef
-                            : index === 3 ?
-                                inputEmailRef
-                            :
-                                undefined
-                        }
-                        type={
+                        {...register(
                             index === 0 ?
                                 "firstName"
                             : index === 1 ?
                                 "lastName"
                             : index === 2 ?
                                 "jobTitle"
-                            : index === 3 ?
-                                "email"
                             :
-                                ""
-                        }
+                                "email"
+                        )}
                         placeholder={
                             index === 0 ?
                                 getHireFieldNames(language, "inputHolderFirstName")
@@ -109,8 +101,8 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
             </div>
             {/* Textarea */}
             <Textarea
+                {...register("message")}
                 placeholder={getHireFieldNames(language, "messageHolder")}
-                ref={textAreaMessageRef}
                 className="h-[200px] text-[13px] xl:text-[16px]"
             />
             {/* Button */}
@@ -120,7 +112,7 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
                         h-[42px] xl:h-[48px] mt-2 px-4 xl:px-6 text-[13px] xl:text-[16px] flex justify-between`
                 }
                 type="button"
-                onClick={handleButtonClick}
+                onClick={handleSubmit(handleButtonClick)}
             >
                 {getHireFieldNames(language, "sendButton")}
                 <FaWhatsapp className="text-[18px] xl:text-2xl"/>
