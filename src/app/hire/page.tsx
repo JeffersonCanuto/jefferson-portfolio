@@ -7,11 +7,12 @@ import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 
 import {
-    FaWhatsapp,
-    FaPhoneAlt,
     FaLinkedinIn,
+    FaGithub,
     FaEnvelope,
-    FaMapMarkerAlt
+    FaPhoneAlt,
+    FaMapMarkerAlt,
+    FaWhatsapp
 } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
@@ -49,7 +50,7 @@ const formatWhatsAppMessage = (
 const Hire:React.FC = () => {
     const language = (useSelector((state:RootState) => state.language.preferred)) === "en-us" ? "en" : "br";
 
-    let
+    const
         inputFirstNameRef = useRef<HTMLInputElement>(null),
         inputLastNameRef = useRef<HTMLInputElement>(null),
         inputJobTitleRef = useRef<HTMLInputElement>(null),
@@ -66,18 +67,24 @@ const Hire:React.FC = () => {
         },
         {
             index: 2,
+            icon: <FaGithub />,
+            title: "GitHub",
+            description: "https://github.com/JeffersonCanuto"
+        },
+        {
+            index: 3,
             icon: <FaEnvelope />,
             title: "Email",
             description: "jeffersondscanuto@gmail.com"
         },
         {
-            index: 3,
+            index: 4,
             icon: <FaPhoneAlt />,
             title: getHireFieldNames(language, "phoneTitle"),
             description: getHireFieldNames(language, "phoneName")
         },
         {
-            index: 4,
+            index: 5,
             icon: <FaMapMarkerAlt />,
             title: getHireFieldNames(language, "addressTitle"),
             description: getHireFieldNames(language, "addressName")
@@ -210,11 +217,11 @@ const Hire:React.FC = () => {
                                         <div className="flex-1">
                                             <p className="text-[12px] xl:text-[16px] text-white/60">{info.title}</p>
                                             <h3 className="text-[12px] xl:text-xl hover:text-accent">
-                                                {info.index === 1 ? (
+                                                {[1, 2].includes(info.index) ? (
                                                     <Link href={`${info.description}`} target="_blank">
                                                         {info.description}
                                                     </Link>
-                                                ) : (
+                                                ):(
                                                     info.description
                                                 )}
                                             </h3>
