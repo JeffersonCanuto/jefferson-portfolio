@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useCallback, MouseEvent } from "react";
 
 import { useSelector } from "react-redux";
 
@@ -33,8 +33,28 @@ const getHireFieldNames = <
     return hireStrings[language][field];
 } 
 
+const formatWhatsAppMessage = (
+    firstName:string | undefined,
+    lastName:string | undefined,
+    jobTitle:string | undefined,
+    email:string | undefined,
+    message:string | undefined
+):string => {
+    const formattedMessage = `From: My Portfolio \nName: ${firstName} ${lastName} \
+        \nTitle: ${jobTitle} \nemail: ${email} \n \n${message}`;
+    
+    return formattedMessage;
+}
+
 const Hire:React.FC = () => {
     const language = (useSelector((state:RootState) => state.language.preferred)) === "en-us" ? "en" : "br";
+
+    const
+        inputFirstNameRef = useRef<HTMLInputElement>(null),
+        inputLastNameRef = useRef<HTMLInputElement>(null),
+        inputJobTitleRef = useRef<HTMLInputElement>(null),
+        inputEmailRef = useRef<HTMLInputElement>(null),
+        textAreaMessageRef = useRef<HTMLTextAreaElement>(null);
     
     const infos:InfoItems[] = [
         {
@@ -62,6 +82,23 @@ const Hire:React.FC = () => {
             description: getHireFieldNames(language, "addressName")
         },
     ];
+
+    const handleSendWhatsAppMessageButton = useCallback((event:MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+
+        const message = formatWhatsAppMessage(
+            inputFirstNameRef.current?.value,
+            inputLastNameRef.current?.value,
+            inputJobTitleRef.current?.value,
+            inputEmailRef.current?.value,
+            textAreaMessageRef.current?.value
+        );
+        
+        const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+        const encodedMessage = encodeURIComponent(message);
+
+        window.location.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    }, []);
 
     return (
         <motion.section
@@ -92,6 +129,18 @@ const Hire:React.FC = () => {
                                 {[...Array(4)].map((_:undefined, index:number) => (
                                     <Input
                                         key={index}
+                                        ref={
+                                            index === 0 ?
+                                                inputFirstNameRef
+                                            : index === 1 ?
+                                                inputLastNameRef
+                                            : index === 2 ?
+                                                inputJobTitleRef
+                                            : index === 3 ?
+                                                inputEmailRef
+                                            :
+                                                undefined
+                                        }
                                         type={
                                             index === 0 ?
                                                 "firstName"
@@ -123,6 +172,7 @@ const Hire:React.FC = () => {
                             {/* Textarea */}
                             <Textarea
                                 placeholder={getHireFieldNames(language, "messageHolder")}
+                                ref={textAreaMessageRef}
                                 className="h-[200px] text-[13px] xl:text-[16px]"
                             />
                             {/* Button */}
@@ -131,6 +181,7 @@ const Hire:React.FC = () => {
                                     `${language.includes("en") ? "max-w-[90px] xl:max-w-[120px]" : "max-w-[105px] xl:max-w-[140px]"} 
                                         h-[42px] xl:h-[48px] mt-2 px-4 xl:px-6 text-[13px] xl:text-[16px] flex justify-between`
                                 }
+                                onClick={handleSendWhatsAppMessageButton}
                             >
                                 {getHireFieldNames(language, "sendButton")}
                                 <FaWhatsapp className="text-[18px] xl:text-2xl"/>
