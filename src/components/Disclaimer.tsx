@@ -34,6 +34,8 @@ const Disclaimer:React.FC = () => {
                     "-mt-8"
                 : pathname === "/about" ?
                     "-mt-4"
+                : pathname === "/hire" ?
+                    "-mt-7"
                 :
                     ""
                 }
