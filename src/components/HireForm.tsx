@@ -12,12 +12,36 @@ import { getHireFieldNames } from "@/app/hire/page";
 
 import { FaWhatsapp } from "react-icons/fa";
 
+const regex = {
+    name: /^[\p{L}'-]+$/u,
+    title: /^[\p{L}\d\s'-]+$/u,
+    message: /^(?!.*<[a-zA-Z]+.*>).+$/mu
+};
+
 const hireFormSchema = z.object({
-    firstName: z.string(),
-    lastName: z.string(),
-    jobTitle: z.string(),
-    email: z.string(),
+    firstName: z.string()
+        .trim()
+        .min(2, "First name must be at least 2 characters long")
+        .max(15, "First name cannot exceed 15 characters")
+        .regex(regex.name, "First name can only contain letters, apostrophes and hyphens"),
+    lastName: z.string()
+        .trim()
+        .min(2, "Last name must be at least 2 characters long")
+        .max(15, "Last name cannot exceed 15 characters")
+        .regex(regex.name, "Last name can only contain letters, apostrophes and hyphens"),
+    jobTitle: z.string()
+        .trim()
+        .min(3, "Job title must be at least 3 characters long")
+        .max(40, "Job title cannot exceed 40 characters")
+        .regex(regex.title, "Job title can only contain letters, numbers, spaces, apostrophes and hyphens"),
+    email: z.string()
+        .trim()
+        .email("Invalid email format"),
     message: z.string()
+        .trim()
+        .min(2, "Message must be at least 2 characters long")
+        .max(2000, "Message cannot exceed 2000 characters")
+        .regex(regex.message, "Message can contain anything but HTML elements" )
 });
 
 type HireFormSchema = z.infer<typeof hireFormSchema>;
@@ -37,7 +61,7 @@ const formatWhatsAppMessage = (
 
 const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
     const hireFormRef = useRef<HTMLFormElement>(null);
-    
+
     const { register , handleSubmit } = useForm<HireFormSchema>({
         resolver: zodResolver(hireFormSchema)
     });
