@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { getHireFieldNames } from "@/app/hire/page";
 
 import { FaWhatsapp } from "react-icons/fa";
+import { FaCircleExclamation } from "react-icons/fa6";
 
 const regex = {
     name: /^[\p{L}'-]+$/u,
@@ -21,27 +22,27 @@ const regex = {
 const hireFormSchema = z.object({
     firstName: z.string()
         .trim()
-        .min(2, "First name must be at least 2 characters long")
-        .max(15, "First name cannot exceed 15 characters")
-        .regex(regex.name, "First name can only contain letters, apostrophes and hyphens"),
+        .min(2, "It must be at least 2 characters long")
+        .max(15, "It cannot exceed 15 characters")
+        .regex(regex.name, "Wrong format"),
     lastName: z.string()
         .trim()
-        .min(2, "Last name must be at least 2 characters long")
-        .max(15, "Last name cannot exceed 15 characters")
-        .regex(regex.name, "Last name can only contain letters, apostrophes and hyphens"),
+        .min(2, "It must be at least 2 characters long")
+        .max(15, "It cannot exceed 15 characters")
+        .regex(regex.name, "Wrog format"),
     jobTitle: z.string()
         .trim()
-        .min(3, "Job title must be at least 3 characters long")
-        .max(40, "Job title cannot exceed 40 characters")
-        .regex(regex.title, "Job title can only contain letters, numbers, spaces, apostrophes and hyphens"),
+        .min(3, "It must be at least 3 characters long")
+        .max(40, "It cannot exceed 40 characters")
+        .regex(regex.title, "Wrong format"),
     email: z.string()
         .trim()
         .email("Invalid email format"),
     message: z.string()
         .trim()
-        .min(2, "Message must be at least 2 characters long")
-        .max(2000, "Message cannot exceed 2000 characters")
-        .regex(regex.message, "Message can contain anything but HTML elements" )
+        .min(2, "It must be at least 2 characters long")
+        .max(2000, "It cannot exceed 2000 characters")
+        .regex(regex.message, "Wrong format" )
 });
 
 type HireFormSchema = z.infer<typeof hireFormSchema>;
@@ -62,7 +63,7 @@ const formatWhatsAppMessage = (
 const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
     const hireFormRef = useRef<HTMLFormElement>(null);
 
-    const { register , handleSubmit } = useForm<HireFormSchema>({
+    const { register , handleSubmit, formState: { errors } } = useForm<HireFormSchema>({
         resolver: zodResolver(hireFormSchema)
     });
 
@@ -94,41 +95,61 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
             </p>
             {/* Input */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[...Array(4)].map((_:undefined, index:number) => (
-                    <Input
-                        key={index}
-                        {...register(
-                            index === 0 ?
-                                "firstName"
-                            : index === 1 ?
-                                "lastName"
-                            : index === 2 ?
-                                "jobTitle"
-                            :
-                                "email"
-                        )}
-                        placeholder={
-                            index === 0 ?
-                                getHireFieldNames(language, "inputHolderFirstName")
-                            : index === 1 ?
-                                getHireFieldNames(language, "inputHolderLastname")
-                            : index === 2 ?
-                                getHireFieldNames(language, "inputHolderJobTitle")
-                            : index === 3 ?
-                                getHireFieldNames(language, "inputHolderEmail")
-                            :
-                                ""
-                        }
-                        className="text-[13px] xl:text-[16px]"
-                    />
-                ))}
+                {[...Array(4)].map((_:undefined, index:number) => {
+                    const fieldName = 
+                        index === 0 ? 
+                            "firstName"
+                        : index === 1 ?
+                            "lastName"
+                        : index === 2 ?
+                            "jobTitle"
+                        :
+                            "email";
+                    
+                    return (
+                        <div key={index} className="flex flex-col">
+                            <Input
+                                {...register(fieldName, { required: 'This is a required field' })}
+                                placeholder={
+                                    index === 0 ?
+                                        getHireFieldNames(language, "inputHolderFirstName")
+                                    : index === 1 ?
+                                        getHireFieldNames(language, "inputHolderLastname")
+                                    : index === 2 ?
+                                        getHireFieldNames(language, "inputHolderJobTitle")
+                                    : index === 3 ?
+                                        getHireFieldNames(language, "inputHolderEmail")
+                                    :
+                                        ""
+                                }
+                                className="text-[13px] xl:text-[16px]"
+                            />
+                            {
+                                errors[fieldName] &&
+                                    <p className="flex gap-2 text-red-500 mt-2">
+                                        <FaCircleExclamation className="text-[8px] xl:text-[13px] mt-1" />
+                                        <span className="text-[8px] xl:text-[11px]">{errors[fieldName]?.message}</span>
+                                    </p>
+                            }
+                        </div>
+                    );
+                })}
             </div>
             {/* Textarea */}
-            <Textarea
-                {...register("message")}
-                placeholder={getHireFieldNames(language, "messageHolder")}
-                className="h-[200px] text-[13px] xl:text-[16px]"
-            />
+            <div>
+                <Textarea
+                    {...register("message", { required: 'This is a required field' })}
+                    placeholder={getHireFieldNames(language, "messageHolder")}
+                    className="h-[200px] text-[13px] xl:text-[16px]"
+                />
+                {
+                    errors["message"] &&
+                        <p className="flex gap-2 text-red-500 mt-2">
+                            <FaCircleExclamation className="text-[8px] xl:text-[13px] mt-1" />
+                            <span className="text-[8px] xl:text-[11px]">{errors["message"]?.message}</span>
+                        </p>
+                }
+            </div>
             {/* Button */}
             <Button
                 className={
