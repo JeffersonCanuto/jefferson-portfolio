@@ -60,16 +60,16 @@ cd jefferson-portfolio
 npm install
 ```
 
-4. Create .env based on env.example
+4. Create .env.local
 
 ```bash
-touch .env
+touch .env.local
 ```
 
-5. Set .env variable values (e.g., vim, nano, gedit, etc)
+5. Set .env.local variables based on env.example
 
 ```bash
-gedit .env
+gedit .env.local
 ```
 
 6. Start development server
