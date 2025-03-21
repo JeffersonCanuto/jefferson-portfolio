@@ -13,6 +13,12 @@ export type HireStrings<T> = {
     phoneName: T;
     addressTitle: T;
     addressName: T;
+    nameMinError: T;
+    nameMaxError: T;
+    titleMinError: T;
+    titleMaxError: T;
+    messageMaxError: T;
+    wrongFormatError: T;
 };
 
 export type InfoItems = {

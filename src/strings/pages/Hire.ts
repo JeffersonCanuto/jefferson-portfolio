@@ -14,7 +14,13 @@ const hireStrings:Record<"en" | "br", HireStrings<string>> = {
         phoneTitle: "Phone",
         phoneName: "+5592982818369",
         addressTitle: "Address",
-        addressName: "833 Ana C B Dias Street, No. 2. Salvador - BA, Brazil"
+        addressName: "833 Ana C B Dias Street, No. 2. Salvador - BA, Brazil",
+        nameMinError: "It must be at least 2 characters long",
+        nameMaxError: "It cannot exceed 15 characters",
+        titleMinError: "It must be at least 3 characters long",
+        titleMaxError: "It cannot exceed 40 characters",
+        messageMaxError: "It cannot exceed 2000 characters",
+        wrongFormatError: "Wrong format"
     },
     br: {
         title: "Vamos trabalhar juntos!",
@@ -29,7 +35,13 @@ const hireStrings:Record<"en" | "br", HireStrings<string>> = {
         phoneTitle: "Telefone",
         phoneName: "(92)98281-8369",
         addressTitle: "Endereço",
-        addressName: "Rua Ana C B Dias, 833, Casa 2. Salvador - BA, Brasil"
+        addressName: "Rua Ana C B Dias, 833, Casa 2. Salvador - BA, Brasil",
+        nameMinError: "Deve possuir pelo menos 2 caracteres",
+        nameMaxError: "Não pode exceder 15 caracteres",
+        titleMinError: "Deve possuir pelo menos 3 caracteres",
+        titleMaxError: "Não pode exceder 40 caracteres",
+        messageMaxError: "It cannot exceed 2000 characters",
+        wrongFormatError: "Formato inválido"
     }
 };
 

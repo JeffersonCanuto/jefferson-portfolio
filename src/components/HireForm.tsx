@@ -19,34 +19,6 @@ const regex = {
     message: /^(?!.*<[a-zA-Z]+.*>).+$/mu
 };
 
-const hireFormSchema = z.object({
-    firstName: z.string()
-        .trim()
-        .min(2, "It must be at least 2 characters long")
-        .max(15, "It cannot exceed 15 characters")
-        .regex(regex.name, "Wrong format"),
-    lastName: z.string()
-        .trim()
-        .min(2, "It must be at least 2 characters long")
-        .max(15, "It cannot exceed 15 characters")
-        .regex(regex.name, "Wrog format"),
-    jobTitle: z.string()
-        .trim()
-        .min(3, "It must be at least 3 characters long")
-        .max(40, "It cannot exceed 40 characters")
-        .regex(regex.title, "Wrong format"),
-    email: z.string()
-        .trim()
-        .email("Invalid email format"),
-    message: z.string()
-        .trim()
-        .min(2, "It must be at least 2 characters long")
-        .max(2000, "It cannot exceed 2000 characters")
-        .regex(regex.message, "Wrong format" )
-});
-
-type HireFormSchema = z.infer<typeof hireFormSchema>;
-
 const formatWhatsAppMessage = (
     firstName:string,
     lastName:string,
@@ -62,6 +34,34 @@ const formatWhatsAppMessage = (
 
 const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
     const hireFormRef = useRef<HTMLFormElement>(null);
+
+    const hireFormSchema = z.object({
+        firstName: z.string()
+            .trim()
+            .min(2, getHireFieldNames(language, "nameMinError"))
+            .max(15, getHireFieldNames(language, "nameMaxError"))
+            .regex(regex.name, getHireFieldNames(language, "wrongFormatError")),
+        lastName: z.string()
+            .trim()
+            .min(2, getHireFieldNames(language, "nameMinError"))
+            .max(15, getHireFieldNames(language, "nameMaxError"))
+            .regex(regex.name, getHireFieldNames(language, "wrongFormatError")),
+        jobTitle: z.string()
+            .trim()
+            .min(3, getHireFieldNames(language, "titleMinError"))
+            .max(40, getHireFieldNames(language, "titleMaxError"))
+            .regex(regex.title, getHireFieldNames(language, "wrongFormatError")),
+        email: z.string()
+            .trim()
+            .email(getHireFieldNames(language, "wrongFormatError")),
+        message: z.string()
+            .trim()
+            .min(2, getHireFieldNames(language, "nameMinError"))
+            .max(2000, getHireFieldNames(language, "messageMaxError"))
+            .regex(regex.message, getHireFieldNames(language, "wrongFormatError"))
+    });
+    
+    type HireFormSchema = z.infer<typeof hireFormSchema>;
 
     const { register , handleSubmit, formState: { errors } } = useForm<HireFormSchema>({
         resolver: zodResolver(hireFormSchema)
