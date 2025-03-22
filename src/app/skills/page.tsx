@@ -34,22 +34,8 @@ import {
     TooltipTrigger
 } from "@/components/ui/tooltip";
 import { RootState } from "@/redux/store";
-import skillStrings from "@/strings/pages/Skills";
-import {
-    SkillStrings,
-    Competences,
-    Competence
-} from "@/types/pages/Skills";
-
-const getSkillsFieldNames = <
-    L extends string, 
-    F extends keyof SkillStrings
->(
-    language: L, 
-    field: F
-):string => {
-    return skillStrings[language.includes("en-us") ? "en" : "br"][field];
-};
+import { Competences, Competence } from "@/types/pages/Skills";
+import getSkillsFieldNames from "@/utils/pages/skillHelpers";
 
 const Skills:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);
