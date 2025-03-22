@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-import { getHireFieldNames } from "@/app/hire/page";
+import { getHireFieldNames } from "@/utils/pages/hireHelpers";
 
 import { FaWhatsapp } from "react-icons/fa";
 import { FaCircleExclamation } from "react-icons/fa6";
