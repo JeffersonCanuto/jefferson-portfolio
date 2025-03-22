@@ -35,7 +35,7 @@ import {
 } from "@/components/ui/tooltip";
 import { RootState } from "@/redux/store";
 import { Competences, Competence } from "@/types/pages/Skills";
-import getSkillsFieldNames from "@/utils/pages/skillHelpers";
+import getSkillsFieldNames from "@/utils/pages/skillsHelpers";
 
 const Skills:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);

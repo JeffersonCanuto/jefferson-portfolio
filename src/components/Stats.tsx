@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 
 import { StatItems } from "@/types/components/Stats";
-import getStatsText from "@/utils/components/statHelpers";
+import getStatsText from "@/utils/components/statsHelpers";
 
 import { gitHubService, UserInfoItems } from "../services";
 

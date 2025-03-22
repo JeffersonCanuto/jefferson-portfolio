@@ -2,7 +2,7 @@ import React from "react";
 
 import { motion, Variants } from "framer-motion";
 
-import reverseIndex from "@/utils/components/stairHelpers";
+import reverseIndex from "@/utils/components/stairsHelpers";
 
 const stairAnimation:Variants = {
     initial: {

@@ -24,7 +24,7 @@ import {
 import WorkSliderBtns from "@/components/WorkSliderBtns";
 import { RootState } from "@/redux/store";
 import { ProjectItems, StackItems } from "@/types/pages/Projects";
-import getProjectsFieldNames from "@/utils/pages/projectHelpers";
+import getProjectsFieldNames from "@/utils/pages/projectsHelpers";
 
 import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
