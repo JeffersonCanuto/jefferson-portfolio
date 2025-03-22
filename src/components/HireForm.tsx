@@ -1,5 +1,8 @@
 import React, { useRef, useCallback } from "react";
 
+import { FaWhatsapp } from "react-icons/fa";
+import { FaCircleExclamation } from "react-icons/fa6";
+
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,30 +10,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
-import { getHireFieldNames } from "@/utils/pages/hireHelpers";
-
-import { FaWhatsapp } from "react-icons/fa";
-import { FaCircleExclamation } from "react-icons/fa6";
+import formatWhatsAppMessage from "@/utils/components/hireformHelpers";
+import getHireFieldNames from "@/utils/pages/hireHelpers";
 
 const regex = {
     name: /^[\p{L}'-]+$/u,
     title: /^[\p{L}\d\s'-]+$/u,
     message: /^(?!.*<[a-zA-Z]+.*>).+$/mu
 };
-
-const formatWhatsAppMessage = (
-    firstName:string,
-    lastName:string,
-    jobTitle:string,
-    email:string,
-    message:string
-):string => {
-    const formattedMessage = `From: My Portfolio \nName: ${firstName} ${lastName} \
-        \nTitle: ${jobTitle} \nemail: ${email} \n \n${message}`;
-    
-    return formattedMessage;
-}
 
 const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
     const hireFormRef = useRef<HTMLFormElement>(null);

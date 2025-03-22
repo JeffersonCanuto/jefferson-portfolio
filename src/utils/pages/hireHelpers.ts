@@ -1,7 +1,7 @@
 import hireStrings from "@/strings/pages/Hire";
 import { HireStrings } from "@/types/pages/Hire";
 
-export const getHireFieldNames = <
+const getHireFieldNames = <
     L extends keyof Record<"en" | "br", HireStrings<string>>,
     F extends keyof Record<"en" | "br", HireStrings<string>>[L]
 >(
