@@ -40,7 +40,7 @@ const hireStrings:Record<"en" | "br", HireStrings<string>> = {
         nameMaxError: "Não pode exceder 15 caracteres",
         titleMinError: "Deve possuir pelo menos 3 caracteres",
         titleMaxError: "Não pode exceder 40 caracteres",
-        messageMaxError: "It cannot exceed 2000 characters",
+        messageMaxError: "Não pode exceder 2000 caracteres",
         wrongFormatError: "Formato inválido"
     }
 };

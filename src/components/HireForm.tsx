@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import React, { useEffect, useRef, useMemo, useCallback } from "react";
 
 import { FaWhatsapp } from "react-icons/fa";
 import { FaCircleExclamation } from "react-icons/fa6";
@@ -20,9 +20,9 @@ const regex = {
 };
 
 const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
-    const hireFormRef = useRef<HTMLFormElement>(null);
+    const isMounted = useRef<boolean>(false);
 
-    const hireFormSchema = z.object({
+    const hireFormSchema = useMemo(() => z.object({
         firstName: z.string()
             .trim()
             .min(2, getHireFieldNames(language, "nameMinError"))
@@ -46,21 +46,21 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
             .min(2, getHireFieldNames(language, "nameMinError"))
             .max(2000, getHireFieldNames(language, "messageMaxError"))
             .regex(regex.message, getHireFieldNames(language, "wrongFormatError"))
-    });
-    
+    }), [language]);
+
     type HireFormSchema = z.infer<typeof hireFormSchema>;
 
-    const { register , handleSubmit, formState: { errors } } = useForm<HireFormSchema>({
+    const { register , handleSubmit, formState: { errors }, reset, trigger } = useForm<HireFormSchema>({
         resolver: zodResolver(hireFormSchema)
     });
 
     const handleButtonClick = useCallback((data:HireFormSchema) => {
+        // Reset input field values after form submission
+        reset();
+
         const { firstName, lastName, jobTitle, email, message } = data;
 
         const textMessage = formatWhatsAppMessage(firstName, lastName, jobTitle, email, message);
-
-        /* Reset input field values after form submission */
-        if (hireFormRef.current) hireFormRef.current.reset();
 
         const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
         const encodedMessage = encodeURIComponent(textMessage);
@@ -68,11 +68,17 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
         window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
     }, []);
 
+    // Trigger form revalidation to change errors according to language
+    useEffect(() => {
+        if (isMounted.current) {
+            trigger();
+        } else {
+            isMounted.current = true;
+        }
+    }, [language]);
+
     return (
-        <form
-            className="flex flex-col gap-6 px-10 py-9 bg-[#27272c] rounded-xl"
-            ref={hireFormRef}
-        >
+        <form className="flex flex-col gap-6 px-10 py-9 bg-[#27272c] rounded-xl">
             {/* Title and Description */}
             <h3 className="text-[20px] xl:text-3xl text-accent">
                 {getHireFieldNames(language, "title")}
