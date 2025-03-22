@@ -15,6 +15,7 @@ import { FcGlobe } from "react-icons/fc";
 import { AppDispatch, RootState } from "@/redux/store";
 import { setPreferredLanguage } from "@/redux/slices/languageSlice";
 import headerStrings from "@/strings/components/Header";
+import getHeaderFieldNames from "@/utils/components/headerHelpers";
 
 import {
     Tooltip,
@@ -24,7 +25,7 @@ import {
 } from "./ui/tooltip";
 import { Button } from "./ui/button";
 import MobileNav from "./MobileNav";
-import Nav, { getHeaderFieldNames } from "./Nav";
+import Nav from "./Nav";
 
 import BrFlag from "../../public/assets/others/br-flag.svg";
 import UsFlag from "../../public/assets/others/us-flag.svg";

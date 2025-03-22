@@ -2,9 +2,9 @@
 
 import React from "react";
 
-import { PageTransitionProps } from "@/types/components/PageTransition";
-
 import { AnimatePresence, motion } from "framer-motion";
+
+import { PageTransitionProps } from "@/types/components/PageTransition";
 
 import { usePathname } from "next/navigation";
 
