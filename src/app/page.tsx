@@ -45,7 +45,7 @@ const Home:React.FC = () => {
 						</p>
 						{/* Button and Socials */}
 						<div 
-							className={`flex flex-col xl:flex-row items-center ${language.includes("en-us") ? "gap-8" : "gap-3"}`}
+							className={`flex flex-col relative bottom-5 xl:bottom-0 xl:flex-row items-center ${language.includes("en-us") ? "gap-8" : "gap-3"}`}
 						>
 							<a 
 								href={language.includes("en-us") ? "/resumes/resume.pdf" : "/resumes/cv.pdf"} 

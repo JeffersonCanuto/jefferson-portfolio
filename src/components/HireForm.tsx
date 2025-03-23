@@ -67,9 +67,11 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
 
         window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
     }, []);
-
-    /* Trigger form revalidation to change error language when pressing language button ONLY when
-    error exists (condition is set at the dependency array) */
+    
+    /* 
+        Trigger form revalidation to change error language when pressing language
+        button ONLY when error exists (condition is set at the dependency array)
+    */
     useEffect(() => {
         if (isMounted.current) {
             trigger();
