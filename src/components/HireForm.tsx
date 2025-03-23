@@ -116,6 +116,7 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
                                         ""
                                 }
                                 className="text-[13px] xl:text-[16px]"
+                                autoFocus={index === 0 ? true : false}
                             />
                             {
                                 errors[fieldName] &&

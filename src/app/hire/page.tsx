@@ -68,7 +68,7 @@ const Hire:React.FC = () => {
                     ease: "easeIn"
                 }
             }}
-            className="-mt-8 xl:-mt-12 py-6"
+            className="-mt-8 xl:-mt-16 py-6"
         >
             <div className="container mx-auto cursor-default">
                 <div className="flex flex-col xl:flex-row gap-[15px] xl:gap-[30px]">
