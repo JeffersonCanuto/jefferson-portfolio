@@ -4,21 +4,12 @@ import React, { useState, useEffect } from "react";
 
 import CountUp from "react-countup";
 
-import statsStrings from "@/strings/components/Stats";
-import { StatsStrings, StatItems } from "@/types/components/Stats";
+import { StatItems } from "@/types/components/Stats";
+import getStatsText from "@/utils/components/statsHelpers";
+
 import { gitHubService, UserInfoItems } from "../services";
 
 import Link from "next/link";
-
-const getStatsText = <
-    L extends string,
-    T extends keyof StatsStrings
->(
-    language:L, 
-    text:T 
-):string => {
-    return statsStrings[language.includes("en-us") ? "en" : "br"][text];
-}
 
 const Stats:React.FC<{ language:string }> = ({ language }) => {
     const [ ghubProjectsCount, setGhubProjectsCount ] = useState<number>(0);

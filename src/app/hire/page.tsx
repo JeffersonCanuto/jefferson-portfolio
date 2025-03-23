@@ -4,8 +4,6 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import { motion } from "framer-motion";
-
 import {
     FaLinkedinIn,
     FaGithub,
@@ -14,23 +12,14 @@ import {
     FaMapMarkerAlt
 } from "react-icons/fa";
 
-import HireForm from "@/components/HireForm";
+import { motion } from "framer-motion";
 
-import hireStrings from "@/strings/pages/Hire";
-import { HireStrings, InfoItems } from "@/types/pages/Hire";
+import HireForm from "@/components/HireForm";
 import { RootState } from "@/redux/store";
+import { InfoItems } from "@/types/pages/Hire";
+import getHireFieldNames from "@/utils/pages/hireHelpers";
 
 import Link from "next/link";
-
-export const getHireFieldNames = <
-    L extends keyof Record<"en" | "br", HireStrings<string>>,
-    F extends keyof Record<"en" | "br", HireStrings<string>>[L]
->(
-    language:L,
-    field: F
-):Record<"en" | "br", HireStrings<string>>[L][F] => {
-    return hireStrings[language][field];
-}
 
 const Hire:React.FC = () => {
     const language = (useSelector((state:RootState) => state.language.preferred)) === "en-us" ? "en" : "br";

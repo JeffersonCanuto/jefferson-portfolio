@@ -12,26 +12,10 @@ import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { RootState } from "@/redux/store";
-import educationStrings from "@/strings/pages/Education";
-import {
-    EducationStrings,
-    EducationItems,
-    CertificationItems
-} from "@/types/pages/Education";
+import { EducationItems, CertificationItems } from "@/types/pages/Education";
+import getDegreeFieldNames from "@/utils/pages/educationHelpers";
 
 import Image from "next/image";
-
-const getDegreeFieldNames = <
-    L extends string,
-    I extends keyof EducationStrings["degrees"],
-    F extends keyof EducationStrings["degrees"]["first" | "second"]
->(
-    language:L,
-    index: I,
-    field: F
-):string => {
-    return educationStrings[language.includes("en-us") ? "en" : "br"]["degrees"][index][field];
-}
 
 const Education:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);

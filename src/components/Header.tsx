@@ -7,28 +7,25 @@ import React, {
     MouseEvent
 } from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+
 import { FaCheck } from "react-icons/fa";
 import { FcGlobe } from "react-icons/fc";
 
-import { useDispatch, useSelector } from "react-redux";
-
 import { AppDispatch, RootState } from "@/redux/store";
 import { setPreferredLanguage } from "@/redux/slices/languageSlice";
-
 import headerStrings from "@/strings/components/Header";
-
-import { Button } from "./ui/button";
-import MobileNav from "./MobileNav";
-import Nav from "./Nav";
+import getHeaderFieldNames from "@/utils/components/headerHelpers";
 
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger
-} from "@/components/ui/tooltip";
-
-import { getHeaderFieldNames } from "./Nav";
+} from "./ui/tooltip";
+import { Button } from "./ui/button";
+import MobileNav from "./MobileNav";
+import Nav from "./Nav";
 
 import BrFlag from "../../public/assets/others/br-flag.svg";
 import UsFlag from "../../public/assets/others/us-flag.svg";

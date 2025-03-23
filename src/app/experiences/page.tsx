@@ -17,25 +17,10 @@ import {
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { RootState } from "@/redux/store";
-
-import experienceStrings from "@/strings/pages/Experiences";
-import { ExperienceStrings, ExperienceItems } from "@/types/pages/Experiences";
+import { ExperienceItems } from "@/types/pages/Experiences";
+import getExperienceFieldNames from "@/utils/pages/experiencesHelpers";
 
 import Link from "next/link";
-
-const getExperienceFieldNames = <
-    L extends keyof Record<"en" | "br", ExperienceStrings>,
-    I extends keyof Record<"en" | "br", ExperienceStrings>[L],
-    F extends keyof Record<"en" | "br", ExperienceStrings>[L][I],
-    S extends keyof Record<"en" | "br", ExperienceStrings>[L][I][F]
->(
-    language: L,
-    index: I,
-    field: F,
-    subfield: S
-):Record<"en" | "br", ExperienceStrings>[L][I][F][S] => {
-    return experienceStrings[language][index][field][subfield];
-};
 
 const Experiences:React.FC = () => {
     const language = (useSelector((state:RootState) => state.language.preferred)).includes("en-us") ? "en" : "br";

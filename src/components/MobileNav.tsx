@@ -11,8 +11,7 @@ import {
     SheetTrigger
 } from '@/components/ui/sheet';
 import { HeaderStrings, LinkItems } from "@/types/components/Header";
-
-import { getHeaderFieldNames } from "./Nav";
+import getHeaderFieldNames from "@/utils/components/headerHelpers";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
