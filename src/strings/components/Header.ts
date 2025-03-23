@@ -9,7 +9,8 @@ const headerStrings:Record<"en" | "br", HeaderStrings> = {
             experiences: "Experiences",
             skills: "Skills",
             projects: "Projects",
-            about: "About me"
+            about: "About me",
+            hire: "Hire"
         }
     },
     br: {
@@ -20,7 +21,8 @@ const headerStrings:Record<"en" | "br", HeaderStrings> = {
             experiences: "Experiências",
             skills: "Habilidades",
             projects: "Projetos",
-            about: "Sobre mim"
+            about: "Sobre mim",
+            hire: "Contratar"
         }
     }
 };

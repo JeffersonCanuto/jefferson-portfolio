@@ -44,8 +44,8 @@ const Home:React.FC = () => {
 							{homeStrings[language.includes("en-us") ? "en" : "br"].introduction} &#128578;
 						</p>
 						{/* Button and Socials */}
-						<div 
-							className={`flex flex-col xl:flex-row items-center ${language.includes("en-us") ? "gap-8" : "gap-3"}`}
+						<div
+							className={`flex flex-col relative bottom-5 xl:bottom-2 xl:flex-row items-center ${language.includes("en-us") ? "gap-8" : "gap-3"}`}
 						>
 							<a 
 								href={language.includes("en-us") ? "/resumes/resume.pdf" : "/resumes/cv.pdf"} 

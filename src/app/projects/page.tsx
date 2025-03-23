@@ -22,13 +22,9 @@ import {
     TooltipTrigger
 } from "@/components/ui/tooltip";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
-import projectStrings from "@/strings/pages/Projects";
-import {
-    ProjectStrings,
-    ProjectItems,
-    StackItems
-} from "@/types/pages/Projects";
 import { RootState } from "@/redux/store";
+import { ProjectItems, StackItems } from "@/types/pages/Projects";
+import getProjectsFieldNames from "@/utils/pages/projectsHelpers";
 
 import { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -36,18 +32,6 @@ import "swiper/css";
 
 import Link from "next/link";
 import Image from "next/image";
-
-const getProjectsFieldNames = <
-    L extends string,
-    F extends keyof ProjectStrings,
-    T extends keyof ProjectStrings["first"]
->(
-    language: L,
-    field: F,
-    type: T
-):string => {
-    return projectStrings[language.includes("en-us") ? "en" : "br"][field][type];
-}
 
 const Projects:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);

@@ -2,6 +2,8 @@ import React from "react";
 
 import { motion, Variants } from "framer-motion";
 
+import reverseIndex from "@/utils/components/stairsHelpers";
+
 const stairAnimation:Variants = {
     initial: {
         top: "0%"
@@ -12,13 +14,6 @@ const stairAnimation:Variants = {
     exit: {
         top: ["100%", "0%"]
     }
-};
-
-// Calculate the reverse index for staggered delay
-const reverseIndex = (index:number):number => {
-    const totalSteps = 6;
-
-    return totalSteps - index - 1;
 };
 
 const Stairs:React.FC = () => {

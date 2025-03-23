@@ -4,28 +4,11 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import aboutStrings from "@/strings/pages/About";
-import { 
-    AboutStrings,
-    AboutItems,
-    InfoItems
-} from "@/types/pages/About";
-
 import { RootState } from "@/redux/store";
+import { AboutItems, InfoItems } from "@/types/pages/About";
+import getAboutFieldNames from "@/utils/pages/aboutHelpers";
 
 import { motion } from "framer-motion";
-
-const getAboutFieldNames = <
-    L extends keyof Record<"en" | "br", AboutStrings>, 
-    F extends keyof Record<"en" | "br", AboutStrings>[L],
-    I extends keyof Record<"en" | "br", AboutStrings>[L][F]
->(
-    language: L,
-    field: F,
-    index: I
-):Record<"en" | "br", AboutStrings>[L][F][I] => {
-    return aboutStrings[language][field][index];
-}
 
 const About = () => {
     const language = (useSelector((state:RootState) => state.language.preferred)).includes("en-us") ? "en" : "br";

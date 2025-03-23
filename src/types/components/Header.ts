@@ -7,6 +7,7 @@ export type HeaderStrings = {
         skills: string;
         projects: string;
         about: string;
+        hire: string;
     };
 };
 
