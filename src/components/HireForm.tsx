@@ -123,7 +123,7 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
                                 errors[fieldName] &&
                                     <p className="flex gap-2 text-red-500 mt-2">
                                         <span className="flex items-center">
-                                            <FaCircleExclamation className="text-[8px] xl:text-[13px]" />
+                                            <FaCircleExclamation className="text-[9px] -mt-[1px] xl:mt-0 xl:text-[13px]" />
                                         </span>
                                         <span className="flex items-center">
                                             <span className="text-[8px] xl:text-[11px]">{errors[fieldName]?.message}</span>
@@ -144,7 +144,7 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
                 {
                     errors["message"] &&
                         <p className="flex gap-2 text-red-500 mt-2">
-                            <FaCircleExclamation className="text-[8px] xl:text-[13px] mt-1" />
+                            <FaCircleExclamation className="text-[9px] mt-[3px] xl:text-[13px] xl:mt-1" />
                             <span className="text-[8px] xl:text-[11px]">{errors["message"]?.message}</span>
                         </p>
                 }
@@ -152,14 +152,14 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
             {/* Button */}
             <Button
                 className={
-                    `${language.includes("en") ? "max-w-[90px] xl:max-w-[112px]" : "max-w-[105px] xl:max-w-[128px]"} 
-                        h-[42px] xl:h-[46px] mt-2 px-4 xl:px-6 text-[13px] xl:text-[14px] flex justify-between`
+                    `${language.includes("en") ? "max-w-[85px] xl:max-w-[112px]" : "max-w-[100px] xl:max-w-[128px]"} 
+                        h-[40px] xl:h-[46px] mt-2 px-4 xl:px-6 text-[12px] xl:text-[14px] flex justify-between`
                 }
                 type="button"
                 onClick={handleSubmit(handleButtonClick)}
             >
                 {getHireFieldNames(language, "sendButton")}
-                <FaWhatsapp className="text-[18px] xl:text-xl"/>
+                <FaWhatsapp className="text-[16px] xl:text-xl"/>
             </Button>
         </form>
     );
