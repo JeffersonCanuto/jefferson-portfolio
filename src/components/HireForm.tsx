@@ -68,26 +68,27 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
         window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
     }, []);
 
-    // Trigger form revalidation to change errors according to language
+    /* Trigger form revalidation to change error language when pressing language button ONLY when
+    error exists (condition is set at the dependency array) */
     useEffect(() => {
         if (isMounted.current) {
             trigger();
         } else {
             isMounted.current = true;
         }
-    }, [language]);
+    }, [Object.keys(errors).length && language]);
 
     return (
         <form className="flex flex-col gap-6 px-10 py-9 bg-[#27272c] rounded-xl">
             {/* Title and Description */}
-            <h3 className="text-[20px] xl:text-3xl text-accent">
+            <h3 className="text-[20px] xl:text-2xl text-accent">
                 {getHireFieldNames(language, "title")}
             </h3>
-            <p className="text-[13px] md:text-[16px] text-white/60 text-justify">
+            <p className="text-[13px] xl:text-[14px] text-white/60 text-justify">
                 {getHireFieldNames(language, "description")}
             </p>
             {/* Input */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
                 {[...Array(4)].map((_:undefined, index:number) => {
                     const fieldName = 
                         index === 0 ? 
@@ -115,14 +116,18 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
                                     :
                                         ""
                                 }
-                                className="text-[13px] xl:text-[16px]"
+                                className="text-[13px] xl:text-[14px]"
                                 autoFocus={index === 0 ? true : false}
                             />
                             {
                                 errors[fieldName] &&
                                     <p className="flex gap-2 text-red-500 mt-2">
-                                        <FaCircleExclamation className="text-[8px] xl:text-[13px] mt-1" />
-                                        <span className="text-[8px] xl:text-[11px]">{errors[fieldName]?.message}</span>
+                                        <span className="flex items-center">
+                                            <FaCircleExclamation className="text-[8px] xl:text-[13px]" />
+                                        </span>
+                                        <span className="flex items-center">
+                                            <span className="text-[8px] xl:text-[11px]">{errors[fieldName]?.message}</span>
+                                        </span>
                                     </p>
                             }
                         </div>
@@ -134,7 +139,7 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
                 <Textarea
                     {...register("message", { required: 'This is a required field' })}
                     placeholder={getHireFieldNames(language, "messageHolder")}
-                    className="h-[200px] text-[13px] xl:text-[16px]"
+                    className={`${Object.keys(errors).length ? "h-[110px]" : "h-[200px]"} text-[13px] xl:text-[16px]`}
                 />
                 {
                     errors["message"] &&
@@ -147,14 +152,14 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
             {/* Button */}
             <Button
                 className={
-                    `${language.includes("en") ? "max-w-[90px] xl:max-w-[120px]" : "max-w-[105px] xl:max-w-[140px]"} 
-                        h-[42px] xl:h-[48px] mt-2 px-4 xl:px-6 text-[13px] xl:text-[16px] flex justify-between`
+                    `${language.includes("en") ? "max-w-[90px] xl:max-w-[112px]" : "max-w-[105px] xl:max-w-[128px]"} 
+                        h-[42px] xl:h-[46px] mt-2 px-4 xl:px-6 text-[13px] xl:text-[14px] flex justify-between`
                 }
                 type="button"
                 onClick={handleSubmit(handleButtonClick)}
             >
                 {getHireFieldNames(language, "sendButton")}
-                <FaWhatsapp className="text-[18px] xl:text-2xl"/>
+                <FaWhatsapp className="text-[18px] xl:text-xl"/>
             </Button>
         </form>
     );
