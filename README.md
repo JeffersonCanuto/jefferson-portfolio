@@ -18,6 +18,8 @@ This project is designed to be a tool where I can showcase my education, experie
 - Overview about my personal projects, technologies used and hyperlinks to their repositories in Projects page.
 - Swiper component to swipe across multiple projects and show their respective info accordingly in Projects page.
 - General introduction, avatar photo and also some relevant personal information about me in About page.
+- Personal contact information (LinkedIn, GitHub, Email, Phone and Address) displayed in Hire page.
+- Contact form (first and last name, title, email) with click-to-chat feature via WhatsApp in Hire page.
 
 ### 🛠️ Technologies
 
