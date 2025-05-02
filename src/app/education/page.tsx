@@ -42,7 +42,7 @@ const Education:React.FC = () => {
     const certifications:CertificationItems<string>[] = [
         {
             index: 1, 
-            title: `EF SET 72/100 (C2 - ${ language.includes("en-us") ? "Proficient" : "Proficiente" })`,
+            title: `EF SET 72/100 (C1 - ${ language.includes("en-us") ? "Advanced" : "Avançado" })`,
             school: "EF SET",
             icon: "/assets/logos/efset.svg",
             issuance: `${language.includes("en-us") ? "Issued in Jun. 2024" : "Emitido em Jun. 2024"}`,

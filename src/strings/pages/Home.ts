@@ -13,7 +13,7 @@ const homeStrings:Record<"en" | "br", HomeStrings> = {
     },
     br: {
         title: "Engenheiro de Software",
-        introduction: "Eu sou um Engenheiro de Software com vasta experiência em projetar, construir e disponibilizar aplicações \
+        introduction: "Eu sou um Engenheiro de Software com 5+ anos de experiência em projetar, construir e disponibilizar aplicações \
             web para muitos propósitos e utilizando diversas tecnologias. Sinta-se à vontade para explorar as outras seções, para \
             saber mais sobre a minha educação, experiências, habilidades, projetos e sobre mim - ou entrar em contato comigo através \
             das redes sociais abaixo",
