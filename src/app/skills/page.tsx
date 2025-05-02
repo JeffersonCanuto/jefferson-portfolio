@@ -11,13 +11,13 @@ import {
     FaReact,
     FaNodeJs
 } from "react-icons/fa";
-import { 
-    SiExpress,
+import {
+    SiTypescript,
     SiTailwindcss,
     SiNextdotjs,
-    SiTypescript,
     SiPython,
     SiDjango,
+    SiFlask,
     SiPostgresql,
     SiDocker,
     SiGit,
@@ -85,18 +85,18 @@ const Skills:React.FC = () => {
             },
             {
                 index: 9,
-                icon: <SiExpress />,
-                name: "Express"
-            },
-            {
-                index: 10,
                 icon: <SiPython />,
                 name: "Python"
             },
             {
-                index: 11,
+                index: 10,
                 icon: <SiDjango />,
                 name: "Django REST"
+            },
+            {
+                index: 11,
+                icon: <SiFlask />,
+                name: "Flask"
             },
             {
                 index: 12,
