@@ -3,8 +3,9 @@ import { HireStrings } from "@/types/pages/Hire";
 const hireStrings:Record<"en" | "br", HireStrings<string>> = {
     en: {
         title: "Let's work together!",
-        description: "Do you want me to join you in enhancing end user experience by helping to design and \
-            build new, impactful, innovative and also multifunctional apps? Let's have a chat over WhatsApp.",
+        description: "Do you want me to join you in enhancing end user experience by helping you to design, \
+            build and deploy new, big, impactful, innovative and also multifunctional apps? Let's have a proper \
+            chat over",
         inputHolderFirstName: "First name",
         inputHolderLastname: "Last name",
         inputHolderJobTitle: "Job title",
@@ -35,7 +36,7 @@ const hireStrings:Record<"en" | "br", HireStrings<string>> = {
         phoneTitle: "Telefone",
         phoneName: "(92)98281-8369",
         addressTitle: "Endereço",
-        addressName: "Rua Ana C B Dias, 833, Casa 2. Salvador - BA, Brasil",
+        addressName: "Rua Ana C B Dias, 833,  No. 2. Salvador - BA, Brasil",
         nameMinError: "Deve possuir pelo menos 2 caracteres",
         nameMaxError: "Não pode exceder 15 caracteres",
         titleMinError: "Deve possuir pelo menos 3 caracteres",

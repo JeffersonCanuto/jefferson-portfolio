@@ -114,10 +114,10 @@ const Experiences:React.FC = () => {
                                 <div className="grid gap-10 cursor-default" key={item.index}>
                                     <span className="text-[15px] text-justify">{item.description}</span>
                                     <li className={`${item.index === 1 && language.includes("en") ? "-mt-2" : item.index === 1 && language.includes("br") ? "-mt-5" : ""} bg-[#232329] h-[235px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1`}>
-                                        <h3 className="text-accent text-xl max-w-[400px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
+                                        <h3 className="text-accent text-[14px] lg:text-[19px] max-w-[400px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
                                         <div className="flex flex-col mb-5">
-                                            <p className="text-[14px] min-w-[60px] min-h-[15px] text-center lg:text-left">{item.company}</p>
-                                            <p 
+                                            <p className="text-[11px] lg:text-[14px] min-w-[60px] min-h-[15px] text-center lg:text-left mt-2 lg:mt-0">{item.company}</p>
+                                            <p
                                                 className={`max-h-screen ${language.includes("en") ? "xl:max-w-[220px]" : "xl:max-w-[240px]"} flex justify-center xl:justify-between gap-4 xl:gap-0 text-[13px] text-white/60`}
                                             >
                                                 <span>{item.location}</span>

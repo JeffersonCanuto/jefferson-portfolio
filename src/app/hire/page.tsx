@@ -89,9 +89,9 @@ const Hire:React.FC = () => {
                                         </div>
                                         <div className="flex-1">
                                             <p className="text-[12px] xl:text-[16px] text-white/60">{info.title}</p>
-                                            <h3 className="text-[12px] xl:text-xl hover:text-accent">
+                                            <h3 className="text-[12px] xl:text-xl">
                                                 {[1, 2].includes(info.index) ? (
-                                                    <Link href={`${info.description}`} target="_blank">
+                                                    <Link href={`${info.description}`} className="hover:text-accent" target="_blank">
                                                         {info.description}
                                                     </Link>
                                                 ):(

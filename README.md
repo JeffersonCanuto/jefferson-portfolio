@@ -1,6 +1,6 @@
 ## Welcome to my Portfolio! 🚀
 
-This project is designed to be a tool where I can showcase my education, experiences, skills, competences and projects, along with a bit of myself (my journey as a Frontend/Fullstack Software Engineer over the past 5+ years, passions, etc). Also, it is meant to be a project in which I can feel free to practice my skills, explore new ideas and implement some new concepts, as I keep studying and delving deeper into the Dev world.
+This project is designed to be a tool where I can showcase my education, experiences, skills, competences and projects, along with a bit of myself (my journey as a Software Engineer for the past 5+ years, passions, etc). Also, it is meant to be a project in which I can feel free to practice my skills, explore new ideas and implement some new concepts, as I keep studying and delving deeper into the tech world.
 
 ### ✅ Features
 
