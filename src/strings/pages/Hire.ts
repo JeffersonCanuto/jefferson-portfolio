@@ -3,8 +3,9 @@ import { HireStrings } from "@/types/pages/Hire";
 const hireStrings:Record<"en" | "br", HireStrings<string>> = {
     en: {
         title: "Let's work together!",
-        description: "Do you want me to join you in enhancing end user experience by helping to design and \
-            build new, impactful, innovative and also multifunctional apps? Let's have a chat over WhatsApp.",
+        description: "Do you want me to join you in enhancing end user experience by helping you to design, \
+            build and deploy new, big, impactful, innovative and also multifunctional apps? Let's have a proper \
+            chat over",
         inputHolderFirstName: "First name",
         inputHolderLastname: "Last name",
         inputHolderJobTitle: "Job title",

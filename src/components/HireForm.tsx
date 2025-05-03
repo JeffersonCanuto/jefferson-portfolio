@@ -87,7 +87,8 @@ const HireForm:React.FC<{ language: "en" | "br" }> = ({ language }) => {
                 {getHireFieldNames(language, "title")}
             </h3>
             <p className="text-[13px] xl:text-[14px] text-white/60 text-justify">
-                {getHireFieldNames(language, "description")}
+                {getHireFieldNames(language, "description")} {" "}
+                <span className="text-accent">WhatsApp</span>!
             </p>
             {/* Input */}
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
