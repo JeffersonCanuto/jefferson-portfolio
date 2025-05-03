@@ -18,7 +18,7 @@ const Disclaimer:React.FC = () => {
     const releaseDate = language.includes("en-us") ? process.env.NEXT_PUBLIC_RELEASE_EN : process.env.NEXT_PUBLIC_RELEASE_PT;
 
     const currentYear = new Date().getFullYear();
-    
+
     return (
         <div
             className={`container mx-auto
@@ -33,7 +33,7 @@ const Disclaimer:React.FC = () => {
                 : pathname === "/projects" ?
                     "-mt-8"
                 : pathname === "/about" ?
-                    "-mt-4"
+                    language.includes("en-us") ? "mt-7" : "-mt-4"
                 : pathname === "/hire" ?
                     "-mt-7"
                 :
