@@ -5,12 +5,12 @@ const aboutStrings:Record<"en" | "br", AboutStrings> = {
         description: {
             text: "I am a tech enthusiast who seeks to delve deeper into the tech world, as I keep strengthening myself on a daily basis in terms \
                 of both professional and personal capacities. I am currently looking for a new job opportunity that allows me to keep working as \
-                a Software Engineer on big, challenging, impactful and innovative projects - also in a work environment that fosters teamwork and \
-                collective growth, by establishing and achieving goals and exchanging knowledge and experiences continuously. Well, when I am not \
+                a Software Engineer on big, challenging, impactful and innovative projects - within a work environment that fosters teamwork and \
+                collective growth by establishing and achieving goals and exchanging knowledge and experiences continuously. Well, when I am not \
                 coding, anyone can find me watching movies or series, listening to good music or hanging out with my friends (grabbing a beer at \
                 a bar, talking about any topic and laughing hard). On the other hand, I also enjoy watching curiosities on YouTube about the tech \
                 industry, cutting-edge technologies (especially the ones I am most interested in) and learn a thing or two along the way, so that \
-                I can keep myself up-to-date about the current market trends."
+                I can keep myself up-to-date about the current tech market trends."
         },
         labels: {
             first: "Name",
@@ -26,7 +26,7 @@ const aboutStrings:Record<"en" | "br", AboutStrings> = {
             first: "Jefferson Canuto",
             second: "Brazilian",
             third: "Software Engineer",
-            fourth: "5+ Years",
+            fourth: "6+ Years",
             fifth: "+5592982818369",
             sixth: "jeffersondscanuto@gmail.com",
             seventh: "Portuguese",
@@ -58,8 +58,8 @@ const aboutStrings:Record<"en" | "br", AboutStrings> = {
         values: {
             first: "Jefferson Canuto",
             second: "Brasileiro",
-            third: "Engenheiro Frontend",
-            fourth: "5+ Anos",
+            third: "Engenheiro de Software",
+            fourth: "6+ Anos",
             fifth: "(92) 98281-8369",
             sixth: "jeffersondscanuto@gmail.com",
             seventh: "Português",

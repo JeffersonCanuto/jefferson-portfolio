@@ -57,7 +57,7 @@ const Stats:React.FC<{ language:string }> = ({ language }) => {
             setStats([ 
                 {
                     index: 1,
-                    value: 5,
+                    value: 6,
                     text: getStatsText(language, "experience")
                 },
                 {
@@ -85,25 +85,23 @@ const Stats:React.FC<{ language:string }> = ({ language }) => {
                 <div className="grid grid-cols-2 xl:flex xl:flex-wrap gap-10 max-w-[80vw] mx-auto xl:max-w-none">
                     {stats.map((stat:StatItems, index:number) => {
                         return (
-                            <div className="flex flex-1 gap-4 justify-center items-center xl:justify-start cursor-default" key={stat.index}>
-                                <div className="group">
-                                    <Link
-                                        href={ index === 0 ? "/experiences" : index === 1 ? "/skills" : index === 2 ? "https://github.com/JeffersonCanuto?tab=repositories" : index === 3 ? "https://github.com/JeffersonCanuto" : "" }
-                                        target={ index === 2 || index == 3 ? "_blank" : "" }
-                                        className="group-hover:text-accent transition-all duration-500"
-                                    >
-                                        <div className="flex justify-between">
-                                            <CountUp
-                                                end={stat.value}
-                                                duration={5}
-                                                delay={2}
-                                                className="text-3xl xl:text-6xl font-extrabold"
-                                            />
-                                            { index === 0 && <p className="relative left-1 text-xl top-1 xl:text-4xl xl:top-2 font-bold">+</p> }
-                                            <p className={`${stat.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} flex flex-col xl:flex-row justify-center leading-snug text-white/80 relative left-5 xl:top-2 xl:left-6 text-[13px] xl:text-[16px] group-hover:text-accent transition-all duration-500`}>{stat.text}</p>
-                                        </div>
-                                    </Link>
-                                </div>       
+                            <div className="group flex flex-1 justify-center items-center xl:justify-start cursor-default" key={stat.index}>
+                                <Link
+                                    href={ index === 0 ? "/experiences" : index === 1 ? "/skills" : index === 2 ? "https://github.com/JeffersonCanuto?tab=repositories" : index === 3 ? "https://github.com/JeffersonCanuto" : "" }
+                                    target={ index === 2 || index === 3 ? "_blank" : "" }
+                                    className="group-hover:text-accent transition-all duration-500"
+                                >
+                                    <div className="flex justify-between">
+                                        <CountUp
+                                            end={stat.value}
+                                            duration={5}
+                                            delay={2}
+                                            className="text-3xl xl:text-6xl font-extrabold"
+                                        />
+                                        { index === 0 && <p className="relative left-1 text-xl top-1 xl:text-4xl xl:top-2 font-bold">+</p> }
+                                        <p className={`${stat.text.length <= 15 ? "max-w-[100px]" : "max-w-[150px]"} flex flex-col xl:flex-row justify-center leading-snug text-white/80 relative left-5 xl:top-2 xl:left-6 text-[13px] xl:text-[16px] group-hover:text-accent transition-all duration-500`}>{stat.text}</p>
+                                    </div>
+                                </Link>
                             </div>
                         )
                     })}
