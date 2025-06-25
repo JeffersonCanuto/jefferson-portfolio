@@ -35,15 +35,15 @@ const aboutStrings:Record<"en" | "br", AboutStrings> = {
     },
     br: {
         description: {
-            text: "Sou um entusiasta em tecnologia que busca se aprofundar na área cada vez mais, à medida em que me aperfeiçoo diariamente em \
+            text: "Sou um entusiasta em tecnologia e busco me aprofundar na área cada vez mais, à medida em que me aperfeiçoo diariamente em \
                 termos de capacidades profissionais e pessoais. Atualmente, estou buscando uma nova oportunidade de trabalho que me permita \
                 continuar atuando como Engenheiro de Software em projetos grandes, desafiadores, impactantes e inovadores - e um um ambiente \
                 de trabalho que promova o trabalho em equipe e crescimento conjunto, a partir da definição e cumprimento de objetivos e troca \
                 contínua de conhecimento e experiências. Bem, quando não estou 'codando', qualquer um pode me encontrar assistindo filmes \
-                ou séries, ouvindo músicas ou saindo com os amigos (tomando uma cerveja em um bar, conversando sobre qualquer assunto aleatório e \
-                rindo bastante). Por outro lado, também gosto de ver curiosidades no YouTube sobre a indústria de tecnologia, tecnologias de \
-                ponta (principalmente aquelas nas quais possuo mais interesse) e aprender uma coisa ou outra durante o processo, para que eu \
-                possa me manter atualizado sobre as tendências atuais de mercado."
+                ou séries, ouvindo músicas ou saindo com os amigos (tomando uma cerveja em um bar, conversando sobre qualquer assunto aleatório \
+                e rindo bastante). Por outro lado, também gosto de ver curiosidades no YouTube sobre a indústria de tecnologia, tecnologias de \
+                ponta (principalmente aquelas que possuo mais interesse) e aprender uma coisa ou outra durante o processo, para que eu possa me \
+                manter atualizado sobre as tendências atuais no mercado de tecnologia."
         },
         labels: {
             first: "Nome",
