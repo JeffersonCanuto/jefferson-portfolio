@@ -17,6 +17,7 @@ export type EducationItems<T> = {
     index: number;
     label: T;
     course: T;
+    website: T;
     university: T;
     start: T;
     end: T;

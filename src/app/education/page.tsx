@@ -6,16 +6,24 @@ import { useSelector } from "react-redux";
 
 import { FaGraduationCap } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
+import { IoOpenOutline } from "react-icons/io5";
 import { LiaGraduationCapSolid } from "react-icons/lia";
 
 import { motion } from "framer-motion";
 
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger
+} from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { RootState } from "@/redux/store";
 import { EducationItems, CertificationItems } from "@/types/pages/Education";
 import getDegreeFieldNames from "@/utils/pages/educationHelpers";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const Education:React.FC = () => {
     const language = useSelector((state:RootState) => state.language.preferred);
@@ -25,6 +33,7 @@ const Education:React.FC = () => {
             index: 1,
             label: "01",
             course: getDegreeFieldNames(language, "first", "name"),
+            website: "https://www.ect.ufrn.br/",
             university: "Universidade Federal do Rio Grande do Norte",
             start: getDegreeFieldNames(language, "first", "start"),
             end: getDegreeFieldNames(language, "first", "end")
@@ -33,6 +42,7 @@ const Education:React.FC = () => {
             index: 2,
             label: "02",
             course: getDegreeFieldNames(language, "second", "name"),
+            website: "https://cetel.ct.ufrn.br/",
             university: "Universidade Federal do Rio Grande do Norte",
             start: getDegreeFieldNames(language, "second", "start"),
             end: getDegreeFieldNames(language, "second", "end")
@@ -150,7 +160,21 @@ const Education:React.FC = () => {
                                 {/* Course */}
                                 <h2 className="mt-3 text-[22px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{ed.course}</h2>
                                 {/* University */}
-                                <p className="font-bold text-white group-hover:text-accent transition-all duration-500">{ed.university}</p>
+                                <div className="flex justify-between font-bold text-white group-hover:text-accent transition-all duration-500">
+                                    <span>{ed.university}</span>
+                                    <Link href={ed.website} target="_blank" className="relative left-4 bottom-10">
+                                        <TooltipProvider delayDuration={150}>
+                                            <Tooltip>
+                                                <TooltipTrigger className="w-[40px] h-[40px] md:w-[50px] md:h-[50px] rounded-full bg-white/5 flex justify-center items-center group">
+                                                    <IoOpenOutline className="text-white text-[16px] group-hover:text-accent" />
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    Website
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </TooltipProvider>
+                                    </Link>
+                                </div>
                                 {/* Start and End dates */}
                                 <p className="text-white/60 flex justify-between items-start">
                                     <span>
