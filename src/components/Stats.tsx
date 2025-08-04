@@ -57,7 +57,7 @@ const Stats:React.FC<{ language:string }> = ({ language }) => {
             setStats([ 
                 {
                     index: 1,
-                    value: 6,
+                    value: 5,
                     text: getStatsText(language, "experience")
                 },
                 {
