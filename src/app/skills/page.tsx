@@ -9,11 +9,11 @@ import {
     FaHtml5,
     FaCss3,
     FaReact,
-    FaNodeJs
+    FaNodeJs,
+    FaAws
 } from "react-icons/fa";
 import {
     SiTypescript,
-    SiTailwindcss,
     SiNextdotjs,
     SiPython,
     SiDjango,
@@ -65,48 +65,48 @@ const Skills:React.FC = () => {
             },
             {
                 index: 5,
-                icon: <SiTailwindcss />,
-                name: "Tailwind CSS"
-            },
-            {
-                index: 6,
                 icon: <FaReact />,
                 name: "React"
             },
             {
-                index: 7,
+                index: 6,
                 icon: <SiNextdotjs />,
                 name: "Next.js"
             },
             {
-                index: 8,
+                index: 7,
                 icon: <FaNodeJs />,
                 name: "Node.js"
             },
             {
-                index: 9,
+                index: 8,
                 icon: <SiPython />,
                 name: "Python"
             },
             {
-                index: 10,
+                index: 9,
                 icon: <SiDjango />,
                 name: "Django REST"
             },
             {
-                index: 11,
+                index: 10,
                 icon: <SiFlask />,
                 name: "Flask"
             },
             {
-                index: 12,
+                index: 11,
                 icon: <SiPostgresql />,
                 name: "PostgreSQL"
             },
             {
-                index: 13,
+                index: 12,
                 icon: <SiDocker />,
                 name: "Docker"
+            },
+            {
+                index: 13,
+                icon: <FaAws />,
+                name: "AWS"
             },
             {
                 index: 14,
