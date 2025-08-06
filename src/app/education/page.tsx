@@ -55,7 +55,7 @@ const Education:React.FC = () => {
             title: `EF SET 72/100 (C1 - ${ language.includes("en-us") ? "Advanced" : "Avançado" })`,
             school: "EF SET",
             icon: "/assets/logos/efset.svg",
-            issuance: `${language.includes("en-us") ? "Issued in Jun. 2024" : "Emitido em Jun. 2024"}`,
+            issuance: `${language.includes("en-us") ? "June" : "Junho"} 2024`,
             credential: "https://cert.efset.org/y5Vos2",
             competences: [
                 {
@@ -69,7 +69,7 @@ const Education:React.FC = () => {
             title: "Python Django Dev To Deployment",
             school: "Udemy",
             icon: "/assets/logos/udemy.svg",
-            issuance: `${language.includes("en-us") ? "Issued in Sept. 2024" : "Emitido em Set. 2024"}`,
+            issuance: `${language.includes("en-us") ? "September 2024" : "Setembro 2024"}`,
             credential: "https://www.udemy.com/certificate/UC-3f85dfa1-3b48-4c65-b6b7-017fa6c55ae4/",
             competences: [
                 {
@@ -91,7 +91,7 @@ const Education:React.FC = () => {
             title: "Agile Fundamentals: Scrum & Kanban",
             school: "Udemy",
             icon: "/assets/logos/udemy.svg",
-            issuance: `${language.includes("en-us") ? "Issued in Oct. 2024" : "Emitido em Out. 2024"}`,
+            issuance: `${language.includes("en-us") ? "October 2024" : "Outubro 2024"}`,
             credential: "https://www.udemy.com/certificate/UC-da696552-b9f8-4a2e-90b6-456dadcb7191/",
             competences: [
                 {
@@ -158,7 +158,7 @@ const Education:React.FC = () => {
                                     </div>
                                 </div>
                                 {/* Course */}
-                                <h2 className="mt-3 text-[22px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{ed.course}</h2>
+                                <h2 className="mt-3 text-[20px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{ed.course}</h2>
                                 {/* University */}
                                 <div className="flex justify-between font-bold text-white group-hover:text-accent transition-all duration-500">
                                     <span>{ed.university}</span>
@@ -235,8 +235,14 @@ const Education:React.FC = () => {
                             <div key={certification.index} className="flex flex-row justify-between mt-12 pb-4 border-b border-b-gray-600">
                                 <div className="grid grid-cols-1 gap-2 cursor-default">
                                     <h4 className="text-[14px] font-bold hover:text-accent">{certification.title}</h4>
-                                    <p className="text-white/60">{certification.school}</p>
-                                    <p className="text-white/60">{certification.issuance}</p>
+                                    <p className="text-white/60">
+                                        {language.includes("en-us") ? "Issued by " : "Emitido por "}
+                                        {certification.school}
+                                    </p>
+                                    <p className="text-white/60">
+                                        {language.includes("en-us") ? "Date" : "Data"}
+                                        : {certification.issuance}
+                                    </p>
                                     <div className="text-[14px] md:text-[12px] flex flex-row">
                                         <span className="mr-2">
                                             {
