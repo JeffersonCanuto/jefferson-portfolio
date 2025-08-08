@@ -52,7 +52,7 @@ const Education:React.FC = () => {
     const certifications:CertificationItems<string>[] = [
         {
             index: 1, 
-            title: `EF SET 72/100 (C1 - ${ language.includes("en-us") ? "Advanced" : "Avançado" })`,
+            title: `EF SET ${language.includes("en-us") ? "English": "Inglês"} 72/100 (C1 - ${ language.includes("en-us") ? "Advanced" : "Avançado" })`,
             school: "EF SET",
             icon: "/assets/logos/efset.svg",
             issuance: `${language.includes("en-us") ? "June" : "Junho"} 2024`,
@@ -234,7 +234,7 @@ const Education:React.FC = () => {
                         return (
                             <div key={certification.index} className="flex flex-row justify-between mt-12 pb-4 border-b border-b-gray-600">
                                 <div className="grid grid-cols-1 gap-2 cursor-default">
-                                    <h4 className="text-[14px] font-bold hover:text-accent">{certification.title}</h4>
+                                    <h4 className="w-full text-[13px] font-bold hover:text-accent">{certification.title}</h4>
                                     <p className="text-white/60">
                                         {language.includes("en-us") ? "Issued by " : "Emitido por "}
                                         {certification.school}
